@@ -94,10 +94,10 @@ _lootRadius = 1;
 			  ["DZ_CivilBackpack_EP1","object"],
 			  ["Skin_Camo12_DZ","magazine"],
 			  ["Skin_Camo15_DZ","magazine"],
-			  ["ItemMatchbox","generic"],
+			  ["Skin_Camo26_DZ","magazine"],
 			  ["SCAR_L_STD_HOLO","weapon"],
 			  ["Binocular_Vector","military"],
-			  ["ItemMap","weapon"],
+			  ["Skin_Camo25_DZ","magazine"],
 			  ["RH_m1911sd","weapon"],
 			  ["RH_python","weapon"],
 			  ["BAF_L85A2_RIS_Holo","weapon"],
@@ -131,7 +131,7 @@ _lootRadius = 1;
 			  0.06, //RH_tec9
 			  0.1,  //MedBox0
 			  0.05,  //AmmoBoxSmall_680x43
-			  0.1,  //DZ_TK_Assault_Pack_EP1
+			  0.08,  //DZ_TK_Assault_Pack_EP1
 			  0.01,  //FHQ_ACR_BLK_RCO_SD
 			  0.02, //SCAR_H_LNG_Sniper
 			  0.02, //RH_uspsd
@@ -141,10 +141,10 @@ _lootRadius = 1;
 			  0.05, //DZ_CivilBackpack_EP1
 			  0.05, //Skin_Camo12_DZ
 			  0.09, //Skin_Camo15_DZ
-			  0.08, //ItemMatchbox
+			  0.05, //Skin_Camo26_DZ
 			  0.03, //SCAR_L_STD_HOLO
 			  0.08, //Binocular_Vector
-			  0.08, //ItemMap
+			  0.02, //Skin_Camo25_DZ
 			  0.06,  //RH_m1911sd
 			  0.02,  //RH_python
 			  0.05,  //BAF_L85A2_RIS_Holo
