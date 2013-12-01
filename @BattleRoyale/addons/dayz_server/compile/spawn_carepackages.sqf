@@ -1,5 +1,5 @@
 //_chutetype, _boxtype, _helistart, _crashwreck
-private["_chutetype", "_boxtype", "_helistart", "_crashwreck", "_randomizedLoot", "_guaranteedLoot", "_chute", "_chutetype", "_helistart", "_crashwreck", "_box", "_boxtype", "_num", "_weights", "_index", "_aaa", "_itemType", "_lootRadius", "_lootPos", "_pos", "_bam"];
+private ["_chutetype", "_boxtype", "_helistart", "_crashwreck", "_randomizedLoot", "_guaranteedLoot", "_chute", "_box", "_num", "_weights", "_index", "_aaa", "_itemType", "_lootRadius", "_lootPos", "_pos", "_bam", "_i", "_nearby", "_smoke", "_flare", "_itemTypes", "_itemChance", "_cntWeights"];
 
 _chutetype = _this select 0;
 _boxtype = _this select 1;
@@ -9,172 +9,175 @@ _randomizedLoot = _this select 4;
 _guaranteedLoot = _this select 5;
 
 _lootRadius = 1;
-//_lootTable = ["Military","HeliCrash","MilitarySpecial"] call BIS_fnc_selectRandom;
+_lootTable = ["Military", "HeliCrash", "MilitarySpecial"] call BIS_fnc_selectRandom;
 
-	_chute = createVehicle [_chutetype,_helistart,[],0,"CAN_COLLIDE"];
-	_chute setVariable["Sarge",1];
-	_chute setPos [(getpos _crashwreck select 0), (getPos _crashwreck select 1), (getPos _crashwreck select 2)-10];
-	
-	_box = createVehicle [_boxtype,_helistart,[],0,"CAN_COLLIDE"];
-	_box setVariable["Sarge",1];
-	_box setPos [(getpos _crashwreck select 0), (getPos _crashwreck select 1), (getPos _crashwreck select 2)-10];
-	
-	_box attachto [_chute, [0, 0, 0]];
-	
-	_i = 0;
+_chute = createVehicle [_chutetype, _helistart, [], 0, "CAN_COLLIDE"];
+_chute setVariable["Sarge", 1];
+_chute setPos [(getpos _crashwreck select 0), (getPos _crashwreck select 1), (getPos _crashwreck select 2)-10];
 
+_box = createVehicle [_boxtype, _helistart, [], 0, "CAN_COLLIDE"];
+_box setVariable["Sarge", 1];
+_box setPos [(getpos _crashwreck select 0), (getPos _crashwreck select 1), (getPos _crashwreck select 2)-10];
 
-	while {_i < 45} do {
-	scopeName "loop1";
-    if (((getPos _box) select 2) < 1) then {breakOut "loop1"};
+_box attachto [_chute, [0, 0, 0]];
 
-    sleep 0.1;
-    _i=_i+0.1;
-	};  
+_i = 0;
 
+	while {_i < 45} do
+	{
+		scopeName "loop1";
+		if (((getPos _box) select 2) < 1) then {breakOut "loop1"};
 
-	switch (true) do {
-	  case not (alive _box): {detach _box;_box setpos [(getpos _box select 0), (getpos _box select 1), 0];};
-	  case alive _box: {detach _box;_box setpos [(getpos _box select 0), (getpos _box select 1), 0];_bam = _boxtype createVehicle [(getpos _box select 0),(getpos _box select 1),(getpos _box select 2)+0];deletevehicle _box;};
+		sleep 1;
+		_i = _i + 1;
 	};
-	_bam setVariable["Sarge",1];
-	deletevehicle _chute;
-	
-	sleep 2;
-	
-	_pos = [getpos _bam select 0, getpos _bam select 1,0];
-	
-	
-	_smoke = createVehicle ["SmokeShellred",_pos,[],0,"CAN_COLLIDE"];
-	_smoke setVariable["Sarge",1];
-	
-	_flare = "F_40mm_white" createVehicle [getPos _bam select 0, getPos _bam select 1, (getPos _bam select 2) +150];
-	_flare setVariable["Sarge",1];
-	
-	
-	
-	_num		= round(random _randomizedLoot) + _guaranteedLoot;
 
-              //_config = configFile >> "CfgBuildingLoot" >> _lootTable;
-              _itemTypes = [
-			  ["M16A4_ACG","weapon"],
-			  ["UZI_SD_EP1","weapon"],
-			  ["RH_p226","weapon"],
-			  ["VIL_M110","weapon"],
-			  ["M4A1_HWS_GL_camo","weapon"],
-			  ["SCAR_H_STD_EGLM_Spect","weapon"],
-			  ["M4SPR","weapon"],
-			  ["VIL_HK416_EDR","weapon"],
-			  ["VIL_Galil_arm","weapon"],
-			  ["VIL_SR25","weapon"],
-			  ["RH_deaglem","weapon"],
-			  ["UZI_EP1","weapon"],
-			  ["VIL_SVD_P21","weapon"],
-			  ["Skin_Camo1_DZ","magazine"],
-			  ["Skin_Sniper3_DZ","magazine"],
-			  ["Skin_Sniper6_DZ","magazine"],
-			  ["SCAR_L_CQC_CCO_SD","weapon"],
-			  ["VIL_M24B","weapon"],
-			  ["FHQ_MSR_DESERT","weapon"],
-			  ["M4A1","weapon"],
-			  ["Sa58P_EP1","weapon"],
-			  ["VIL_M40A3","weapon"],
-			  ["DZ_British_ACU","object"],
-			  ["FHQ_ACR_WDL_HWS_GL","weapon"],
-			  ["RH_tec9","weapon"],
-			  ["MedBox0","object"],
-			  ["AmmoBoxSmall_680x43","object"],
-			  ["DZ_TK_Assault_Pack_EP1","object"],
-			  ["FHQ_ACR_BLK_RCO_SD","weapon"],
-			  ["SCAR_H_LNG_Sniper","weapon"],
-			  ["RH_uspsd","weapon"],
-			  ["glock17_EP1","weapon"],
-			  ["FHQ_RSASS_TAN","weapon"],
-			  ["Winchester1866","weapon"],
-			  ["DZ_CivilBackpack_EP1","object"],
-			  ["Skin_Camo12_DZ","magazine"],
-			  ["Skin_Camo15_DZ","magazine"],
-			  ["Skin_Camo26_DZ","magazine"],
-			  ["SCAR_L_STD_HOLO","weapon"],
-			  ["Binocular_Vector","military"],
-			  ["Skin_Camo25_DZ","magazine"],
-			  ["RH_m1911sd","weapon"],
-			  ["RH_python","weapon"],
-			  ["BAF_L85A2_RIS_Holo","weapon"],
-			  ["","food"],
-			  ["","medical"]];
-              _itemChance = [
-			  0.06, //M16A4_ACG
-			  0.08, //UZI_SD_EP1
-			  0.04, //RH_p226
-			  0.02, //VIL_M110
-			  0.03, //M4A1_HWS_GL_camo
-			  0.01, //SCAR_H_STD_EGLM_Spect
-			  0.02, //M4SPR
-			  0.01, //VIL_HK416_EDR
-			  0.01, //VIL_Galil_arm
-			  0.01, //VIL_SR25
-			  0.01, //RH_deaglem
-			  0.03, //UZI_EP1
-			  0.01, //VIL_SVD_P21
-			  0.03, //Skin_Camo1_DZ
-			  0.03, //Skin_Sniper3_DZ
-			  0.02, //Skin_Sniper6_DZ
-			  0.01, //SCAR_L_CQC_CCO_SD
-			  0.01, //VIL_M24B
-			  0.01, //FHQ_MSR_DESERT
-			  0.03, //M4A1
-			  0.03, //Sa58P_EP1
-			  0.01, //VIL_M40A3
-			  0.02, //DZ_British_ACU
-			  0.01, //FHQ_ACR_WDL_HWS_GL
-			  0.06, //RH_tec9
-			  0.1,  //MedBox0
-			  0.05,  //AmmoBoxSmall_680x43
-			  0.08,  //DZ_TK_Assault_Pack_EP1
-			  0.01,  //FHQ_ACR_BLK_RCO_SD
-			  0.02, //SCAR_H_LNG_Sniper
-			  0.02, //RH_uspsd
-			  0.02, //glock17_EP1
-			  0.02, //FHQ_RSASS_TAN
-			  0.05, //Winchester1866
-			  0.05, //DZ_CivilBackpack_EP1
-			  0.05, //Skin_Camo12_DZ
-			  0.09, //Skin_Camo15_DZ
-			  0.05, //Skin_Camo26_DZ
-			  0.03, //SCAR_L_STD_HOLO
-			  0.08, //Binocular_Vector
-			  0.02, //Skin_Camo25_DZ
-			  0.06,  //RH_m1911sd
-			  0.02,  //RH_python
-			  0.05,  //BAF_L85A2_RIS_Holo
-			  0.35, //Food
-			  0.25  //medical
-			  ];
- 
-              _weights = [];
-              _weights = [_itemType,_itemChance] call fnc_buildWeightedArray;
-              _cntWeights = count _weights;
-             
+	switch (true) do
+	{
+		case not (alive _box): {detach _box;_box setpos [(getpos _box select 0), (getpos _box select 1), 0];};
+		case alive _box: {detach _box;_box setpos [(getpos _box select 0), (getpos _box select 1), 0];_bam = _boxtype createVehicle [(getpos _box select 0),(getpos _box select 1),(getpos _box select 2)+0];deletevehicle _box;};
+	};
+_bam setVariable["Sarge", 1];
+deletevehicle _chute;
 
-		//Creating the Lootpiles outside of the _crashModel
-		for "_x" from 1 to _num do {
-			//Create loot
-		   	_aaa = random _cntweights;
-			_index = floor(_aaa);		
-			_index = _weights select _index;
-			_itemType = _itemTypes select _index;
-		
-			
-			//Let the Loot spawn in a non-perfect circle around _crashModel
-			_lootPos = [_pos, ((random 2) + (sizeOf(_boxtype) * _lootRadius)), random 360] call BIS_fnc_relPos;
-			[_itemType select 0, _itemType select 1, _lootPos, 0] call spawn_loot;
+sleep 2;
 
-			diag_log(format["CAREPACKAGE: Loot spawn at '%1' with loot %2", _lootPos, _itemtype]); 
+_pos = [getpos _bam select 0, getpos _bam select 1, 0];
 
-			// ReammoBox is preferred parent class here, as WeaponHolder wouldn't match MedBox0 and other such items.
-			_nearby = _pos nearObjects ["ReammoBox", (sizeOf(_boxtype)+3)];
-			{
-				_x setVariable ["permaLoot",true];
-			} forEach _nearBy;
-		};
+_smoke = createVehicle ["SmokeShellred", _pos, [], 0, "CAN_COLLIDE"];
+_smoke setVariable["Sarge", 1];
+
+_num = (round(random _randomizedLoot)) + _guaranteedLoot;
+
+_itemTypes =
+[
+	["FN_FAL", "weapon", 0.02],
+	["Mk_48_DZ", "weapon", 0.03],
+	["DMR", "weapon", 0.06],
+	["MedBox0", "object", 0.1],
+	["AmmoBoxSmall_556", "object", 0.07],
+	["AmmoBoxSmall_762", "object", 0.07],
+	["Camo20_DZ", "magazine", 0.08],
+	["Skin_Sniper1_DZ", "magazine", 0.05],
+	["G36C_camo", "weapon", 0.02],
+	["G36_C_SD_camo", "weapon", 0.01],
+	["G36A_camo", "weapon", 0.02],
+	["SCAR_H_LNG_Sniper", "weapon", 0.05],
+	["VSS_vintorez", "weapon", 0.01],
+	["M40A3", "weapon", 0.03],
+	["Pecheneg", "weapon", 0.02],
+	["PK", "weapon", 0.02],
+	["SCAR_L_CQC_CCO_SD", "weapon", 0.03],
+	["20Rnd_762x51_FNFAL", "magazine", 0.03],
+	["SCAR_L_STD_Mk4CQT", "weapon", 0.02],
+	["BAF_L85A2_UGL_ACOG", "weapon", 0.05],
+	["SVD_NSPU_EP1", "weapon", 0.02],
+	["Skin_Sniper2_DZ", "magazine", 0.05],
+	["20rnd_762x51_B_SCAR", "magazine", 0.02],
+	["10Rnd_9x39_SP5_VSS", "magazine", 0.01],
+	["RH_Deaglemzb", "weapon", 0.05],
+	["RH_deaglem", "weapon", 0.05],
+	["RH_deagle", "weapon", 0.05],
+	["RH_bull", "weapon", 0.05],
+	["FHQ_MSR_DESERT", "weapon", 0.03],
+	["FHQ_XM2010_DESERT", "weapon", 0.06],
+	["FHQ_ACR_WDL_HAMR_SD", "weapon", 0.03],
+	["FHQ_ACR_TAN_RCO_SD", "weapon", 0.04],
+	["KSVK", "weapon", 0.03],
+	["5Rnd_127x108_KSVK", "magazine", 0.03],
+	["VIL_M24B", "weapon", 0.02],
+	["VIL_M110", "weapon", 0.02],
+	["VIL_SR25", "weapon", 0.02],
+	["VIL_SVD_P21", "weapon", 0.02],
+	["VIL_SVU", "weapon", 0.02],
+	["VIL_HK417s", "weapon", 0.02],
+	["Binocular_Vector", "military", 0.03],
+	["FHQ_RSASS_TAN", "weapon", 0.03],
+	["FHQ_RSASS_SD_TAN", "weapon", 0.01],
+	["FHQ_rem_20Rnd_762x51_PMAG_T_SD", "magazine", 0.01],
+	["FHQ_rem_20Rnd_762x51_PMAG_T", "magazine", 0.01],
+	["Skin_Sniper3_DZ", "magazine", 0.01],
+	["Skin_Sniper4_DZ", "magazine", 0.01],
+	["Skin_Sniper5_DZ", "magazine", 0.01],
+	["Skin_Sniper6_DZ", "magazine", 0.01],
+	["", "military", 0.3]
+];
+_itemChance =
+[
+	0.02,	//FN_FAL
+	0.03,	//Mk_48_DZ
+	0.06,	//DMR
+	0.1,	//MedBox0
+	0.07,	//AmmoBoxSmall_556
+	0.07,	//AmmoBoxSmall_762
+	0.08,	//Camo20_DZ
+	0.05,	//Skin_Sniper1_DZ
+	0.02,	//G36C_camo
+	0.01,	//G36_C_SD_camo
+	0.02,	//G36A_camo
+	0.05,	//SCAR_H_LNG_Sniper
+	0.01,	//VSS_vintorez
+	0.03,	//M40A3
+	0.02,	//Pecheneg
+	0.02,	//PK
+	0.03,	//SCAR_L_CQC_CCO_SD
+	0.03,	//20Rnd_762x51_FNFAL
+	0.02,	//SCAR_L_STD_Mk4CQT
+	0.05,	//BAF_L85A2_UGL_ACOG
+	0.02,	//SVD_NSPU_EP1
+	0.05,	//Skin_Sniper2_DZ
+	0.02,	//20rnd_762x51_B_SCAR
+	0.01,	//10Rnd_9x39_SP5_VSS
+	0.05,	//RH_Deaglemzb
+	0.05,	//RH_deaglem
+	0.05,	//RH_deagle
+	0.05,	//RH_bull
+	0.03,	//FHQ_MSR_DESERT
+	0.06,	//FHQ_XM2010_DESERT
+	0.03,	//FHQ_ACR_WDL_HAMR_SD
+	0.04,	//FHQ_ACR_TAN_RCO_SD
+	0.03,	//KSVK
+	0.03,	//5Rnd_127x108_KSVK
+	0.02,	//VIL_M24B
+	0.02,	//VIL_M110
+	0.02,	//VIL_SR25
+	0.02,	//VIL_SVD_P21
+	0.02,	//VIL_SVU
+	0.02,	//VIL_HK417s
+	0.03,	//Binocular_Vector
+	0.03,	//FHQ_RSASS_TAN
+	0.01,	//FHQ_RSASS_SD_TAN
+	0.01,	//FHQ_rem_20Rnd_762x51_PMAG_T_SD
+	0.01,	//FHQ_rem_20Rnd_762x51_PMAG_T
+	0.01,	//Skin_Sniper3_DZ
+	0.01,	//Skin_Sniper4_DZ
+	0.01,	//Skin_Sniper5_DZ
+	0.01,	//Skin_Sniper6_DZ
+	0.03	// "", "military"
+];
+
+_weights = [];
+_weights = [_itemTypes, _itemChance] call fnc_buildWeightedArray;
+_cntWeights = count _weights;
+
+//Creating the Lootpiles outside of the _crashModel
+for "_x" from 1 to _num do
+{
+	//Create loot
+	_aaa = random _cntweights;
+	_index = floor(_aaa);		
+	_index = _weights select _index;
+	_itemType = _itemTypes select _index;
+
+	//Let the Loot spawn in a non-perfect circle around _crashModel
+	_lootPos = [_pos, ((random 2) + (sizeOf(_boxtype) * _lootRadius)), random 360] call BIS_fnc_relPos;
+	[_itemType select 0, _itemType select 1, _lootPos, 0] call spawn_loot;
+
+	diag_log(format["CAREPACKAGE: Loot spawn at '%1' with loot %2", _lootPos, _itemType]); 
+
+	//ReammoBox is preferred parent class here, as WeaponHolder wouldn't match MedBox0 and other such items.
+	_nearby = _pos nearObjects ["ReammoBox", (sizeOf(_boxtype)+3)];
+	{
+	_x setVariable ["permaLoot", true];
+	} forEach _nearBy;
+};
