@@ -15,33 +15,6 @@ waitUntil{initialized}; //means all the functions are now defined
 
 diag_log "HIVE: Starting";
 
-//Set the Time
-	//Send request
-	_key = "CHILD:307:";
-	_result = _key call server_hiveReadWrite;
-	_outcome = _result select 0;
-	if(_outcome == "PASS") then {
-		//_date = _result select 1;
-
-		//date setup
-		//_year = _date select 0;
-		//_month = _date select 1;
-		//_day = _date select 2;
-		//_hour = _date select 3;
-		//_minute = _date select 4;
-
-		//Force full moon nights
-		_date1 = [2013,8,3,17,30];
-		
-		if(isDedicated) then {
-			//["dayzSetDate",_date] call broadcastRpcCallAll;
-			setDate _date1;
-			dayzSetDate = _date1;
-			dayz_storeTimeDate = _date1;
-			publicVariable "dayzSetDate";
-		};
-		diag_log ("HIVE: Local Time set to " + str(_date1));
-	};
 
 waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug during login of the first player)
 
