@@ -1,7 +1,12 @@
-// Script by lazyink & infiSTAR. Please request permission for use!       
+// Script by lazyink & infiSTAR. Please request permission for use!    
+
+private ["_br_totalplayers_start"];
+_br_totalplayers_start = {alive _x} count playableUnits;
+   
 [] spawn {
-    private ["_time","_finish_time_minutes","_br_totalplayers","_txt"];
-    _br_totalplayers_start = {alive _x} count playableUnits;
+    private ["_time","_finish_time_minutes","_br_totalplayers","_txt","_result"];
+   
+    _br_totalplayers = {alive _x} count playableUnits;
     
     while {ELAPSED_TIME < END_TIME} do
     {
@@ -20,6 +25,7 @@
             [nil, nil, rTitleText, _txt, "PLAIN"] call RE;
             WinnerShown = true;
             sleep 20;
+			
             _result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeRestarter [restartServer]");
         };
         sleep 1;

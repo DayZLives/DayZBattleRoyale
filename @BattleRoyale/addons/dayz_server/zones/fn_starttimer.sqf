@@ -151,7 +151,7 @@
             br_player_check = true;
             
             publicVariable "br_player_check";
-            sleep 60;
+            sleep 30;
 			_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeRestarter [restartServer]");
             
             
@@ -159,7 +159,7 @@
 		
         br_totalplayers = ({alive _x && side _x == west} count allUnits);
         publicVariable "br_totalplayers";
-        sleep 5;
+        sleep 3;
  
     };
 };
