@@ -26,7 +26,7 @@ _characterID =	_character getVariable ["characterID","0"];
 _charPos = 		getPosATL _character;
 _isInVehicle = 	vehicle _character != _character;
 _timeSince = 	0;
-_humanity =		0;
+//_humanity =		0;
 
 //diag_log ("DW_DEBUG: (isnil _characterID): " + str(isnil "_characterID"));
 /*
@@ -124,10 +124,10 @@ if (_characterID != "0") then {
 			be recording  results from their local objects (such as agent zombies)
 		*/
 		_kills = 		["zombieKills",_character] call server_getDiff;
-		_killsB = 		["banditKills",_character] call server_getDiff;
+		//_killsB = 		["banditKills",_character] call server_getDiff;
 		_killsH = 		["humanKills",_character] call server_getDiff;
 		_headShots = 	["headShots",_character] call server_getDiff;
-		_humanity = 	["humanity",_character] call server_getDiff2;
+		//_humanity = 	["humanity",_character] call server_getDiff2;
 		//_humanity = 	_character getVariable ["humanity",0];
 		_character addScore _kills;		
 		/*
@@ -194,9 +194,9 @@ if (_characterID != "0") then {
 			if (alive _character) then {
 				//Wait for HIVE to be free
 				//Send request
-				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity];
+				//_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity];
 				//diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
-				_key call server_hiveWrite;
+				//_key call server_hiveWrite;
 			};
 		};
 		

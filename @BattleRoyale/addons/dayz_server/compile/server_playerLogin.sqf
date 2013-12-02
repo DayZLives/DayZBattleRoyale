@@ -136,3 +136,4 @@ if (_hiveVer >= dayz_hiveVersionNo) then {
 
 PVCDZ_plr_Login = [_charID,_inventory,_backpack,_survival,_isNew,dayz_versionNo,_model,_isHiveOk,_newPlayer];
 (owner _playerObj) publicVariableClient "PVCDZ_plr_Login";
+(owner _playerObj) publicVariableClient "br_game_started";

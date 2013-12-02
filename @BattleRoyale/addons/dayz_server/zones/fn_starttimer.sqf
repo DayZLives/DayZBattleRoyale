@@ -12,38 +12,30 @@
         _finish_time_seconds = (floor(_time)) - (60 * _finish_time_minutes);
 		
         if((_finish_time_minutes == 89) && (_finish_time_seconds < 55)) then {
-                                
-            [nil,nil,rTitleText,"THE ROUND WILL START IN 60 SECONDS!", "PLAIN",10] call RE;
-            
-            sleep 10;              
+                                         
             
             [nil,nil,rTitleText,"YOU HAVE 35 MINUTES TO FREELY TRAVEL THE MAP!", "PLAIN",10] call RE;
             
-            sleep 5;                   
-            
-            [nil,nil,rTitleText,"THE ROUND WILL START IN 50 SECONDS!", "PLAIN",10] call RE;
-            
-            sleep 10;              
+            sleep 3;                                
             
             [nil,nil,rTitleText,"AFTER 35 MINUTES PLAY IS RESTRICTED TO A MARKED AREA ON THE MAP!", "PLAIN",10] call RE;
             
-            sleep 5;                 
-            
-            [nil,nil,rTitleText,"THE ROUND WILL START IN 40 SECONDS!", "PLAIN",10] call RE;
-			
-            sleep 5;                 
+            sleep 3;                           
             
             [nil,nil,rTitleText,"IF YOU DO NOT STAY INSIDE THIS AREA, BAD THINGS WILL HAPPEN!", "PLAIN",10] call RE;
             
-            sleep 5;                   
+            sleep 3;                   
             
-            [nil,nil,rTitleText,"THE ROUND WILL START IN 30 SECONDS!", "PLAIN",10] call RE;
+            [nil,nil,rTitleText,"IF THERE IS MORE THAN ONE PLAYER ALIVE AFTER 90 MINUTES, YOU ALL DIE AND NO-ONE WINS!!", "PLAIN",10] call RE;
             
-            sleep 10;
+            sleep 3;
 			  
-            [nil,nil,rTitleText,"THE ROUND WILL START IN 20 SECONDS!", "PLAIN",10] call RE;
+            [nil,nil,rTitleText,"HERE WE GO BITCHES!", "PLAIN",10] call RE;
             
-            sleep 10;
+            sleep 3;
+			
+			
+
 			
 			[nil,nil,rTitleText,"TEN!", "PLAIN",1] call RE;
             sleep 1;
@@ -79,7 +71,12 @@
             br_game_started = true;
             
             publicVariable "br_game_started";
+			
+            [] execVM "\z\addons\dayz_server\restarter\serverRestart.sqf";
+			
             sleep 60;
+            
+            [] execVM "\z\addons\dayz_server\zones\fn_deathmessages.sqf";
             
             
         };
@@ -154,14 +151,15 @@
             br_player_check = true;
             
             publicVariable "br_player_check";
-            sleep 1;
+            sleep 60;
+			_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeRestarter [restartServer]");
             
             
-        };  
+        };
+		
         br_totalplayers = ({alive _x && side _x == west} count allUnits);
-            
         publicVariable "br_totalplayers";
-        sleep 0.5;
+        sleep 5;
  
     };
 };

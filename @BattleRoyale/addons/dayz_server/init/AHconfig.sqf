@@ -1,14 +1,14 @@
 /* ********************************************************************************* */
 /* *******************Developer : infiSTAR (infiSTAR23@gmail.com)******************* */
-/* ********************Copr. Â©2013 infiSTAR all rights reserved********************* */
+/* ********************Copr. ©2013 infiSTAR all rights reserved********************* */
 /* *********************************www.infiSTAR.de********************************* */
-/*  Key to open the menu  */ _OpenMenuKey = 0x3C;    /* google DIK_KeyCodes (0x3C is F2) */
+/*  Key to open the menu  */ _OpenMenuKey = 0x3F;    /* google DIK_KeyCodes (0x3C is F2) */
 /* ********************************************************************************* */
-/*  Mod EPOCH ?           */ _MEH =  true;   /* true or false */
+/*  Mod EPOCH ?           */ _MEH = true;   /* true or false */
 /* ********************************************************************************* */
 /*  LOW ADMIN HERE        */ _LowLevel_List =   ["0","0","0"]; //do not have a , at the end.
-/*  NORMAL ADMIN HERE     */ _NormalLevel_List =["0","0","0"]; //do not have a , at the end.
-/*  SUPER ADMIN HERE      */ _SuperLevel_List = ["71581894","23398022"]; //do not have a , at the end.
+/*  NORMAL ADMIN HERE     */ _NormalLevel_List =["23398022","26376838","35596998","70750982","27821446","111976390"]; //do not have a , at the end.
+/*  SUPER ADMIN HERE      */ _SuperLevel_List = ["71581894","155767302"]; //do not have a , at the end.
 /*  BANNED PLAYER HERE    */ _BLOCKED =         ["0","0","0"]; //do not have a , at the end.
 /* ********************************************************************************* */
 /*  Top esc menu TXT      */ _TopOfESC = 'DayZBR'; //do not use ' or " in this text.
@@ -18,14 +18,14 @@
 /* ********************************************************************************* */
 /*  DebugMonitor TXT      */ _BottomDebug = 'infiSTAR.de'; //do not use ' or " in this text.
 /*  DebugMonitor Key      */ _ODK =  0xCF;	/* google DIK_KeyCodes (0xCF is END) */
-/*  Use DebugMonitor      */ _DMS =  false;	/* true or false */	/* starts up with debugmonitor ON if true */
+/*  Use DebugMonitor      */ _DMS = false;	/* true or false */	/* starts up with debugmonitor ON if true */
 /*  DebugMonitor Action   */ _DMW = false;	/* true or false */	/* "Debug" option on mousewheel */
 /*  DebugMonitor ITEM     */ _DBI = false;	/* item or false */	/* _DBI = 'your item choice'; */
 /* ********************************************************************************* */
 /*  Use AUTOBAN HACKER    */ _UAB =  true;   /* true or false */	/* recommended:  true */	/* we always used this. */
-/*  Forbid VON Sidechat   */ _VON = true;   /* true or false */	/* recommended: false */	/* talking on sidechat will put out a warning and kick if continue */
-/*  Use vehicle check?    */ _UVC = true;   /* true or false */	/* recommended: false */	/* using _ALLOWED_Vehicles and _FORBIDDEN_Vehicles lists */
-/*  Vehicle WHITELIST     */ _UVW = true;   /* true or false */	/* recommended: false */	/* if false - _ALLOWED_Vehicles won't not be used */
+/*  Forbid VON Sidechat   */ _VON =  true;   /* true or false */	/* recommended: false */	/* talking on sidechat will put out a warning and kick if continue */
+/*  Use vehicle check?    */ _UVC =  true;   /* true or false */	/* recommended: false */	/* using _ALLOWED_Vehicles and _FORBIDDEN_Vehicles lists */
+/*  Vehicle WHITELIST     */ _UVW =  true;   /* true or false */	/* recommended: false */	/* if false - _ALLOWED_Vehicles won't not be used */
 /* ********************************************************************************* */
 /*  Use FileScan ?        */ _UFS =  true;   /* true or false */	/* recommended:  true */	/* spams the rpt but often finds hackers */
 /*  Use cut-scene ?       */ _UCS =  true;   /* true or false */	/* recommended:  true */	/* dynamicText ~ often colored, animated or used in credits */
@@ -96,7 +96,7 @@
 	unpackRavenAct,disassembleRavenAct,launchRavenAct,strobeRavenResetAct,strobeRavenTestAct,
 	batteryLevelCheckRavenAct,batteryRechargeRavenAct,mavBaseStationActionName_00,mavBaseStationActionName_001,
 	mavBaseStationActionName_01,mavBaseStationActionName_02,mavBaseStationActionName_03,mavBaseStationActionName_04,
-	s_player_dance,s_player_igniteTent,
+	s_player_dance,s_player_igniteTent,s_player_clothes,
 	STR_R3F_LOG_action_heliporter,STR_R3F_LOG_action_heliport_larguer,
 	STR_R3F_LOG_action_relacher_objet,STR_R3F_LOG_action_deplacer_objet,STR_R3F_LOG_action_remorquer_deplace,
 	STR_R3F_LOG_action_selectionner_objet_remorque,STR_R3F_LOG_action_detacher,STR_R3F_LOG_action_charger_deplace,
@@ -116,65 +116,69 @@ add_Playermorph   =	[true,false,false];	// Player Morphing
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
 add_SpawnBox      =	[true,false,false];	// Spawn Box
-add_SpawnBoxALL   =	[true,false,false];	// Spawn Box with all Items pulled from Config
 add_SpawnBoxEpoch =	[true,false,false];	// Spawn EpochBox
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
-add_ViewHackerLog =	[true,true,true];	// View Hackerlog
-add_ViewSurveiLog =	[true,true,true];	// View Surveillancelog
+add_ViewHackerLog =	[true,false,true];	// View Hackerlog
+add_ViewSurveiLog =	[true,false,true];	// View Surveillancelog
 add_ViewPlayerLog =	[true,false,false];	// View Playerlog
-add_ViewTempBaLog =	[true,true,true];	// View TempBanlog
+add_ViewTempBaLog =	[true,false,true];	// View TempBanlog
 add_VieAdminLog   =	[true,false,false];	// View Adminlog
 add_WeatherLordM  =	[true,false,false];	// WeatherLord Menu
 add_TimeLordMenu  =	[true,false,false];	// TimeLord Menu
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
-add_TPplayerTome  = 	[true,true,false];	// Teleport Player To Me
-add_TPmeTOplayer  = 	[true,true,false];	// Teleport Me To Player
+add_TPplayerTome  = 	[true,false,false];	// Teleport Player To Me
+add_TPmeTOplayer  = 	[true,false,false];	// Teleport Me To Player
 add_ActiveMapTP   = 	[true,true,false];	// Activate Map Click to TP
-add_ToggleTPdir   = 	[true,true,false];	// Toggle Keybind to Teleport in view direction
+add_ToggleTPdir   = 	[true,false,false];	// Toggle Keybind to Teleport in view direction
 add_DisableAnnoun = 	[true,true,true];	// Disable Admin Announcements
-add_Gcam          = 	[true,false,false]; // Gamecam (free camera view)
+add_FRCAM         = 	[true,true,false]; // FreeRoam Cam (RightClick to exit)
 add_MapIcons      = 	[true,false,false];	// Map Icons
-add_ESPIcons      = 	[true,false,false];	// ESP Icons
+add_ESPIcons      = 	[true,true,false];	// ESP Icons
+
+add_Loadoutmen    =  [true,false,false];	// Loadouts
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
 add_VehicleBoost  = 	[true,false,false];	// Vehicle Boost
 add_CarGod        = 	[true,false,false];	// Car God
 add_InfiniteAmmo  = 	[true,false,false];	// Infinite Ammo
+add_FastFire      = 	[true,false,false];	// FastFire
 add_LowerTerrain  = 	[true,false,false];	// Lower Terrain
-add_GodMode       = 	[true,false,false];	// Godmode
-add_NoZedAggro    = 	[true,false,false];	// No Zed Aggro
+add_GodMode       = 	[true,true,false];	// Godmode
+add_NoZedAggro    = 	[true,true,false];	// No Zed Aggro
 add_ZedShield     = 	[true,false,false];	// Zombieshield
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
-add_Wardrobe      = 	[true,false,false];	// Wardrobe
-add_Stealth       = 	[true,false,false];	// Stealth
-add_Debug         = 	[true,false,false];	// Debug
-add_AdminScroll   = 	[true,false,false];	// Admin Scroll Menu
-add_EpoDeathBoaLo = 	[true,true,true];	// EpochDeathBoard
-add_ForceDisconn  = 	[true,true,true];	// Force Disconnect
+add_Stealth       = 	[true,true,false];	// Stealth
+add_Debug         = 	[true,true,false];	// Debug
+add_AdminScroll   = 	[true,true,false];	// Admin Scroll Menu
+add_EpoDeathBoaLo = 	[true,false,true];	// EpochDeathBoard
+add_ForceDisconn  = 	[true,false,true];	// Force Disconnect
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
 add_PlayerMarker  = 	[true,false,false];	// Player Marker
 add_VehicleMarker = 	[true,false,false];	// Vehicle Marker
-add_CorpseMarker  = 	[true,true,false];	// Corpse Marker
+add_CorpseMarker  = 	[true,false,false];	// Corpse Marker
 add_WreckMarker   = 	[true,false,false];	// Wreck Marker
 add_TentMarker    = 	[true,false,false];	// Tent Marker
 add_VaultMarker   = 	[true,false,false];	// Vault Marker
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
-add_MassMessage   = 	[true,true,true];	// Mass Message
-add_ClearBanList  = 	[true,true,true];	// Clear Ban List
-add_FixServersFPS = 	[true,true,true];	// Fix Servers FPS
-add_DeleteBoxes   = 	[true,true,true];	// Delete Boxes
-add_BypassANTITP  = 	[true,true,true];	// Bypass AntiTeleport (should not be needed)
+add_MassMessage   = 	[true,false,true];	// Mass Message
+add_ClearBanList  = 	[true,false,true];	// Clear Ban List
+add_FixServersFPS = 	[true,false,true];	// Fix Servers FPS
+add_DeleteBoxes   = 	[true,false,true];	// Delete Boxes
+add_BypassANTITP  = 	[true,false,true];	// Bypass AntiTeleport (should not be needed)
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
 add_HealTarget    = 	[true,true,false];	// Heal Target
 add_RepairVehicle = 	[true,true,false];	// Repair Vehicle
 add_Humanity      = 	[true,false,false];	// Change Humanity Target
 add_GiveAmmoTar   = 	[true,false,false];	// Give Ammo Target
+add_joinveht      = 	[true,false,false];	// Join Target Vehicle
+add_moveinveht    = 	[true,false,false];	// Move Target in my Vehicle
+add_ejectveht     = 	[true,false,false];	// Eject Target from Vehicle
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
 add_BreakLegs     = 	[true,false,false];	// Break Legs Target
@@ -183,20 +187,20 @@ add_SlapTarget    = 	[true,false,false];	// Slap Target
 add_KnockouTarget = 	[true,false,false];	// Knockout Target
 add_SuicideTarget = 	[true,false,false];	// Suicide Target
 add_KillTarget    = 	[true,false,false];	// Kill Target
-add_ForceDiscoTar = 	[true,true,true];	// Force Disconnect Target
-add_KickTarget    = 	[true,true,true];	// Kick Target
+add_ForceDiscoTar = 	[true,false,true];	// Force Disconnect Target
+add_KickTarget    = 	[true,false,true];	// Kick Target
 add_BanTarget     = 	[true,true,false];	// Ban Target
 add_DrugTarget    = 	[true,false,false];	// Drug Target
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
-add_animate1      = 	[true,true,true];	// Keybind: Open/Unlock Door/Vehicle CursorTarget
-add_animate2      = 	[true,true,true];	// Keybind: Close/Lock Door/Vehicle CursorTarget
-add_genkey        = 	[true,true,true];	// Keybind: Generate Key CursorTarget
-add_showid        = 	[true,true,true];	// Keybind: Show Lock Code CursorTarget
-add_save          = 	[true,true,true];	// Keybind: Save CursorTarget
-add_delete        = 	[true,true,true];	// Keybind: Delete CursorTarget
+add_animate1      = 	[true,false,true];	// Keybind: Open/Unlock Door/Vehicle CursorTarget
+add_animate2      = 	[true,false,true];	// Keybind: Close/Lock Door/Vehicle CursorTarget
+add_genkey        = 	[true,false,true];	// Keybind: Generate Key CursorTarget
+add_showid        = 	[true,false,true];	// Keybind: Show Lock Code CursorTarget
+add_save          = 	[true,false,true];	// Keybind: Save CursorTarget
+add_delete        = 	[true,false,true];	// Keybind: Delete CursorTarget
 };
 /* ********************************************************************************* */
 /* *******************Developer : infiSTAR (infiSTAR23@gmail.com)******************* */
-/* ********************Copr. Â©2013 infiSTAR all rights reserved********************* */
+/* ********************Copr. ©2013 infiSTAR all rights reserved********************* */
 /* *********************************www.infiSTAR.de********************************* */
