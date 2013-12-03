@@ -152,7 +152,6 @@
             
             publicVariable "br_player_check";
             sleep 30;
-			_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeRestarter [restartServer]");
             
             
         };

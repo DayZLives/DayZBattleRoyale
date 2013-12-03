@@ -20,11 +20,15 @@ _br_totalplayers_start = {alive _x} count playableUnits;
         };
        
         if ((_br_totalplayers == 1) && (isNil "WinnerShown")) then
-        {
+        {	
+		
             _txt = format["\n%1 - WINNER, WINNER, CHICKEN DINNER!",name player];
             [nil, nil, rTitleText, _txt, "PLAIN"] call RE;
             WinnerShown = true;
-            sleep 20;
+			
+            br_player_check = true;
+            publicVariable "br_player_check";
+            sleep 60;
 			
             _result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeRestarter [restartServer]");
         };

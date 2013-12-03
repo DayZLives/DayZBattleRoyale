@@ -15,24 +15,6 @@ _waitForPlayers = [] execVM "z\addons\dayz_server\restarter\waitForPlayers.sqf";
 waitUntil {scriptDone  _waitForPlayers};
 diag_log("Restarter: Game Started.");
 
-//Set the Time
-
-_key = "CHILD:307:";
-_result = _key call server_hiveReadWrite;
-_outcome = _result select 0;
-
-if(_outcome == "PASS") then {
-    //Force full moon nights
-    _date1 = [2013,8,3,17,30];
-    
-    if(isDedicated) then {
-        setDate _date1;
-        dayzSetDate = _date1;
-        dayz_storeTimeDate = _date1;
-        publicVariable "dayzSetDate";
-    };
-    diag_log ("HIVE: Local Time set to " + str(_date1));
-};
 
 //Start the clock
 

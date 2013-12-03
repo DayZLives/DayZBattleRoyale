@@ -5,7 +5,7 @@ waitUntil{!(isNil "br_totalplayers")};
 waitUntil{br_totalplayers <= 1};
 
     
-    sleep 5;
+    sleep 120;
     [nil,nil,rTitleText,"GAME OVER: SERVER RESTARTING!", "PLAIN",10] call RE;
     sleep 5;
     

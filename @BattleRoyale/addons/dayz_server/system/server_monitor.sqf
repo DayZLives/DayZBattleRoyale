@@ -15,6 +15,22 @@ waitUntil{initialized}; //means all the functions are now defined
 
 diag_log "HIVE: Starting";
 
+_key = "CHILD:307:";
+_result = _key call server_hiveReadWrite;
+_outcome = _result select 0;
+
+if(_outcome == "PASS") then {
+    //Force full moon nights
+    _date1 = [2013,8,3,17,30];
+    
+    if(isDedicated) then {
+        setDate _date1;
+        dayzSetDate = _date1;
+        dayz_storeTimeDate = _date1;
+        publicVariable "dayzSetDate";
+    };
+    diag_log ("HIVE: Local Time set to " + str(_date1));
+};
 
 waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug during login of the first player)
 

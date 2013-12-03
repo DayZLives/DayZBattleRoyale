@@ -2,7 +2,7 @@
 
 private ["_playArea","_time","_finish_time_minutes","_finish_time_seconds","_coords","_finalposition"];
 
-_coords = [getMarkerPos "center",random 4000,random 360,false] call SHK_pos;
+_coords = [getMarkerPos "center",random 3300,random 360,false] call SHK_pos;
 
 while {ELAPSED_TIME < END_TIME} do	{
     
