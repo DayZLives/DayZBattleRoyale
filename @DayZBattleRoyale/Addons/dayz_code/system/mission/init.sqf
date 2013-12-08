@@ -1,6 +1,6 @@
-initialized = false;
-dayzHiveRequest = [];
-dayz_previousID = 0;
+CBA_display_ingame_warnings = false; 
+publicVariable "CBA_display_ingame_warnings";
+
 0 fadeSound 0;
 //disable greeting menu
 player setVariable ["BIS_noCoreConversations", true];
@@ -11,13 +11,18 @@ enableRadio false;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";					//Initilize the publicVariable event handlers
-progressLoadingScreen 0.2;
+progressLoadingScreen 0.6;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";	//Functions used by CLIENT for medical
 progressLoadingScreen 0.4;
-call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";					//Compile regular functions
+call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";				//Compile regular functions
 progressLoadingScreen 1.0;
+call compile preprocessFileLineNumbers "\z\addons\dayz_code\br\shk_pos\shk_pos_init.sqf";					//Compile random marker position
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
+
+[] execVM "\ddopp_taserpack\scripts\init_Taser.sqf";
+
+setviewdistance 5000;
 
 [] spawn {
 	while {true} do {
@@ -96,13 +101,14 @@ if (!isDedicated) then {
 	//Conduct map operations
 	waitUntil {!isNil "dayz_loadScreenMsg"};
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
-
+	
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = [] execVM "\z\addons\dayz_code\system\player_monitor.sqf";
 	if (dayz_antihack == 1) then {
 	[] execVM "\z\addons\dayz_code\system\antihack.sqf";
 	};
+	player addWeapon "ItemGPS";
 };
 
 // Logo watermark: adding a logo in the bottom left corner of the screen with the server name in it
@@ -117,4 +123,12 @@ if (!isNil "dayZ_serverName") then {
 
 if (dayz_REsec == 1) then {
 #include "\z\addons\dayz_code\system\REsec.sqf"
+};
+
+
+if (!isDedicated) then {	
+	call compile preProcessFileLineNumbers "\z\addons\dayz_code\br\fn_playercheck.sqf";	
+	call compile preProcessFileLineNumbers "\z\addons\dayz_code\br\fn_punish.sqf";	
+	//call compile preProcessFileLineNumbers "\z\addons\dayz_code\br\fn_totalplayers.sqf";
+	drn_DynamicWeather_CurrentWeatherChange = "OVERCAST";
 };

@@ -582,5 +582,5 @@ if (!isDedicated) then {
 
 	//Start Dynamic Weather
 	
-	[0.5, 0.9, 1] execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
+	[0.2, 1] execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
 	initialized = true;

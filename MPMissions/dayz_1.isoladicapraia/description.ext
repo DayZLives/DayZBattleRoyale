@@ -146,8 +146,6 @@ class DayZ_loadingScreen
 class RscTitles
 {
 titles[] = {"dsow"};
- 
-
 
 class dsow {
   idd = -1;
@@ -158,13 +156,6 @@ class dsow {
   name="dsow";
  
   controls[]={"Picture"};
- 
-
-
-
-
-
-
 
   class Picture {
     x = "0.00001 * safezoneW + safezoneX";
