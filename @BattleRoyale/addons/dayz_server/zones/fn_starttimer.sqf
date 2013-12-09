@@ -72,19 +72,18 @@
             
             publicVariable "br_game_started";
 			
-            [] execVM "\z\addons\dayz_server\restarter\serverRestart.sqf";
-			
             sleep 60;
             
-            [] execVM "\z\addons\dayz_server\zones\fn_deathmessages.sqf";
             
             
         };
         
         
-        if((_finish_time_minutes == 85) && (_finish_time_seconds < 1)) then
+        if((_finish_time_minutes == 85) && (_finish_time_seconds < 10)) then
         {
             [nil,nil,rTitleText,"RANDOM CARPET BOMBING WILL BEGIN IN 5 MINUTES!", "PLAIN",10] call RE;
+			sleep 10;
+			[] execVM "\z\addons\dayz_server\restarter\serverRestart.sqf";
         };  
         
         if((_finish_time_minutes == 83) && (_finish_time_seconds < 1)) then
@@ -148,15 +147,15 @@
             
             
             
-            br_player_check = true;
+            br_winner_check = true;
             
-            publicVariable "br_player_check";
+            publicVariable "br_winner_check";
             sleep 30;
             
             
         };
 		
-        br_totalplayers = ({alive _x && side _x == west} count allUnits);
+        br_totalplayers = {((alive _x) && (str(side _x) != "CIV"))} count playableUnits;
         publicVariable "br_totalplayers";
         sleep 3;
  

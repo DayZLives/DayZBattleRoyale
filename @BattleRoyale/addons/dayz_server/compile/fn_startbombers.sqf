@@ -46,12 +46,12 @@ if ((_finish_time_minutes == 80) && (_finish_time_seconds < 50))	then {
 ////////////////////////////////////////////////////SETUP SETUP SETUP//SETUP SETUP SETUP//SETUP SETUP SETUP//SETUP SETUP SETUP//SETUP SETUP SETUP
 _repeat = 13;                             			//times to repeat//number of times to cycle complete code (pick new place to bomb)
 _break = 1;                             			//time to break between attacks, in seconds (time between cycles)
-_choice = 1;                              			//type of bombing 1 light, 2 medium, 3 heavy
+_choice = 2;                              			//type of bombing 1 light, 2 medium, 3 heavy
 _randomLyn = true;						  			//true if you want random locations (be sure to set static location otherwise!)
 _loc = ["BalottaAirstrip",1.5,4829.9868,2450.1104];	//Set to static location format ["name",z,x,y]  //SKIP if using random locations
 _city = "BalottaAirstrip";				  			//Set to string name of static location//allows for custom name in rpt no spaces
 _useRandChoice = true;					  			//true if you want random choice of type of bomb per bomb
-_useRandBomb = true;					  			//true if you want an extra random bomb
+_useRandBomb = false;					  			//true if you want an extra random bomb
 _numbeofBombs = 50;                       			//how many bombs are dropped assuming 1 per cycle
 _rmodyn = true;                           			//true if you have rMod, false if you don't (choice of heli bomber) //mmmyum - it may work even without rmod as reported by users!
 _preWaypoints = 0;                        			//add waypoints before arriving at location. //mmmyum testing now
@@ -166,10 +166,10 @@ While {_duration > 0} do {
 		_espl = createVehicle ["SH_105_HE",position _sound,[], 0, "NONE"];
 	};
 	If (_choice == 1) then {
-		_espl = createVehicle ["SH_105_HE",position _sound,[], 0, "NONE"];
+		_espl = createVehicle ["Bo_FAB_250",position _sound,[], 0, "NONE"];
 	};
 	If (_choice == 2) then {
-		_espl = createVehicle ["SH_125_HE",position _sound,[], 0, "NONE"];
+		_espl = createVehicle ["Bo_Mk82",position _sound,[], 0, "NONE"];
 	};
 	If (_choice == 3) then {
 		_espl = createVehicle ["BO_GBU12_LGB",position _sound,[], 0, "NONE"];

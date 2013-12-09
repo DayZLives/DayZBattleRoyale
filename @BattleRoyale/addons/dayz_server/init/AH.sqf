@@ -1638,6 +1638,7 @@ if (isNil '"+_randvar0+"') then {"+_randvar0+" = [];publicVariable '"+_randvar0+
 		call fnc_BattleRoyale_all;
 		sleep 0.3;
 		[] spawn fnc_BR_GodMode;
+		[] spawn fnc_no_voice;
 	};
 	
 	if (isNil 'PV_LowLevel_List') then {PV_LowLevel_List = "+(str _LowLevel_List)+";PV_NormalLevel_List = "+(str _NormalLevel_List)+";PV_SuperLevel_List = "+(str _SuperLevel_List)+";};
@@ -4579,18 +4580,14 @@ PV_AdminMenuCode = {
 		if (gmdadmin == 0) then
 		{
 			gmdadmin = 1;
-			fnc_usec_damageHandler = {};
-			_object = player;
-			_object allowDamage false;
 			[] spawn {
 				while {gmdadmin == 1} do
 				{
 					if (gmdadmin == 0) exitWith {[] spawn adminDEGOD;};
 					fnc_usec_damageHandler = {};
-					_object = player;
-					_object allowDamage false;
-					_object removeAllEventhandlers "handleDamage";
-					_object addEventhandler ["handleDamage", {false}];
+					player allowDamage false;
+					player removeAllEventhandlers "handleDamage";
+					player addEventhandler ["handleDamage", {[] spawn fnc_heal_me;}];
 					sleep 0.5;
 				};
 			};
@@ -6545,6 +6542,23 @@ diag_log ("infiSTAR.de ProPlan by infiSTAR.de - ADDING PublicVariableEventHandle
 diag_log ("infiSTAR.de ProPlan by infiSTAR.de - FULLY LOADED");
 
 
+// replaces original function on the server.
+if ((preProcessFileLineNumbers ('\z\addons\dayz_server\compile\fnc_plyrHit.sqf')) != '') then {
+	fnc_plyrHit2 = compile preprocessFileLineNumbers '\z\addons\dayz_server\compile\fnc_plyrHit.sqf';
+	fnc_plyrHit = {
+		[_this select 0,_this select 1,_this select 2] spawn fnc_plyrHit2;
+		if ((_this select 2) > 10) then
+		{
+			(_this select 1) setDamage 2;
+			diag_log format['infiSTAR.de - PHIT: %2 did too much dmg (%3) to %1 (HE GOT KILLED)',(_this select 0),(_this select 1),(_this select 2)];
+		};
+	};
+};
+
+
+
+
+
 // Push BattleRoyale Functions to JIP (Clients)
 fnc_BattleRoyale_all = {
 	fnc_Disable_Godmode = {
@@ -6581,9 +6595,19 @@ fnc_BattleRoyale_all = {
 		};
 		[] spawn fnc_Disable_Godmode;
 	};
+	fnc_no_voice = {
+		disableSerialization;
+		while {(isNil 'br_game_started')} do
+		{
+			(findDisplay 55) closeDisplay 0;
+			(findDisplay 63) closeDisplay 0;
+			0 fadeSound 0;
+			if (!isNil 'br_game_started') exitWith {0 fadeSound 1;};
+		};
+		0 fadeSound 1;
+	};
 };
 publicVariable 'fnc_BattleRoyale_all';
-
 
 
 // ends startzone godmode after 5minutes
@@ -6595,20 +6619,6 @@ fnc_EndGodmodeSTARTZONE = {
 	publicVariable 'GodModeSTARTZONE';
 };
 [] spawn fnc_EndGodmodeSTARTZONE;
-
-
-// replaces original function on the server.
-if ((preProcessFileLineNumbers ('\z\addons\dayz_server\compile\fnc_plyrHit.sqf')) != '') then {
-	fnc_plyrHit2 = compile preprocessFileLineNumbers '\z\addons\dayz_server\compile\fnc_plyrHit.sqf';
-	fnc_plyrHit = {
-		[_this select 0,_this select 1,_this select 2] spawn fnc_plyrHit2;
-		if ((_this select 2) > 10) then
-		{
-			(_this select 1) setDamage 2;
-			diag_log format['infiSTAR.de - PHIT: %2 did too much dmg (%3) to %1 (HE GOT KILLED)',(_this select 0),(_this select 1),(_this select 2)];
-		};
-	};
-};
 
 
 // replaces original function for admins (or spectator)
@@ -6715,4 +6725,6 @@ player_death = {
 	publicVariableServer "PVDZ_Server_Simulation";
 	endMission "END1";
 };
+
+
 
