@@ -6,10 +6,37 @@
 /* ********************************************************************************* */
 /*  Mod EPOCH ?           */ _MEH = true;   /* true or false */
 /* ********************************************************************************* */
-/*  LOW ADMIN HERE        */ _LowLevel_List =   ["0","0","0"]; //do not have a , at the end.
-/*  NORMAL ADMIN HERE     */ _NormalLevel_List =["23398022","26376838","35596998","70750982","27821446","111976390","16235718","115149190"]; //do not have a , at the end.
-/*  SUPER ADMIN HERE      */ _SuperLevel_List = ["71581894","155767302","34319366"]; //do not have a , at the end.
-/*  BANNED PLAYER HERE    */ _BLOCKED =         ["0","0","0"]; //do not have a , at the end.
+/* ********************************************************************************* */
+/* **********************************STREAMERS************************************** */
+_NormalLevel_List = ["0"];
+_NormalLevel_List = _NormalLevel_List + ["23398022"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["26376838"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["35596998"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["70750982"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["27821446"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["111976390"];	// ?
+_NormalLevel_List = _NormalLevel_List + ["16235718"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["115149190"];	// ?
+_NormalLevel_List = _NormalLevel_List + ["30768326"];		//	ExecCS
+_NormalLevel_List = _NormalLevel_List + ["14170886"];		// HybridPanda
+_NormalLevel_List = _NormalLevel_List + ["19831622"];		// Thad
+_NormalLevel_List = _NormalLevel_List + ["5473414"];		// PSI
+_NormalLevel_List = _NormalLevel_List + ["15501958"];		// Whiteboy
+_NormalLevel_List = _NormalLevel_List + ["105496518"];	// Meat
+_NormalLevel_List = _NormalLevel_List + ["4629952"];		// Drumsetjunkie
+_NormalLevel_List = _NormalLevel_List + ["45067334"];		// Sada
+_NormalLevel_List = _NormalLevel_List + ["11294470"];		// Utorck
+_NormalLevel_List = _NormalLevel_List + ["130798598"];	// Johnson
+_NormalLevel_List = _NormalLevel_List + ["72513030"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["102773894"];	// Johnson
+_NormalLevel_List = _NormalLevel_List + ["164591110"];	// Blue
+_NormalLevel_List = _NormalLevel_List + ["21295046"];		//	Snipz_
+/* ********************************************************************************* */
+/* ********************************************************************************* */
+/* ********************************************************************************* */
+/*  LOW ADMIN HERE        */ _LowLevel_List =   ["0"]; //do not have a , at the end.
+/*  SUPER ADMIN HERE      */ _SuperLevel_List = ["71581894","155767302","34319366","40590214"]; //do not have a , at the end.
+/*  BANNED PLAYER HERE    */ _BLOCKED =         ["0"]; //do not have a , at the end.
 /* ********************************************************************************* */
 /*  Top esc menu TXT      */ _TopOfESC = 'DayZBR'; //do not use ' or " in this text.
 /*  Bottom esc menu TXT   */ _LowerTop = 'One dead, 42 to go!'; //do not use ' or " in this text.
@@ -28,7 +55,7 @@
 /*  Vehicle WHITELIST     */ _UVW =  true;   /* true or false */	/* recommended: false */	/* if false - _ALLOWED_Vehicles won't not be used */
 /* ********************************************************************************* */
 /*  Use FileScan ?        */ _UFS =  true;   /* true or false */	/* recommended:  true */	/* spams the rpt but often finds hackers */
-/*  Use cut-scene ?       */ _UCS =  true;   /* true or false */	/* recommended:  true */	/* dynamicText ~ often colored, animated or used in credits */
+/*  Use cut-scene ?       */ _UCS = false;   /* true or false */	/* recommended:  true */	/* dynamicText ~ often colored, animated or used in credits */
 /*  Use SafeZones ?       */ _USZ =  true;   /* true or false */	/* recommended:  true */	/* if you have a zone where people get godmode/anti zombie aggro (most Epoch server do have this!) */
 /*  HACKED BOX Check ?    */ _CHB =  true;   /* true or false */	/* recommended:  true */	/* some epoch player might want to turn this one off */
 /*  Check CMDMenus ?      */ _CCM =  true;   /* true or false */	/* recommended:  true */	/* only disable this if you know what you are doing. */
@@ -119,10 +146,10 @@ add_SpawnBox      =	[true,false,false];	// Spawn Box
 add_SpawnBoxEpoch =	[true,false,false];	// Spawn EpochBox
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
-add_ViewHackerLog =	[true,false,true];	// View Hackerlog
-add_ViewSurveiLog =	[true,false,true];	// View Surveillancelog
-add_ViewPlayerLog =	[true,false,false];	// View Playerlog
-add_ViewTempBaLog =	[true,false,true];	// View TempBanlog
+add_ViewHackerLog =	[true,true,false];	// View Hackerlog
+add_ViewSurveiLog =	[true,true,false];	// View Surveillancelog
+add_ViewPlayerLog =	[true,true,false];	// View Playerlog
+add_ViewTempBaLog =	[true,true,false];	// View TempBanlog
 add_VieAdminLog   =	[true,false,false];	// View Adminlog
 add_WeatherLordM  =	[true,false,false];	// WeatherLord Menu
 add_TimeLordMenu  =	[true,false,false];	// TimeLord Menu
@@ -144,7 +171,7 @@ add_VehicleBoost  = 	[true,false,false];	// Vehicle Boost
 add_CarGod        = 	[true,false,false];	// Car God
 add_InfiniteAmmo  = 	[true,false,false];	// Infinite Ammo
 add_FastFire      = 	[true,false,false];	// FastFire
-add_LowerTerrain  = 	[true,false,false];	// Lower Terrain
+add_LowerTerrain  = 	[true,true,false];	// Lower Terrain
 add_GodMode       = 	[true,true,false];	// Godmode
 add_NoZedAggro    = 	[true,true,false];	// No Zed Aggro
 add_ZedShield     = 	[true,false,false];	// Zombieshield
@@ -154,7 +181,7 @@ add_Stealth       = 	[true,true,false];	// Stealth
 add_Debug         = 	[true,true,false];	// Debug
 add_AdminScroll   = 	[true,true,false];	// Admin Scroll Menu
 add_EpoDeathBoaLo = 	[true,false,true];	// EpochDeathBoard
-add_ForceDisconn  = 	[true,false,true];	// Force Disconnect
+add_ForceDisconn  = 	[true,true,true];	// Force Disconnect
 
 // add_EXAMPLE    = 	[SuperAdmin,NormalAdmin,LowAdmin];
 add_PlayerMarker  = 	[true,false,false];	// Player Marker
