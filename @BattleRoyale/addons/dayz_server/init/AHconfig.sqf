@@ -9,7 +9,7 @@
 /* ********************************************************************************* */
 /* **********************************STREAMERS************************************** */
 _NormalLevel_List = ["0"];
-_NormalLevel_List = _NormalLevel_List + ["23398022"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["23398022"];		// Ngotie
 _NormalLevel_List = _NormalLevel_List + ["26376838"];		// ?
 _NormalLevel_List = _NormalLevel_List + ["35596998"];		// ?
 _NormalLevel_List = _NormalLevel_List + ["70750982"];		// ?

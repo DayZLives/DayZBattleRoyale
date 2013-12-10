@@ -3887,7 +3887,7 @@ PV_AdminMenuCode = {
 		_finishPos = getMarkerPos "playArea";
 		_veh = vehicle player;
 		if (str(side player) != "CIV") then {[player] joinSilent createGroup CIVILIAN;};
-		if (_veh distance _finishPos > 500) then {_veh setPosATL _finishPos;};
+		_veh setPosATL _finishPos;
 		
 		fnc_dblClick = {
 			_name = _this select 0;
