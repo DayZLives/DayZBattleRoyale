@@ -820,7 +820,7 @@ call compile ("
 				_newpos = getPosATL _obj2;
 				_type2 = typeOF _obj2;
 				_maxdist = 60;
-				if (_obj2 != player) then {_maxdist = 750;};
+				if (_obj2 != player) then {_maxdist = 450;};
 				sleep 0.00001;
 				_distance1 = floor(_oldpos distance _newpos);
 				sleep 0.00001;
@@ -831,6 +831,20 @@ call compile ("
 					_log = (format['Teleport: GPS:%1 to GPS:%2 (%3m) - %4 / %5',mapGridPosition _oldpos,mapGridPosition _newpos,_distance1,_type1,_type2]);
 					"+_randvar10+" = [(name player),(getPlayerUID player),_log];
 					publicVariableServer '"+_randvar10+"';
+					
+					_newblood = r_player_blood;
+					if (r_player_blood == 12000) then {_newblood = 8000;};
+					if ((r_player_blood < 12000) && (r_player_blood > 6001)) then {_newblood = 6001;};
+					if (r_player_blood == 6001) then {_newblood = 1337;};
+					if ((r_player_blood < 6001) && (r_player_blood > 1337)) then {_newblood = 1337;};
+					if ((r_player_blood == 1337) or (r_player_blood < 1337)) then
+					{
+						_selection = 'legs';
+						_damage = 0;
+						player setHit[_selection,_damage];
+					};
+					r_player_blood = _newblood;
+					player setVariable['USEC_BloodQty',r_player_blood,true];
 				};
 			};
 			"+_randvar10+" = [name player, getPlayerUID player, toArray 'TP_Checks', toArray 'Loop Exited'];
