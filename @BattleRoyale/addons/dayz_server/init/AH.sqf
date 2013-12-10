@@ -840,7 +840,7 @@ call compile ("
 					if ((r_player_blood == 1337) or (r_player_blood < 1337)) then
 					{
 						_selection = 'legs';
-						_damage = 0;
+						_damage = 1;
 						player setHit[_selection,_damage];
 					};
 					r_player_blood = _newblood;
