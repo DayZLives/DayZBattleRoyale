@@ -26,10 +26,18 @@ fnc_br_spawn_punishment = {
 	};
 };
 fnc_br_delete_punishment = {
-	{deletevehicle _x;} foreach br_punishmentZs;
-	br_punishmentZs = [];
-	br_punishmentZ_count = 0;
-	titleText ["YOU ARE BACK IN THE ZONE!", "PLAIN"];
+	if (count br_punishmentZs > 0) then
+	{
+		{deletevehicle _x;} foreach br_punishmentZs;
+		br_punishmentZs = [];
+		br_punishmentZ_count = 0;
+		
+		if (isNil "once_back_in_zone") then
+		{
+			titleText ["YOU ARE BACK IN THE ZONE!", "PLAIN"];
+			once_back_in_zone = true;
+		};
+	};
 };
 [] spawn {
 	if (isNil "br_zone_started") then {br_zone_started = false;};
@@ -50,14 +58,14 @@ fnc_br_delete_punishment = {
 				r_player_blood = r_player_blood - 500;
 				player setVariable["USEC_BloodQty",r_player_blood,true];
 				(vehicle player) setHit ["motor", 1];
+				once_back_in_zone = nil;
 				[] spawn fnc_br_spawn_punishment;
 			}
 			else
 			{
-				sleep 3;
 				[] spawn fnc_br_delete_punishment;
 			};
 		};
-		sleep 1;
+		sleep 5;
 	};
 };

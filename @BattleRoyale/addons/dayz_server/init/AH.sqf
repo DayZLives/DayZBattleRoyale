@@ -3689,7 +3689,6 @@ PV_AdminMenuCode = {
 		if (isNil "fnc_esp_state") then {fnc_esp_state = 0;};
 		if (fnc_esp_state == 0) then
 		{
-			cutText ["\nESP ON", "PLAIN DOWN"];
 			setGroupIconsVisible [true, false];
 			fnc_esp_state = 1;
 			fnc_esp_distance = 1500;
@@ -3722,7 +3721,6 @@ PV_AdminMenuCode = {
 			fnc_esp_state = 0;
 			fnc_esp_unitarray = [];
 			LayerID = nil;
-			cutText ["\nESP OFF", "PLAIN DOWN"];
 		};
 	};
 	fnc_heal_me = {
@@ -3873,6 +3871,11 @@ PV_AdminMenuCode = {
 		{
 			admin_toggled = admin_toggled + ["  ESP Icons"];
 			[] spawn adminESPicons;
+		};
+		if ("  ESP for FreeRoam Cam" in admin_toggled) then
+		{
+			admin_toggled = admin_toggled - ["  ESP for FreeRoam Cam"];
+			[] spawn admin_fnc_esp;
 		};
 		if !("  ESP for FreeRoam Cam" in admin_toggled) then
 		{
