@@ -3896,17 +3896,17 @@ PV_AdminMenuCode = {
 		};
 		[] spawn fnc_heal_me;
 		if (isNil "plrbotmapicons") then {plrbotmapicons = true;[] spawn fnc_MapIcons_infiSTAR2;};
-		
-		_finishPos = [2894.41, 4514.63, 0];
-		_finishPos = getMarkerPos "playArea";
-		_veh = vehicle player;
 		if (str(side player) != "CIV") then {[player] joinSilent createGroup CIVILIAN;};
-		_veh setPosATL _finishPos;
 		
 		fnc_dblClick = {
 			_name = _this select 0;
 			{
-				if (name _x == _name) then {_x switchCamera "External";};
+				if (name _x == _name) then
+				{
+					_x switchCamera "External";
+					detach player;
+					player attachTo [(vehicle _x),[0,0,50]];
+				};
 			} forEach playableUnits;
 			sleep 0.5;
 			[_name] spawn admin_frcam;
