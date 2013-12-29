@@ -22,7 +22,7 @@ call compile preprocessFileLineNumbers "\z\addons\dayz_code\br\shk_pos\shk_pos_i
 
 [] execVM "\ddopp_taserpack\scripts\init_Taser.sqf";
 
-setviewdistance 5000;
+setviewdistance 2500;
 
 [] spawn {
 	while {true} do {
@@ -105,10 +105,6 @@ if (!isDedicated) then {
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = [] execVM "\z\addons\dayz_code\system\player_monitor.sqf";
-	if (dayz_antihack == 1) then {
-	[] execVM "\z\addons\dayz_code\system\antihack.sqf";
-	};
-	player addWeapon "ItemGPS";
 };
 
 // Logo watermark: adding a logo in the bottom left corner of the screen with the server name in it
@@ -127,8 +123,19 @@ if (dayz_REsec == 1) then {
 
 
 if (!isDedicated) then {	
+	sleep 0.1;
+	player addWeapon "ItemGPS";
+	waitUntil {!isNil "BIS_fnc_init"};
+	sleep 0.1;
+	player addBackpack ["DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_BackPack_EP1","DZ_British_ACU","DZ_CivilBackPack_EP1"] call BIS_fnc_selectRandom;
+	sleep 0.1;
+	_playerBackpack = unitBackpack player;
+	sleep 0.1;
+	[_playerBackpack] execVM "\z\addons\dayz_server\backpacks\fillbackpacks.sqf";
+};
+
+if (!isDedicated) then {	
 	call compile preProcessFileLineNumbers "\z\addons\dayz_code\br\fn_playercheck.sqf";	
 	call compile preProcessFileLineNumbers "\z\addons\dayz_code\br\fn_punish.sqf";	
-	//call compile preProcessFileLineNumbers "\z\addons\dayz_code\br\fn_totalplayers.sqf";
 	drn_DynamicWeather_CurrentWeatherChange = "OVERCAST";
 };

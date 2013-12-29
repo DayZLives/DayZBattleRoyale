@@ -109,6 +109,9 @@ class CfgVehicles {
 	//Fire
 	#include "CfgVehicles\Buildings\Land_Fire.hpp"
 	//Buildings
+	#include "CfgVehicles\Buildings\Land_Budova4_in.hpp"
+	#include "CfgVehicles\Buildings\Land_dum_istan3_pumpa.hpp"
+	#include "CfgVehicles\Buildings\Land_dum_olez_istan2_maly2.hpp"
 	#include "CfgVehicles\Buildings\Land_A_Crane_02b.hpp"
 	#include "CfgVehicles\Buildings\Land_A_FuelStation_Feed.hpp"
 	#include "CfgVehicles\Buildings\Land_A_TVTower_Mid.hpp"

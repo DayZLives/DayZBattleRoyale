@@ -122,5 +122,8 @@ for  "_x" from 5 to 1 step -1 do {
 
 PVDZ_Server_Simulation = [_body, false];
 publicVariableServer "PVDZ_Server_Simulation";
+
+diag_log("BR Tools: Player removed from database.");
+
 player setVariable ["USEC_isOver",true,true];
 endMission "END1";

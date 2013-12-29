@@ -3232,8 +3232,9 @@
 			<French>Porter</French>
 			<German>Tragen</German>
 		</Key>
+
 		<Key ID="STR_EQUIP_NAME_GHILLIE">
-			<English>Ghillie Suit</English>
+			<English>42nd Recon Ghillie</English>
 			<German>Tarnkleidung</German>
 			<Russian>Маскхалат</Russian>
 			<Spanish>Camuflaje "Guillie"</Spanish>
@@ -3241,7 +3242,7 @@
 			<French>Tenue Ghillie</French>
 		</Key>
 		<Key ID="STR_EQUIP_DESC_GHILLIE">
-			<English>A type of camouflage clothing designed to resemble heavy foliage. Can be unpacked and worn.</English>
+			<English>A type of camouflage clothing designed to resemble heavy foliage. Works well with a good Boonie hat.</English>
 			<Russian>Маскировочный халат типа «леший». Можно распаковать и надеть.</Russian>
 			<Spanish>Un tipo de traje camuflado diseñado para parecerse a un denso follaje. Puede ser desembalado y usado.</Spanish>
 			<Czech>Maskovací oblečení vytvořeno speciálně pro použítí v lesních oblestech. Může být rozbaleno a nošeno.</Czech>

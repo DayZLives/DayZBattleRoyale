@@ -27,12 +27,21 @@ class CfgLoot {
 	};
 	
 	food[] = {
-			{"ItemSodaCoke",0.06},
-			{"ItemSodaPepsi",0.07},
-			{"ItemSodaMtngreen",0.03},
-			{"FoodCanBakedBeans",0.15},
-			{"FoodCanSardines",0.06},
-			{"FoodCanFrankBeans",0.06}
+			{"ItemSodaCoke",0.12},
+			{"ItemSodaPepsi",0.09},
+			{"FoodCanBakedBeans",0.05},
+			{"FoodCanSardines",0.05},
+			{"FoodCanFrankBeans",0.05},
+			{"FoodCanPasta",0.05},
+			{"2Rnd_shotgun_74Slug",0.05},
+			{"2Rnd_shotgun_74Pellets",0.05},
+			{"ItemBandage",0.06},
+			{"ItemPainkiller",0.06},
+			{"RH_8Rnd_45cal_m1911",0.02},
+			{"RH_13Rnd_9x19_bhp",0.02},
+			{"RH_8Rnd_9x19_Mksd",0.01},
+			{"RH_20Rnd_9x19_M93",0.02},
+			{"RH_7Rnd_32cal_ppk",0.02}
 	};
 	
 	generic[] = {

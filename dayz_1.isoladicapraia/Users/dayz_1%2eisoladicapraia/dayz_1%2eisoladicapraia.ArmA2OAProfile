@@ -74,7 +74,7 @@ class Difficulties
 	{
 		class Flags
 		{
-			3rdPersonView=0;
+			3rdPersonView=1;
 			armor=1;
 			autoAim=0;
 			autoGuideAT=0;
@@ -106,23 +106,23 @@ class Difficulties
 	{
 		class Flags
 		{
-			3rdPersonView=1;
-			armor=0;
+			3rdPersonView=0;
+			armor=1;
 			autoAim=0;
 			autoGuideAT=0;
 			autoSpot=0;
 			cameraShake=1;
-			clockIndicator=0;
-			deathMessages=0;
+			clockIndicator=1;
+			deathMessages=1;
 			enemyTag=0;
 			friendlyTag=0;
-			hud=0;
+			hud=1;
 			hudGroupInfo=0;
 			hudPerm=0;
 			hudWp=1;
 			hudWpPerm=0;
 			map=0;
-			netStats=0;
+			netStats=1;
 			tracers=0;
 			ultraAI=0;
 			unlimitedSaves=0;
@@ -134,6 +134,11 @@ class Difficulties
 		skillEnemy=1;
 		precisionEnemy=1;
 	};
+};
+activeKeys[]=
+{
+	"BIS_SOM_INFO_HINT_1",
+	"BIS_SOM_INFO_HINT_2"
 };
 sceneComplexity=300000;
 viewDistance=5000;

@@ -329,7 +329,7 @@ r_player_blood = 12000;
 //Blood Regen
 r_player_bloodregen = 0;
 //Blood Gain Per Sec
-r_player_bloodgainpersec = 0;
+r_player_bloodgainpersec = 1;
 //Blood Loss Per Sec
 r_player_bloodlosspersec = 0;
 //Blood Per Sec (gain - loss)
@@ -425,8 +425,8 @@ dayz_maxPlants = 3;
 dayz_animalDistance = 600;
 dayz_plantDistance = 600;
 
-dayz_maxMaxModels = 100; // max quantity of Man models (player or Z, dead or alive) around players. Below this limit we can spawn Z // max quantity of loot piles around players. Below this limit we can spawn some loot
-dayz_spawnArea = 400; // radius around player where we can spawn loot & Z
+dayz_maxMaxModels = 200; // max quantity of Man models (player or Z, dead or alive) around players. Below this limit we can spawn Z // max quantity of loot piles around players. Below this limit we can spawn some loot
+dayz_spawnArea = 1000; // radius around player where we can spawn loot & Z
 dayz_cantseeDist = 150; // distance from which we can spawn a Z in front of any player without ray-tracing and angle checks
 dayz_cantseefov = 70; // half player field-of-view. Visible Z won't be spawned in front of any near players
 dayz_canDelete = 500; // Z, further than this distance from its "owner", will be deleted
@@ -529,8 +529,8 @@ if(!isDedicated) then {
 	dayz_maxGlobalPlants = 20;
 //Loot
 	dayz_currentWeaponHolders = 0;
-	dayz_maxMaxWeaponHolders = 100;	
-	dayz_inVehicle = false;
+	dayz_maxMaxWeaponHolders = 800;	
+	dayz_inVehicle = true;
 	dayzGearSave = false;
 	dayz_unsaved = false;
 	dayz_scaleLight = 0;
