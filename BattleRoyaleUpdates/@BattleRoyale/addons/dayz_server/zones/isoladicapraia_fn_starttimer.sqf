@@ -150,8 +150,8 @@
             br_winner_check = true;
             
             publicVariable "br_winner_check";
-            sleep 30;
-            
+            sleep 60;
+            _result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
             
         };
 		

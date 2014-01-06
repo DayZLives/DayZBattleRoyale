@@ -6,7 +6,7 @@ private ["_map","_waitForConnection","_waitForPlayers","_date1","_key","_result"
 
 _waitForConnection = false;
 while{_waitForConnection} do {
-    _waitForConnection = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [initeXchangeArmATools]");
+    _waitForConnection = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [initeXchangeRestarter]");
 };
 diag_log("BR Tools: Connected.");
 

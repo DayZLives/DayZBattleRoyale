@@ -34,14 +34,12 @@
 				publicVariable "br_winner_check";
 				_txt = format["\n%1 - WINNER, WINNER, CHICKEN DINNER!",_x];
 				[nil, nil, rTitleText, _txt, "PLAIN"] call RE;
-				
-				sleep 3;
+				sleep 60;
+				_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
 			} forEach _winners;
 			
 			WinnerShown = true;
-			sleep 120;
-			//_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
-			diag_log("Restarter: Just making sure!");
+			sleep 1;
 		};
 		sleep 2;
 	};

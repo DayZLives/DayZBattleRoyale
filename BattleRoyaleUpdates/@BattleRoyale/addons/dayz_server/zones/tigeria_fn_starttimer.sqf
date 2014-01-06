@@ -108,7 +108,7 @@
         
         if((_finish_time_minutes == 61) && (_finish_time_seconds < 50)) then
         {
-            [] execVM "\z\addons\dayz_server\zones\isoladicapraia_fn_addmarker.sqf";
+            [] execVM "\z\addons\dayz_server\zones\tigeria_fn_addmarker.sqf";
             sleep 60;
             
         };  
@@ -150,7 +150,8 @@
             br_winner_check = true;
             
             publicVariable "br_winner_check";
-            sleep 30;
+            sleep 60;
+			_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
             
             
         };

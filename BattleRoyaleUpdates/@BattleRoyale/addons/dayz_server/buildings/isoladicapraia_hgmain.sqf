@@ -1,5 +1,42 @@
 if (isServer) then {
 
+
+_vehicle_0 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Leim_bb_emita1", [6425.856, 6218.2017, -7.6293945e-006], [], 0, "CAN_COLLIDE"];
+  _vehicle_0 = _this;
+  _this setDir 29.405907;
+  _this setPos [6425.856, 6218.2017, -7.6293945e-006];
+};
+
+_vehicle_4 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Leim_332bb2", [6471.835, 6824.2607], [], 0, "CAN_COLLIDE"];
+  _vehicle_4 = _this;
+  _this setDir -14.412271;
+  _this setPos [6471.835, 6824.2607];
+};
+
+_vehicle_5 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Leim_bb_burgerthing", [6654.7329, 6544.9316, -3.8146973e-006], [], 0, "CAN_COLLIDE"];
+  _vehicle_5 = _this;
+  _this setDir 53.838676;
+  _this setPos [6654.7329, 6544.9316, -3.8146973e-006];
+};
+
+_vehicle_6 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Leim_bb_emita1", [6944.793, 6662.666], [], 0, "CAN_COLLIDE"];
+  _vehicle_6 = _this;
+  _this setDir 91.239853;
+  _this setPos [6944.793, 6662.666];
+};
+
 _vehicle_2314 = objNull;
 if (true) then
 {

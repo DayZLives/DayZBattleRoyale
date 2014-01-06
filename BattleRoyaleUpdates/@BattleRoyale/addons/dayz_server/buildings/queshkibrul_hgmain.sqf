@@ -408,10 +408,10 @@ if (true) then
 _vehicle_2314 = objNull;
 if (true) then
 {
-  _this = createVehicle ["MAP_Barn_Metal", [4141.6899, 3367.6787, -0.5030185], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["MAP_Barn_Metal", [4141.6899, 3367.6787, 0.5030185], [], 0, "CAN_COLLIDE"];
   _vehicle_2314 = _this;
   _this setDir 89.651421;
-  _this setPos [4141.6899, 3367.6787, -0.5030185];
+  _this setPos [4141.6899, 3367.6787, 0.5030185];
 };
 
 _vehicle_2489 = objNull;
@@ -533,7 +533,7 @@ if (true) then
 _vehicle_2503 = objNull;
 if (true) then
 {
-  _this = createVehicle ["Land_transport_crates_EP1", [4130.7642, 3359.3296, 0.52102786], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["Land_transport_crates_EP1", [4130.7642, 3359.3296, 0.02102786], [], 0, "CAN_COLLIDE"];
   _vehicle_2503 = _this;
   _this setDir -92.816956;
   _this setPos [4130.7642, 3359.3296, 0.52102786];

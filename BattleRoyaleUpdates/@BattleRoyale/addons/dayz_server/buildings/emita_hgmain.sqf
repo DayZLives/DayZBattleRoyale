@@ -408,10 +408,10 @@ if (true) then
 _vehicle_2314 = objNull;
 if (true) then
 {
-  _this = createVehicle ["MAP_Barn_Metal", [2484.4414, 501.18768, 0.630185], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["MAP_Barn_Metal", [2484.4414, 501.18768, 0.530185], [], 0, "CAN_COLLIDE"];
   _vehicle_2314 = _this;
   _this setDir 89.651421;
-  _this setPos [2484.4414, 501.18768, 0.630185];
+  _this setPos [2484.4414, 501.18768, 0.530185];
 };
 
 

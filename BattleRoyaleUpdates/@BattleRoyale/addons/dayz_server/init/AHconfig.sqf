@@ -27,7 +27,7 @@ _NormalLevel_List = _NormalLevel_List + ["4629952"];		// Drumsetjunkie
 _NormalLevel_List = _NormalLevel_List + ["45067334"];		// Sada
 _NormalLevel_List = _NormalLevel_List + ["11294470"];		// Utorck
 _NormalLevel_List = _NormalLevel_List + ["130798598"];	// Johnson
-_NormalLevel_List = _NormalLevel_List + ["72513030"];		// ?
+_NormalLevel_List = _NormalLevel_List + ["72513030"];		// Rocker
 _NormalLevel_List = _NormalLevel_List + ["102773894"];	// Johnson
 _NormalLevel_List = _NormalLevel_List + ["164591110"];	// Blue
 _NormalLevel_List = _NormalLevel_List + ["21295046"];		//	Snipz_
@@ -35,6 +35,8 @@ _NormalLevel_List = _NormalLevel_List + ["11498566"];		//	sherbet
 _NormalLevel_List = _NormalLevel_List + ["8076166"];		//	sacriel
 _NormalLevel_List = _NormalLevel_List + ["127295814"];		//	bicurious
 _NormalLevel_List = _NormalLevel_List + ["72221318"];		//	tac
+_NormalLevel_List = _NormalLevel_List + ["64973126"];		//	cal
+_NormalLevel_List = _NormalLevel_List + ["22106182"];		//	blivion
 /* ********************************************************************************* */
 /* ********************************************************************************* */
 /* ********************************************************************************* */
@@ -43,7 +45,7 @@ _NormalLevel_List = _NormalLevel_List + ["72221318"];		//	tac
 /*  BANNED PLAYER HERE    */ _BLOCKED =         ["0"]; //do not have a , at the end.
 /* ********************************************************************************* */
 /*  Top esc menu TXT      */ _TopOfESC = 'DayZBR'; //do not use ' or " in this text.
-/*  Bottom esc menu TXT   */ _LowerTop = 'One dead, 42 to go!'; //do not use ' or " in this text.
+/*  Bottom esc menu TXT   */ _LowerTop = 'One dead, 41 to go!'; //do not use ' or " in this text.
 /*  Bottom esc menu TXT2  */ _LowerBottom = 'dayzbattleroyale.com'; //do not use ' or " in this text.
 /*  Color esc menu TXT    */ _EscColor = [0.68,0.03,0.17,1];
 /* ********************************************************************************* */
@@ -55,8 +57,8 @@ _NormalLevel_List = _NormalLevel_List + ["72221318"];		//	tac
 /* ********************************************************************************* */
 /*  Use AUTOBAN HACKER    */ _UAB =  true;   /* true or false */	/* recommended:  true */	/* we always used this. */
 /*  Forbid VON Sidechat   */ _VON =  true;   /* true or false */	/* recommended: false */	/* talking on sidechat will put out a warning and kick if continue */
-/*  Use vehicle check?    */ _UVC =  false;   /* true or false */	/* recommended: false */	/* using _ALLOWED_Vehicles and _FORBIDDEN_Vehicles lists */
-/*  Vehicle WHITELIST     */ _UVW =  false;   /* true or false */	/* recommended: false */	/* if false - _ALLOWED_Vehicles won't not be used */
+/*  Use vehicle check?    */ _UVC =  true;   /* true or false */	/* recommended: false */	/* using _ALLOWED_Vehicles and _FORBIDDEN_Vehicles lists */
+/*  Vehicle WHITELIST     */ _UVW =  true;   /* true or false */	/* recommended: false */	/* if false - _ALLOWED_Vehicles won't not be used */
 /* ********************************************************************************* */
 /*  Use FileScan ?        */ _UFS =  true;   /* true or false */	/* recommended:  true */	/* spams the rpt but often finds hackers */
 /*  Use cut-scene ?       */ _UCS = false;   /* true or false */	/* recommended:  true */	/* dynamicText ~ often colored, animated or used in credits */

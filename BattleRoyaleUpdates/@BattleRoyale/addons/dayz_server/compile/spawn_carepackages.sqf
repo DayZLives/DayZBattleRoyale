@@ -42,7 +42,10 @@ _lootTable = ["Military","HeliCrash","MilitarySpecial"] call BIS_fnc_selectRando
 	
 	sleep 2;
 	
-	_pos = [getpos _bam select 0, getpos _bam select 1,0];
+	_pos1 = [getpos _bam select 0, getpos _bam select 1,0];
+	_pos = [_pos1,random 30,random 360,false] call SHK_pos;
+	
+	
 	
 	
 	_smoke = createVehicle ["SmokeShellred",_pos,[],0,"CAN_COLLIDE"];
@@ -59,7 +62,7 @@ _lootTable = ["Military","HeliCrash","MilitarySpecial"] call BIS_fnc_selectRando
 				["MedBox0","object",0.01],
 				["AmmoBoxSmall_556","object",0.07],
 				["AmmoBoxSmall_762","object",0.07],
-				["Camo17_DZ","magazine",0.08],
+				["Camo4_DZ","magazine",0.08],
 				["Skin_Sniper2_DZ","magazine",0.05],
 				["G36C_camo","weapon",0.02],
 				["G36_C_SD_camo","weapon",0.01],
@@ -73,7 +76,7 @@ _lootTable = ["Military","HeliCrash","MilitarySpecial"] call BIS_fnc_selectRando
 				["20Rnd_762x51_FNFAL","magazine",0.03],
 				["SCAR_L_STD_Mk4CQT","weapon",0.02],
 				["Skin_Sniper1_DZ","magazine",0.01],
-				["Camo18_DZ","magazine",0.02],
+				["Camo8_DZ","magazine",0.02],
 				["20rnd_762x51_B_SCAR","magazine",0.02],
 				["10Rnd_9x39_SP5_VSS","magazine",0.01],
 				["RH_Deaglemzb","weapon",0.05],
