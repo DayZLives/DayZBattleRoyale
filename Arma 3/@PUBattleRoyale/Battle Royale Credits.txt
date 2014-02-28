@@ -1,0 +1,63 @@
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 Credits
+________________________________________________________________________________________________________________________________________
+
+
+	Concept by lazyink (Brendan Greene). Based on the book/film Battle Royale.
+
+	Development by lazyink with the help of Jonathan "Pwnoz0r" Rainier, infiSTAR, thevisad, [VB]AWOL and W4rgo.
+
+	BR Tools by eXchangeDev.
+	
+	MV-22 port by Hotshotmike.
+	
+	Parked Cars/Bleeding/Fall scripts by TPW Mods
+
+	Ideas, promotion and mod artwork by lazyink with help from the twitter community.
+	
+	Community Management and player support by OZPAX. <3
+
+	Alpha test server hosting kindly provided by xtream Servers.
+	
+	My thanks also to all the players, streamers and content creators, without whom we would be nothing. <3
+	
+
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.5
+________________________________________________________________________________________________________________________________________
+
+	* Versioning added to bikeys
+	* Civs removed until we write a better system.
+	
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.4
+________________________________________________________________________________________________________________________________________
+
+	* "Civilians killed" counter added. (Thanks to [VB]AWOL @ Epoch)
+	* Paradrop spawn now working. (Thanks to [VB]AWOL @ Epoch)
+	
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.3
+________________________________________________________________________________________________________________________________________
+
+	* Loot system worked on.
+	
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.2
+________________________________________________________________________________________________________________________________________
+
+	* Certain TPW Mods added.
+	* Paradrop spawn added.
+
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.1
+________________________________________________________________________________________________________________________________________
+
+	* Game system implemented on Stratis.
+	
