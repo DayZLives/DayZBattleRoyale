@@ -41,19 +41,19 @@ while{ELAPSED_TIME < END_TIME } do
             while {_duration > 0} do {             
                 _choice = floor(random 3);
                 _bombPos = createVehicle ["Land_HelipadEmpty_F",position _loc,[], _rad, "NONE"];
-                _bombPos setPos [getPos _bombPos select 0, getPos _bombPos select 1, 150];
+                _bombPos setPos [getPos _bombPos select 0, getPos _bombPos select 1, 100];
                 sleep 2;
                 if (_choice == 0) then {
                     createVehicle ["Sh_120mm_HE",position _bombPos,[], 0, "NONE"];
                 };
                 if (_choice == 1) then {
-                    createVehicle ["Sh_120mm_HE",position _bombPos,[], 0, "NONE"];
+                    createVehicle ["BO_GBU12",position _bombPos,[], 0, "NONE"];
                 };
                 if (_choice == 2) then {
-                    createVehicle ["Bo_Mk82",position _bombPos,[], 0, "NONE"];
+                    createVehicle ["Sh_120mm_HE",position _bombPos,[], 0, "NONE"];
                 };
                 if (_choice == 3) then {
-                    createVehicle ["BO_GBU12_LGB",position _bombPos,[], 0, "NONE"];
+                    createVehicle ["BO_GBU12",position _bombPos,[], 0, "NONE"];
                 };
                 _duration = _duration - 1;
                 sleep (random 2);

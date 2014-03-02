@@ -1,21 +1,24 @@
 respawn = "BASE";
 respawndelay = 12;
 onLoadMission= "PLAYERUNKNOWN's Battle Royale";
+OnLoadName = "Battle Royale: Stratis";
 OnLoadIntro = "One Dead. 41 To Go.";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;
 disabledAI = 1;
 disableChannels[] = {0,1,2,3,6};
-enableItemsDropping = 1;
+enableItemsDropping = 0;
 onPauseScript = "";
+author = "PLAYERUNKNOWN";
 briefing = 0;
 debriefing = 0;
+joinUnassigned = 0;
 
-loadScreen = "br_code\screen\br_loadscreen.paa";
+loadScreen = "\br_code\screen\br_loadscreen.paa";
 
 class Header
 {
-	gameType = DM;			//DM, Team, Coop, ...
+	gameType = DM;				//DM, Team, Coop, ...
 	minPlayers = 1;				//Min # of players the mission supports
 	maxPlayers = 43;			//Max # of players the mission supports
 };

@@ -5,11 +5,13 @@ class Mission
 	{
 		"A3_Characters_F_BLUFOR",
 		"A3_Characters_F_Civil",
+		"br_code",
 		"a3_map_stratis"
 	};
 	addOnsAuto[]=
 	{	
 		"A3_Characters_F_BLUFOR",
+		"br_code",
 		"A3_Characters_F_Civil",
 		"a3_map_stratis"
 	};
@@ -49,7 +51,7 @@ class Mission
 					id=0;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item1
@@ -58,7 +60,7 @@ class Mission
 					id=1;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item2
@@ -67,7 +69,7 @@ class Mission
 					id=2;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item3
@@ -76,7 +78,7 @@ class Mission
 					id=3;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item4
@@ -85,7 +87,7 @@ class Mission
 					id=4;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item5
@@ -94,7 +96,7 @@ class Mission
 					id=5;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item6
@@ -103,7 +105,7 @@ class Mission
 					id=6;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item7
@@ -112,7 +114,7 @@ class Mission
 					id=7;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item8
@@ -121,7 +123,7 @@ class Mission
 					id=8;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item9
@@ -130,7 +132,7 @@ class Mission
 					id=9;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item10
@@ -139,7 +141,7 @@ class Mission
 					id=10;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item11
@@ -148,7 +150,7 @@ class Mission
 					id=11;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item12
@@ -157,7 +159,7 @@ class Mission
 					id=12;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item13
@@ -166,7 +168,7 @@ class Mission
 					id=13;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item14
@@ -175,7 +177,7 @@ class Mission
 					id=14;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item15
@@ -184,7 +186,7 @@ class Mission
 					id=15;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item16
@@ -193,7 +195,7 @@ class Mission
 					id=16;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item17
@@ -202,7 +204,7 @@ class Mission
 					id=17;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item18
@@ -211,7 +213,7 @@ class Mission
 					id=18;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item19
@@ -220,7 +222,7 @@ class Mission
 					id=19;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item20
@@ -229,7 +231,7 @@ class Mission
 					id=20;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item21
@@ -238,7 +240,7 @@ class Mission
 					id=21;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item22
@@ -247,7 +249,7 @@ class Mission
 					id=22;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item23
@@ -256,7 +258,7 @@ class Mission
 					id=23;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item24
@@ -265,7 +267,7 @@ class Mission
 					id=24;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item25
@@ -274,7 +276,7 @@ class Mission
 					id=25;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item26
@@ -283,7 +285,7 @@ class Mission
 					id=26;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item27
@@ -292,7 +294,7 @@ class Mission
 					id=27;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item28
@@ -301,7 +303,7 @@ class Mission
 					id=28;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item29
@@ -310,7 +312,7 @@ class Mission
 					id=29;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item30
@@ -319,7 +321,7 @@ class Mission
 					id=30;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item31
@@ -328,7 +330,7 @@ class Mission
 					id=31;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item32
@@ -337,7 +339,7 @@ class Mission
 					id=32;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item33
@@ -346,7 +348,7 @@ class Mission
 					id=33;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item34
@@ -355,7 +357,7 @@ class Mission
 					id=34;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item35
@@ -364,7 +366,7 @@ class Mission
 					id=35;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item36
@@ -373,7 +375,7 @@ class Mission
 					id=36;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item37
@@ -382,7 +384,7 @@ class Mission
 					id=37;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item38
@@ -391,7 +393,7 @@ class Mission
 					id=38;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item39
@@ -400,7 +402,7 @@ class Mission
 					id=39;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item40
@@ -409,7 +411,7 @@ class Mission
 					id=40;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item41
@@ -418,7 +420,7 @@ class Mission
 					id=41;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 
 				class Item42
@@ -427,7 +429,7 @@ class Mission
 					id=42;
 					side="GUER";
 					vehicle="C_man_w_worker_F";
-					player="PLAY CDG";skill=0.60000002;init="[this] execVM""br_code\scripts\silence.sqf"";";
+					player="PLAY CDG";skill=0.60000002;
 				};
 			};
 		};

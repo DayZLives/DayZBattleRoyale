@@ -19,8 +19,16 @@
             [["WELCOME TO BATTLE ROYALE: STRATIS",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
 
             sleep 5;
-            [["USE THE SCROLL MENU TO OPEN YOUR CHUTE. MIDDLE CLICK TO ACTION!",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            [["FIRST THING...",0,0.7,2,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 2;
+            [["DON'T PANIC!",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
 
+            sleep 5;
+            [["USE THE SCROLL MENU TO OPEN YOUR CHUTE. MIDDLE CLICK OR SPACEBAR TO ACTION",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 5;
+            [["WATCH YOUR LANDING SPEED",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 5;
+            [["HOLDING S BEFORE YOU LAND WILL SLOW YOU DOWN",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
             sleep 5;
 
 			[["TEN!",0,0.7,1,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
@@ -54,9 +62,6 @@
             sleep 1; 
             
             [["GOOD LUCK, AND HAVE FUN!",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 10; 
-            
-            [["DON'T FORGET TO OPEN YOUR PARACHUTE!",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
            			
             sleep 60;
             

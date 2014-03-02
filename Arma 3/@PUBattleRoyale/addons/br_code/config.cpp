@@ -12,10 +12,10 @@ class CfgMods
 	{
 		dir = "PUBattleRoyale";
 		name = "Arma 3: Battle Royale Alpha";
-		picture = "br_code\screen\mod.paa";
+		picture = "\br_code\screen\mod.paa";
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzbattleroyale.com";
-		version = "0.0.5";
+		version = "0.0.7";
 	};
 };

@@ -46,6 +46,9 @@ tpw_park_habitable = [ // Habitable houses with white walls, red roofs, intact d
 "Land_i_House_Big_02_V1_F",
 "Land_i_House_Big_02_V2_F",
 "Land_i_House_Big_02_V3_F",
+"Land_Research_HQ_F",
+"Land_Research_house_V1_F",
+"Land_Cargo_Tower_V1_F",
 "Land_House_L_1_EP1", // Spliffz edit for OA 
 "Land_House_L_3_EP1",
 "Land_House_L_4_EP1",

@@ -2,7 +2,7 @@
 
 private ["_continue","_numPlayers","_timeCount","_numberOfPlayersToStart","_maxPlayers","_result"];
 _continue = true;
-_numberOfPlayersToStart = 8;
+_numberOfPlayersToStart = 1;
 _maxPlayers = 42;
 
 
