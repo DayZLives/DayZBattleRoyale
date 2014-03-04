@@ -24,7 +24,7 @@ while {true} do {
         
 		["YOU ARE OUTSIDE THE PLAY AREA. YOU HAVE 30 SECONDS TO RETURN!",0,0.7,10,0] spawn bis_fnc_dynamictext;
 		sleep 5;
-        ["IF YOU ARE IN A VEHICLE, THE ENGINE WILL BLOW!!",0,0.7,10,0] spawn bis_fnc_dynamictext;
+        ["IF YOU ARE IN A VEHICLE, IT WILL EXPLODE!",0,0.7,10,0] spawn bis_fnc_dynamictext;
 		sleep 5;
         ["YOU WILL ALSO TAKE DAMAGE FOR EVERY 20 SECONDS YOU REMAIN OUTSIDE!",0,0.7,10,0] spawn bis_fnc_dynamictext;
         sleep 30;
@@ -35,6 +35,8 @@ while {true} do {
 			["YOU ARE STILL OUTSIDE THE PLAY AREA! MOVE BACK INSIDE NOW!",0,0.7,10,0] spawn bis_fnc_dynamictext;                        
 			_damage = getDammage player;
 			player setDammage (_damage + _punishDamage);
+			(vehicle player) setHitPointDamage ["hitEngine2", 1.0];
+			(vehicle player) setHitPointDamage ["hitFuel", 1.0];
 			sleep 20;
 			
 			

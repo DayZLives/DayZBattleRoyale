@@ -97,18 +97,29 @@
             [["THE RANDOM CARPET BOMBING HAS STARTED! TARGET ZONES ARE MARKED IN RED ON THE MAP!",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
         };  
         
-        if((_finish_time_minutes == 46) && (_finish_time_seconds < 50)) then
+        if((_finish_time_minutes == 51) && (_finish_time_seconds < 50)) then
         {
-            [] execVM "\br_server\zones\fn_addmarker.sqf";
+				
+				if (br_totalplayers >= 11) then {
+				
+					[] execVM "\br_server\zones\fn_addmarker.sqf";
+				
+				} else {
+				
+					[] execVM "\br_server\zones\fn_addmarkerShort.sqf";
+				
+				};
+				
             sleep 60;
             
         };  
         
         
-        if((_finish_time_minutes == 1) && (_finish_time_seconds < 1)) then
+        if((_finish_time_minutes == 1) && (_finish_time_seconds < 10)) then
         {                  
             
-            [["1 MINUTE! NO GUTS, NO GLORY!",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;                
+            [["1 MINUTE! NO GUTS, NO GLORY!",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;    
+			sleep 10;
         };
         
         if((_finish_time_minutes == 0) && (_finish_time_seconds < 1)) then {
