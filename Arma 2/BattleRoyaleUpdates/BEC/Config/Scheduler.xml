@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+
+
+<Scheduler>
+
+	<!-- Schedular to be shown all days in the week. -->
+	<!-- show text ingame every 20 min -->
+	<job id="0">
+		<time>003000</time>
+		<delay>000000</delay>
+		<day>1,2,3,4,5,6,7</day>
+		<loop>1</loop> 
+		<cmd>say -1 Players, follow @DayZBRGames on Twitter for the latest updates.</cmd>	
+		<cmdtype>0</cmdtype>
+	</job>
+	<job id="1">
+		<time>013200</time>
+		<delay>000000</delay>
+		<day>1,2,3,4,5,6,7</day>
+		<loop>0</loop> 
+		<cmd>#shutdown</cmd>	
+		<cmdtype>0</cmdtype>
+	</job>
+</Scheduler>
+
+
