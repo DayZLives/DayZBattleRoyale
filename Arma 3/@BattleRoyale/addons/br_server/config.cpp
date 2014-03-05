@@ -6,3 +6,5 @@ class CfgPatches {
 		requiredAddons[] = {};
 	};
 };
+
+#include "\br_server\loot\BR_LootPos.hpp";
