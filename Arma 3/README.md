@@ -6,7 +6,7 @@ ________________________________________________________________________________
 
 	Concept by lazyink (Brendan Greene). Based on the book/film Battle Royale.
 
-	Development by lazyink with the help of Jonathan "Pwnoz0r" Rainier, infiSTAR, thevisad, [VB]AWOL and W4rgo.
+	Development by lazyink and [VB]AWOL.
 
 	BR Tools by eXchangeDev.
 	
@@ -20,6 +20,13 @@ ________________________________________________________________________________
 	
 	My thanks also to all the players, streamers and content creators, without whom we would be nothing. <3
 	
+
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.9
+________________________________________________________________________________________________________________________________________
+
+	* New loot system. All loot will now spawn at server start.
 
 ________________________________________________________________________________________________________________________________________
 
