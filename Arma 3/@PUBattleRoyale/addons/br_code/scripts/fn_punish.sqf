@@ -15,7 +15,7 @@ while {true} do {
     _finishPos = getMarkerPos "playArea";
     _zone = zoneSize;
     _isPlayerOutside = player distance _finishPos > _zone;
-	_punishDamage = 0.05;
+	_punishDamage = 0.06;
 	    
     //If the player is outside then warn him
     if(_isPlayerOutside) then {
