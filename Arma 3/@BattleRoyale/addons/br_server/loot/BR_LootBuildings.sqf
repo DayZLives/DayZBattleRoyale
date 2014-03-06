@@ -12,7 +12,7 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 	
 	_config = configFile >> "CfgBuildingLootPos" >> _type;
 
-	_ok = isClass (_class);
+	_ok = isClass (_config);
 	
 	if(_ok) then {
 	
