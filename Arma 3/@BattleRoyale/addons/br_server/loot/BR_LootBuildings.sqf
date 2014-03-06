@@ -101,14 +101,12 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 					};
 					case "magazine": {
 
-						_numLoot = ((random 3) + 1);
 						_item addMagazineCargoGlobal [_loot,_numLoot];
 						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
 			
 					};
 					case "item": {
 						
-						_numLoot = ((random 3) + 1);
 						_item addItemCargoGlobal [_loot,_numLoot];
 						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
 			
