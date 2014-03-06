@@ -8,3 +8,4 @@ class CfgPatches {
 };
 
 #include "\br_server\loot\BR_LootPos.hpp";
+#include "\br_server\loot\BR_lootList.hpp";
