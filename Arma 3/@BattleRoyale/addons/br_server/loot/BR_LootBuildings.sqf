@@ -75,25 +75,15 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 			// get world position from model offset
 			_lootPosition = _obj modelToWorld _x;
 
-			if (_randomType == "object") then {
 
-				_item = createVehicle [_loot, _lootPosition, [], 0, "CAN_COLLIDE"];
+			// create weapon holder
+			_item = createVehicle ["groundWeaponHolder", _lootPosition, [], 0, "CAN_COLLIDE"];
 
-				// set position
-				_item setPos _lootPosition;
+			// set position
+			_item setPos _lootPosition;
 
-				_spawnedObjectLimit = _spawnedObjectLimit + 1;
-
-			} else {
-
-				// create weapon holder
-				_item = createVehicle ["groundWeaponHolder", _lootPosition, [], 0, "CAN_COLLIDE"];
-
-				// set position
-				_item setPos _lootPosition;
-
-				// add item to WH
-				switch (_randomType) do 
+			// add item to WH
+			switch (_randomType) do 
 				{
 					case "weapon": {
 						_item addWeaponCargoGlobal [_loot,_numLoot];
@@ -112,8 +102,16 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 			
 					};
 					case "backpack": {
+					
 						_item addBackpackCargoGlobal [_loot,_numLoot];
 						_spawnedBackpackLimit = _spawnedBackpackLimit + _numLoot;
+						
+					};
+					case "object": {
+						
+						_item addItemCargoGlobal [_loot,_numLoot];
+						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
+			
 					};
 				};
 			};		
