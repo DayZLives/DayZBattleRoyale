@@ -136,7 +136,6 @@ class CfgBuildingLootList {
 			"APERSBoundingMine_Range_Mag",
 			"APERSMine_Range_Mag",
 			"APERSTripMine_Wire_Mag",
-			"ATMine_Range_Mag",
 			"ClaymoreDirectionalMine_Remote_Mag",
 			"HandGrenade",
 			"MiniGrenade",
@@ -178,7 +177,6 @@ class CfgBuildingLootList {
 			"H_Hat_brown",
 			"H_Hat_checker",
 			"H_Hat_grey",
-			"I_UavTerminal",
 			"muzzle_snds_acp", 					// .45 ACP
 			"muzzle_snds_L", 					// 9mm
 			"optic_Aco",
@@ -202,14 +200,12 @@ class CfgBuildingLootList {
 			"ItemWatch",
 			"acc_flashlight",
 			"acc_pointer_IR",
-			"B_UavTerminal",
 			"FirstAidKit",
 			"H_HelmetB_camo",
 			"H_HelmetB_paint",
 			"H_HelmetIA_net",
 			"H_HelmetSpecB_blk",
 			"H_PilotHelmetFighter_I",
-			"I_UavTerminal",
 			"Medikit",
 			"muzzle_snds_acp", 					// .45 ACP
 			"muzzle_snds_B", 					// 7.62mm
@@ -227,7 +223,6 @@ class CfgBuildingLootList {
 			"optic_Nightstalker",
 			"optic_NVS",
 			"optic_SOS",
-			"O_UavTerminal",
 			"ToolKit",
 			"U_B_CombatUniform_mcam",
 			"U_B_GhillieSuit",
@@ -266,12 +261,9 @@ class CfgBuildingLootList {
 			"V_RebreatherB",
 			"V_RebreatherIA",
 			"V_RebreatherIR",
-			"B_UavTerminal",
 			"FirstAidKit",
 			"FirstAidKit",
 			"FirstAidKit",
-			"ItemGPS",
-			"I_UavTerminal",
 			"Medikit",
 			"H_Booniehat_dirty",
 			"H_Hat_brown",
@@ -292,8 +284,7 @@ class CfgBuildingLootList {
 			"optic_Holosight_smg",
 			"optic_Nightstalker",
 			"optic_NVS",
-			"optic_SOS",
-			"O_UavTerminal"
+			"optic_SOS"
 		};
 	};
 
@@ -312,53 +303,28 @@ class CfgBuildingLootList {
 			"B_Bergen_mcamo",					// 54 Mags
 			"B_HuntingBackpack",				// 32 Mags
 			"B_OutdoorPack_blu",				// 17 Mags
-			"B_UAV_01_backpack_F",
-			"I_UAV_01_backpack_F",
 			"B_BergenG",						// 64 Mags
 			"B_BergenC_red",
 			"B_Carryall_cbr",					// 60 Mags
-			"B_GMG_01_high_weapon_F",
-			"B_GMG_01_weapon_F",
-			"B_HMG_01_support_F",
-			"B_HMG_01_support_high_F",
-			"B_HMG_01_weapon_F",
-			"B_Mortar_01_support_F",
-			"B_Mortar_01_weapon_F",
 			"B_Kitbag_cbr",						// ? Mags
 			"B_Kitbag_mcamo",
 			"B_Kitbag_mcamo_Eng",
 			"B_Kitbag_rgr_Exp",
 			"B_Kitbag_sgg",
-			"B_UAV_01_backpack_F",
-			"I_UAV_01_backpack_F",
-			"O_UAV_01_backpack_F",
 			"B_Bergen_sgg",
 			"B_Carryall_cbr",					// 60 Mags
-			"B_HMG_01_support_F",
-			"B_HMG_01_support_high_F",
-			"B_HMG_01_weapon_F",
 			"B_TacticalPack_blk",				// 42 Mags
 			"B_TacticalPack_mcamo",
 			"B_TacticalPack_ocamo",
 			"B_TacticalPack_oli",
 			"B_TacticalPack_rgr",
-			"B_UAV_01_backpack_F",
-			"I_UAV_01_backpack_F",
-			"O_UAV_01_backpack_F",
 			"B_BergenG",						// 64 Mags
 			"B_Bergen_mcamo",
 			"B_Carryall_cbr",					// 60 Mags
 			"B_FieldPack_blk",					// 35 Mags
 			"B_FieldPack_ocamo",
 			"B_FieldPack_oli",
-			"B_FieldPack_oucamo",
-			"B_GMG_01_high_weapon_F",
-			"B_GMG_01_weapon_F",
-			"B_HMG_01_support_F",
-			"B_HMG_01_support_high_F",
-			"B_HMG_01_weapon_F",
-			"B_Mortar_01_support_F",
-			"B_Mortar_01_weapon_F"
+			"B_FieldPack_oucamo"
 		};
 	};
 
@@ -367,11 +333,8 @@ class CfgBuildingLootList {
 		items[] = {
 			"Land_Basket_F", 					// food
 			"Land_CanisterPlastic_F",			// water
-			"Land_CanisterFuel_F",				// jerrycan
-			"Land_Can_V3_F", 					// energydrink
-			"Land_Suitcase_F"					// repairkit
-			"Land_CanisterFuel_F",				// jerrycan
-			"Land_CanisterOil_F", 				// syphon hose
+			"Land_Can_V3_F", 					// energydrink	
+
 		};
 	};
 
