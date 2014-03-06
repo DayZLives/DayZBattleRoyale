@@ -110,11 +110,11 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 					case "object": {
 						
 						_item addItemCargoGlobal [_loot,_numLoot];
-						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
+						_spawnedObjectLimit = _spawnedObjectLimit + _numLoot;
 			
 					};
 				};
-			};		
+			
 		} forEach _positions;
 	};
 } forEach _buildingList;
