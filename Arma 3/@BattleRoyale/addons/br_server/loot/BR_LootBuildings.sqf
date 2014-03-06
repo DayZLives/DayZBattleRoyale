@@ -86,17 +86,28 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 			switch (_randomType) do 
 				{
 					case "weapon": {
+					
 						_item addWeaponCargoGlobal [_loot,_numLoot];
 						_spawnedWeaponLimit = _spawnedWeaponLimit + _numLoot;
+						
 					};
 					case "magazine": {
-
+						
+						_item addMagazineCargoGlobal [_loot,_numLoot];
+						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
+						_loot = _loots select floor(random(_lootsCount));
+						_item addMagazineCargoGlobal [_loot,_numLoot];
+						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
+						_loot = _loots select floor(random(_lootsCount));
 						_item addMagazineCargoGlobal [_loot,_numLoot];
 						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
 			
 					};
 					case "item": {
 						
+						_item addItemCargoGlobal [_loot,_numLoot];
+						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
+						_loot = _loots select floor(random(_lootsCount));
 						_item addItemCargoGlobal [_loot,_numLoot];
 						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
 			
@@ -109,6 +120,9 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 					};
 					case "object": {
 						
+						_item addItemCargoGlobal [_loot,_numLoot];
+						_spawnedObjectLimit = _spawnedObjectLimit + _numLoot;
+						_loot = _loots select floor(random(_lootsCount));
 						_item addItemCargoGlobal [_loot,_numLoot];
 						_spawnedObjectLimit = _spawnedObjectLimit + _numLoot;
 			
