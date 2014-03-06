@@ -34,9 +34,9 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 		_spawnedBackpackLimit = 0;
 		_spawnedObjectLimit = 0;
 
-		_numLoot = 1;
-
 		{
+
+			_numLoot = 1;
 
 			if (_spawnedWeaponLimit >= _weaponLimit) then {
 				_types = _types - ["weapon"];
