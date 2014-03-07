@@ -156,7 +156,6 @@ class CfgBuildingLootList {
 			"optic_Aco",
 			"optic_ACO_grn",
 			"optic_aco_smg",
-			"optic_Arco",
 			"optic_Hamr",
 			"optic_Holosight",
 			"optic_Holosight_smg",
@@ -166,8 +165,7 @@ class CfgBuildingLootList {
 			"H_HelmetIA_net",
 			"H_HelmetSpecB_blk",
 			"H_PilotHelmetFighter_I",
-			"optic_NVS",
-			"optic_SOS"
+			"optic_NVS"
 		};
 	};
 
@@ -182,28 +180,17 @@ class CfgBuildingLootList {
 			"B_AssaultPack_ocamo",
 			"B_AssaultPack_rgr",
 			"B_AssaultPack_sgg",
-			"B_BergenC_red",					// 50 Mags
-			"B_Bergen_mcamo",					// 54 Mags
 			"B_HuntingBackpack",				// 32 Mags
 			"B_OutdoorPack_blu",				// 17 Mags
-			"B_BergenG",						// 64 Mags
-			"B_BergenC_red",
-			"B_Carryall_cbr",					// 60 Mags
 			"B_Kitbag_cbr",						// ? Mags
 			"B_Kitbag_mcamo",
 			"B_Kitbag_mcamo_Eng",
 			"B_Kitbag_rgr_Exp",
 			"B_Kitbag_sgg",
 			"B_Bergen_sgg",
-			"B_Carryall_cbr",					// 60 Mags
 			"B_TacticalPack_blk",				// 42 Mags
-			"B_TacticalPack_mcamo",
-			"B_TacticalPack_ocamo",
 			"B_TacticalPack_oli",
 			"B_TacticalPack_rgr",
-			"B_BergenG",						// 64 Mags
-			"B_Bergen_mcamo",
-			"B_Carryall_cbr",					// 60 Mags
 			"B_FieldPack_blk",					// 35 Mags
 			"B_FieldPack_ocamo",
 			"B_FieldPack_oli",
@@ -211,7 +198,7 @@ class CfgBuildingLootList {
 		};
 	};
 
-	class Object {
+	class Uniform {
 	
 		items[] = {
 			"U_B_Wetsuit",
@@ -302,18 +289,12 @@ class CfgCarePackageLootList {
 			"muzzle_snds_H_MG", 				// 6.5mm LMG
 			"muzzle_snds_L", 					// 9mm
 			"muzzle_snds_M", 					// 5.56mm
-			"optic_Aco",
-			"optic_ACO_grn",
 			"optic_aco_smg",
 			"optic_Arco",
 			"optic_Hamr",
 			"Medikit",
-			"optic_Holosight",
-			"optic_Holosight_smg",
 			"optic_Nightstalker",
 			"Medikit",
-			"Medikit",
-			"optic_NVS",
 			"optic_SOS"
 		};
 	};
@@ -328,13 +309,11 @@ class CfgCarePackageLootList {
 			"B_Carryall_cbr",					// 60 Mags
 			"B_TacticalPack_mcamo",
 			"B_TacticalPack_ocamo",
-			"B_BergenG",						// 64 Mags
-			"B_Bergen_mcamo",
 			"B_Carryall_cbr",					// 60 Mags
 		};
 	};
 
-	class Object {
+	class Uniform {
 	
 		items[] = {
 			"U_B_CombatUniform_mcam",
