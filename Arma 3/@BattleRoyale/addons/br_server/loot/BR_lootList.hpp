@@ -16,7 +16,6 @@ class CfgBuildingLootList {
 			"hgun_Pistol_heavy_01_F",
 			"SMG_01_F",
 			"SMG_02_F",
-			"srifle_EBR_F",
 			"arifle_Katiba_C_F",
 			"arifle_Katiba_F",
 			"arifle_Mk20C_F",
@@ -35,15 +34,9 @@ class CfgBuildingLootList {
 			"hgun_Rook40_snds_F",
 			"hgun_Pistol_heavy_02_F",
 			"hgun_Pistol_heavy_01_F",
-			"srifle_DMR_01_F",
-			"LMG_Mk200_F",
-			"LMG_Zafir_F",
 			"Rangefinder",
 			"SMG_01_F",
 			"SMG_02_F",
-			"srifle_EBR_F",
-			"srifle_GM6_F",
-			"srifle_LRR_F",
 			"arifle_Katiba_C_F",
 			"arifle_Mk20C_F",
 			"arifle_Mk20_F",
@@ -68,9 +61,7 @@ class CfgBuildingLootList {
 			"hgun_PDW2000_F",
 			"hgun_Rook40_snds_F",
 			"hgun_Pistol_heavy_02_F",
-			"hgun_Pistol_heavy_01_F",
-			"srifle_GM6_F",
-			"srifle_LRR_F"
+			"hgun_Pistol_heavy_01_F"
 		};
 	};
 	class Magazine {
@@ -203,8 +194,6 @@ class CfgBuildingLootList {
 		items[] = {
 			"U_B_Wetsuit",
 			"U_I_CombatUniform",
-			"U_I_Wetsuit",
-			"U_O_Wetsuit",
 			"V_Chestrig_blk",
 			"V_HarnessO_brn",
 			"V_PlateCarrier1_blk",
@@ -212,6 +201,7 @@ class CfgBuildingLootList {
 			"V_PlateCarrier3_rgr",
 			"V_PlateCarrierSpec_rgr",
 			"V_BandollierB_blk",
+			"U_I_GhillieSuit",
 			"V_TacVestCamo_khk",
 			"U_I_GhillieSuit",
 			"V_TacVestIR_blk",
@@ -219,11 +209,7 @@ class CfgBuildingLootList {
 			"V_TacVest_brn",
 			"U_B_Wetsuit",
 			"U_I_Wetsuit",
-			"U_O_Wetsuit",
-			"V_RebreatherB",
-			"V_RebreatherIA",
-			"V_RebreatherIR"
-
+			"U_O_Wetsuit"
 		};
 	};
 
@@ -238,9 +224,6 @@ class CfgCarePackageLootList {
 			"hgun_Rook40_F",
 			"hgun_Pistol_heavy_02_F",
 			"hgun_Pistol_heavy_01_F",
-			"SMG_01_F",
-			"SMG_02_F",
-			"srifle_EBR_F",
 			"arifle_TRG20_F",
 			"arifle_TRG21_F",
 			"Binocular",
@@ -248,8 +231,6 @@ class CfgCarePackageLootList {
 			"LMG_Mk200_F",
 			"LMG_Zafir_F",
 			"srifle_EBR_F",
-			"srifle_GM6_F",
-			"srifle_LRR_F",
 			"Rangefinder",
 			"hgun_ACPC2_snds_F",
 			"hgun_P07_snds_F",
@@ -334,9 +315,6 @@ class CfgCarePackageLootList {
 			"V_TacVest_camo",
 			"V_TacVest_khk",
 			"V_TacVest_oli",
-			"U_B_Wetsuit",
-			"U_I_Wetsuit",
-			"U_O_Wetsuit",
 			"V_RebreatherB",
 			"V_RebreatherIA",
 			"V_RebreatherIR"
