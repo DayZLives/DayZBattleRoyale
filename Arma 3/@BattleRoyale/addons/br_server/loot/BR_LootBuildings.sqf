@@ -73,10 +73,9 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 
 				if (_itemType == "Magazine") then {
 					_numLootLoop = (round(random 2)) + 1;
-					_numLoot = (round(random 2)) + 1;
 				};
 				if (_itemType == "Item") then {
-					_numLootLoop = (round(random 2)) + 1; 
+					_numLootLoop = (round(random 2)) + 1;
 				};
 
 				for "_z" from 1 to _numLootLoop do {
@@ -87,11 +86,11 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 						case "Weapon": {
 							_item addWeaponCargoGlobal [_loot,_numLoot];
 							// add a few random mags
-							_mags = configFile >> "CfgWeapons" >> _loot >> "magazines";
+							_mags = getArray( configFile >> "CfgWeapons" >> _loot >> "magazines");
 							_magsCount = count _mags;
 							if (_magsCount > 0) then {
 								_mag = _mags select floor(random(_magsCount));
-								_item addMagazineCargoGlobal [_mag,(round(random 2)) + 1)];
+								_item addMagazineCargoGlobal [_mag,(round(random 2)) + 1];
 							};
 						};
 						case "Magazine": {
