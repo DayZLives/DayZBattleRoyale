@@ -4,17 +4,6 @@ class CfgBuildingLootList {
 			
 		itemType = "Weapon";
 		items[] = {
-			"arifle_MK20C_F",
-			"arifle_MK20_F",
-			"arifle_TRG20_F",
-			"arifle_TRG21_F",
-			"Binocular",
-			"hgun_ACPC2_F",
-			"hgun_P07_F",
-			"hgun_PDW2000_F",
-			"hgun_Rook40_F",
-			"hgun_Pistol_heavy_02_F",
-			"hgun_Pistol_heavy_01_F",
 			"SMG_01_F",
 			"SMG_02_F",
 			"arifle_Katiba_C_F",
@@ -28,7 +17,6 @@ class CfgBuildingLootList {
 			"arifle_SDAR_F",
 			"arifle_TRG20_F",
 			"arifle_TRG21_F",
-			"Binocular",
 			"hgun_ACPC2_snds_F",
 			"hgun_P07_snds_F",
 			"hgun_PDW2000_F",
@@ -36,33 +24,7 @@ class CfgBuildingLootList {
 			"hgun_Pistol_heavy_02_F",
 			"hgun_Pistol_heavy_01_F",
 			"Rangefinder",
-			"SMG_01_F",
-			"SMG_02_F",
-			"arifle_Katiba_C_F",
-			"arifle_Mk20C_F",
-			"arifle_Mk20_F",
-			"arifle_MXC_F",
-			"arifle_SDAR_F",
-			"arifle_TRG20_F",
-			"arifle_TRG21_F",
-			"Binocular",
-			"SMG_01_F",
-			"SMG_02_F",
-			"arifle_Katiba_C_F",
-			"arifle_Mk20C_F",
-			"arifle_Mk20_F",
-			"arifle_SDAR_F",
-			"arifle_TRG20_F",
-			"arifle_TRG21_F",
-			"arifle_MXC_F",
-			"arifle_MXM_F",
-			"Rangefinder",
-			"hgun_ACPC2_snds_F",
-			"hgun_P07_snds_F",
-			"hgun_PDW2000_F",
-			"hgun_Rook40_snds_F",
-			"hgun_Pistol_heavy_02_F",
-			"hgun_Pistol_heavy_01_F"
+			"Binocular"
 		};
 	};
 	class Magazine {
@@ -82,15 +44,8 @@ class CfgBuildingLootList {
 			"100Rnd_65x39_caseless_mag_Tracer",
 			"150Rnd_762x51_Box",
 			"150Rnd_762x51_Box_Tracer",
-			"16Rnd_9x21_Mag",
 			"200Rnd_65x39_cased_Box",
 			"200Rnd_65x39_cased_Box_Tracer",
-			"20Rnd_556x45_UW_mag",
-			"20Rnd_762x51_Mag",
-			"30Rnd_45ACP_Mag_SMG_01",
-			"11Rnd_45ACP_Mag",
-			"6Rnd_45ACP_Cylinder",
-			"30Rnd_556x45_Stanag",
 			"30Rnd_556x45_Stanag_Tracer_Green",
 			"30Rnd_556x45_Stanag_Tracer_Red",
 			"30Rnd_556x45_Stanag_Tracer_Yellow",
@@ -98,27 +53,8 @@ class CfgBuildingLootList {
 			"30Rnd_65x39_caseless_green_mag_Tracer",
 			"30Rnd_65x39_caseless_mag",
 			"30Rnd_65x39_caseless_mag_Tracer",
-			"30Rnd_9x21_Mag",
 			"5Rnd_127x108_Mag",
-			"7Rnd_408_Mag",
-			"9Rnd_45ACP_Mag",
 			"APERSTripMine_Wire_Mag",
-			"20Rnd_556x45_UW_mag",
-			"30Rnd_45ACP_Mag_SMG_01",
-			"30Rnd_556x45_Stanag",
-			"30Rnd_556x45_Stanag_Tracer_Green",
-			"30Rnd_556x45_Stanag_Tracer_Red",
-			"30Rnd_556x45_Stanag_Tracer_Yellow",
-			"30Rnd_65x39_caseless_green",
-			"30Rnd_65x39_caseless_green_mag_Tracer",
-			"30Rnd_65x39_caseless_mag",
-			"30Rnd_65x39_caseless_mag_Tracer",
-			"30Rnd_9x21_Mag",
-			"30Rnd_556x45_Stanag",
-			"30Rnd_556x45_Stanag",
-			"30Rnd_65x39_caseless_green",
-			"30Rnd_65x39_caseless_green",
-			"5Rnd_127x108_Mag",
 			"7Rnd_408_Mag"
 		};
 	};
@@ -131,16 +67,7 @@ class CfgBuildingLootList {
 			"MiniGrenade",
 			"acc_flashlight",
 			"FirstAidKit",
-			"FirstAidKit",
-			"FirstAidKit",
-			"muzzle_snds_acp", 					// .45 ACP
-			"muzzle_snds_L", 					// 9mm
-			"acc_flashlight",
 			"acc_pointer_IR",
-			"FirstAidKit",
-			"Medikit",
-			"FirstAidKit",
-			"FirstAidKit",
 			"muzzle_snds_acp", 					// .45 ACP
 			"muzzle_snds_B", 					// 7.62mm
 			"muzzle_snds_H", 					// 6.5mm
@@ -151,6 +78,8 @@ class CfgBuildingLootList {
 			"optic_ACO_grn",
 			"optic_aco_smg",
 			"optic_Hamr",
+			"optic_Yorris",
+			"optic_MRD",
 			"optic_Holosight",
 			"optic_MRCO",
 			"optic_Holosight_smg",
@@ -166,9 +95,15 @@ class CfgBuildingLootList {
 			"H_Shemag_olive_hs",
 			"H_HelmetB_paint",
 			"H_HelmetIA_net",
+			"H_TurbanO_blk",
+			"H_Hat_camo",
+			"H_StrawHat",
+			"H_BandMask_demon",
 			"H_HelmetSpecB_blk",
-			"H_PilotHelmetFighter_I",
-			"optic_NVS"
+			"H_HelmetSpecB_paint2",
+			"H_Booniehat_tan",
+			"H_HelmetCrew_I",
+			"H_PilotHelmetFighter_I"
 		};
 	};
 
@@ -219,6 +154,16 @@ class CfgBuildingLootList {
 			"U_KerryBody",
 			"U_MillerBody",
 			"U_NikosBody",
+			"U_OI_Scientist",
+			"U_C_Novak",
+			"U_IG_Menelaos",
+			"U_AntigonaBody",
+			"U_C_HunterBody_brn",
+			"U_C_Scavenger_2",
+			"U_C_Fisherman",
+			"U_C_PriestBody",
+			"U_OG_Guerilla3_2",
+			"U_OG_Guerilla3_1",
 			"U_O_SpecopsUniform_ocamo",
 			"U_O_CombatUniform_oucamo",
 			"U_B_survival_uniform",
@@ -261,7 +206,22 @@ class CfgCarePackageLootList {
 			"APERSTripMine_Wire_Mag",
 			"ClaymoreDirectionalMine_Remote_Mag",
 			"SatchelCharge_Remote_Mag",
-			"SLAMDirectionalMine_Wire_Mag"
+			"SLAMDirectionalMine_Wire_Mag",
+			"5Rnd_127x108_Mag",
+			"7Rnd_408_Mag",
+			"100Rnd_65x39_caseless_mag",
+			"100Rnd_65x39_caseless_mag_Tracer",
+			"150Rnd_762x51_Box",
+			"150Rnd_762x51_Box_Tracer",
+			"200Rnd_65x39_cased_Box",
+			"200Rnd_65x39_cased_Box_Tracer",
+			"30Rnd_556x45_Stanag_Tracer_Green",
+			"30Rnd_556x45_Stanag_Tracer_Red",
+			"30Rnd_556x45_Stanag_Tracer_Yellow",
+			"30Rnd_65x39_caseless_green",
+			"30Rnd_65x39_caseless_green_mag_Tracer",
+			"30Rnd_65x39_caseless_mag",
+			"30Rnd_65x39_caseless_mag_Tracer"
 		};
 	};
 
@@ -288,6 +248,8 @@ class CfgCarePackageLootList {
 			"H_Bandanna_khk_hs",
 			"H_CrewHelmetHeli_I",
 			"optic_Nightstalker",
+			"optic_Yorris",
+			"optic_MRD",
 			"H_Booniehat_dgtl",
 			"H_MilCap_ocamo",
 			"optic_SOS"
@@ -304,7 +266,7 @@ class CfgCarePackageLootList {
 			"B_Carryall_cbr",					// 60 Mags
 			"B_TacticalPack_mcamo",
 			"B_TacticalPack_ocamo",
-			"B_Carryall_cbr",					// 60 Mags
+			"B_Carryall_cbr"					// 60 Mags
 		};
 	};
 
