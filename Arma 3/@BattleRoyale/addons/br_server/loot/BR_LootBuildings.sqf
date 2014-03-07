@@ -85,6 +85,13 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 					{
 						case "Weapon": {
 							_item addWeaponCargoGlobal [_loot,_numLoot];
+							// add a few random mags
+							_mags = configFile >> "CfgWeapons" >> _loot >> "magazines";
+							_magsCount = count _mags;
+							if (_magsCount > 0) then {
+								_mag = _mags select floor(random(_magsCount));
+								_item addMagazineCargoGlobal [_mag,(round(random 2)) + 1)];
+							};
 						};
 						case "Magazine": {
 							_item addMagazineCargoGlobal [_loot,_numLoot];
