@@ -154,7 +154,12 @@ class CfgBuildingLootList {
 			"optic_Holosight",
 			"optic_Holosight_smg",
 			"optic_Nightstalker",
-			"H_HelmetB_camo",
+			"H_Shemag_olive",
+			"H_Shemag_khk",
+			"H_Bandanna_camo",
+			"H_Booniehat_dirty",
+			"H_Booniehat_grn",
+			"H_Shemag_olive_hs",
 			"H_HelmetB_paint",
 			"H_HelmetIA_net",
 			"H_HelmetSpecB_blk",
@@ -201,20 +206,21 @@ class CfgBuildingLootList {
 			"U_I_CombatUniform",
 			"V_Chestrig_blk",
 			"V_HarnessO_brn",
-			"V_PlateCarrier1_blk",
-			"V_PlateCarrier2_rgr",
-			"V_PlateCarrier3_rgr",
-			"V_PlateCarrierSpec_rgr",
 			"V_BandollierB_blk",
-			"U_I_GhillieSuit",
 			"V_TacVestCamo_khk",
-			"U_I_GhillieSuit",
+			"U_C_HunterBody_grn",
+			"U_OG_Guerilla1_1",
+			"U_BG_leader",
+			"U_OrestesBody",
+			"U_KerryBody",
+			"U_MillerBody",
+			"U_NikosBody",
+			"U_O_SpecopsUniform_ocamo",
+			"U_O_CombatUniform_oucamo",
+			"U_B_survival_uniform",
 			"V_TacVestIR_blk",
 			"V_TacVest_blk",
-			"V_TacVest_brn",
-			"U_B_Wetsuit",
-			"U_I_Wetsuit",
-			"U_O_Wetsuit"
+			"V_TacVest_brn"
 		};
 	};
 
@@ -278,8 +284,14 @@ class CfgCarePackageLootList {
 			"optic_aco_smg",
 			"optic_Arco",
 			"optic_Hamr",
-			"Medikit",
+			"Medikit",			
+			"H_Cap_tan_specops_US",
+			"H_Cap_khaki_specops_UK",
+			"H_HelmetB_camo",
+			"H_CrewHelmetHeli_I",
 			"optic_Nightstalker",
+			"H_Booniehat_dgtl",
+			"H_MilCap_ocamo",
 			"Medikit",
 			"optic_SOS"
 		};
@@ -310,6 +322,10 @@ class CfgCarePackageLootList {
 			"V_Chestrig_blk",
 			"V_HarnessOGL_brn",
 			"V_HarnessOSpec_brn",
+			"V_PlateCarrier1_blk",
+			"V_PlateCarrier2_rgr",
+			"V_PlateCarrier3_rgr",
+			"V_PlateCarrierSpec_rgr",
 			"V_PlateCarrierIA1_dgtl",
 			"V_PlateCarrierIA2_dgtl",
 			"V_PlateCarrierIAGL_dgtl",
@@ -322,7 +338,10 @@ class CfgCarePackageLootList {
 			"V_TacVest_oli",
 			"V_RebreatherB",
 			"V_RebreatherIA",
-			"V_RebreatherIR"
+			"V_RebreatherIR",
+			"U_B_Wetsuit",
+			"U_I_Wetsuit",
+			"U_O_Wetsuit"
 
 		};
 	};
