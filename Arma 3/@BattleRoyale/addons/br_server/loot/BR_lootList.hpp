@@ -223,7 +223,7 @@ class CfgBuildingLootList {
 class CfgCarePackageLootList {
 
 	class Weapon {
-			
+		itemType = "Weapon";	
 		items[] = {
 			"arifle_MK20C_F",
 			"hgun_Rook40_F",
@@ -244,7 +244,7 @@ class CfgCarePackageLootList {
 		};
 	};
 	class Magazine {
-
+		itemType = "Magazine";
 		items[] = {
 			"APERSBoundingMine_Range_Mag",
 			"APERSMine_Range_Mag",
@@ -256,7 +256,7 @@ class CfgCarePackageLootList {
 	};
 
 	class Item {
-
+		itemType = "Item";
 		items[] = {
 			"HandGrenade",
 			"acc_flashlight",
@@ -286,7 +286,7 @@ class CfgCarePackageLootList {
 	};
 
 	class Backpack {
-
+		itemType = "Backpack";
 		items[] = {
 			"B_BergenC_red",					// 50 Mags
 			"B_Bergen_mcamo",					// 54 Mags
@@ -300,7 +300,7 @@ class CfgCarePackageLootList {
 	};
 
 	class Uniform {
-	
+		itemType = "Item";
 		items[] = {
 			"U_B_CombatUniform_mcam",
 			"U_B_GhillieSuit",
