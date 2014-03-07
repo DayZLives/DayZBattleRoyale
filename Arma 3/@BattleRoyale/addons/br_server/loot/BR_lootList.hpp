@@ -152,12 +152,16 @@ class CfgBuildingLootList {
 			"optic_aco_smg",
 			"optic_Hamr",
 			"optic_Holosight",
+			"optic_MRCO",
 			"optic_Holosight_smg",
 			"optic_Nightstalker",
 			"H_Shemag_olive",
 			"H_Shemag_khk",
 			"H_Bandanna_camo",
 			"H_Booniehat_dirty",
+			"H_Watchcap_camo",
+			"H_Watchcap_khk",
+			"H_Watchcap_blk",
 			"H_Booniehat_grn",
 			"H_Shemag_olive_hs",
 			"H_HelmetB_paint",
@@ -269,30 +273,23 @@ class CfgCarePackageLootList {
 			"FirstAidKit",
 			"muzzle_snds_acp", 					// .45 ACP
 			"muzzle_snds_L", 					// 9mm
-			"acc_flashlight",
-			"acc_pointer_IR",
 			"FirstAidKit",
-			"Medikit",
-			"FirstAidKit",
-			"FirstAidKit",
-			"muzzle_snds_acp", 					// .45 ACP
 			"muzzle_snds_B", 					// 7.62mm
 			"muzzle_snds_H", 					// 6.5mm
 			"muzzle_snds_H_MG", 				// 6.5mm LMG
-			"muzzle_snds_L", 					// 9mm
 			"muzzle_snds_M", 					// 5.56mm
-			"optic_aco_smg",
-			"optic_Arco",
-			"optic_Hamr",
+			"optic_LRPS",
+			"optic_DMS",
 			"Medikit",			
 			"H_Cap_tan_specops_US",
 			"H_Cap_khaki_specops_UK",
 			"H_HelmetB_camo",
+			"H_Booniehat_khk_hs",
+			"H_Bandanna_khk_hs",
 			"H_CrewHelmetHeli_I",
 			"optic_Nightstalker",
 			"H_Booniehat_dgtl",
 			"H_MilCap_ocamo",
-			"Medikit",
 			"optic_SOS"
 		};
 	};
