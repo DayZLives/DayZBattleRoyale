@@ -122,9 +122,6 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 						
 						_item addItemCargoGlobal [_loot,_numLoot];
 						_spawnedObjectLimit = _spawnedObjectLimit + _numLoot;
-						_loot = _loots select floor(random(_lootsCount));
-						_item addItemCargoGlobal [_loot,_numLoot];
-						_spawnedObjectLimit = _spawnedObjectLimit + _numLoot;
 			
 					};
 				};
