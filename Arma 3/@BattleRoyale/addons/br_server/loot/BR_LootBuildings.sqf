@@ -71,14 +71,14 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 				_numLootLoop = 1;
 
 				if (_randomType == "Magazine") then {
-					_numLootLoop = (floor(random 3)) + 1; 
-					_numLoot = (floor(random 3)) + 1; 
+					_numLootLoop = (round(random 2)) + 1;
+					_numLoot = (round(random 2)) + 1;
 				};
 				if (_randomType == "Item") then {
-					_numLootLoop = (floor(random 2)) + 1; 
+					_numLootLoop = (round(random 2)) + 1; 
 				};
-				
-				for "_z" from 0 to _numLootLoop do {
+
+				for "_z" from 1 to _numLootLoop do {
 					// choose random item to spawn from table
 					_loot = _loots select floor(random(_lootsCount));
 					switch (_randomType) do 
@@ -99,6 +99,9 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 							_item addItemCargoGlobal [_loot,_numLoot];
 						};
 					};
+
+					diag_log format["DEBUG LOOT: added %1 x %2 from %3", _numLoot, _loot, _type];
+					
 					_limit = missionNamespace getVariable [format["%1_counter", _randomType],0];
 					missionNamespace setVariable [format["%1_counter", _randomType],(_limit + _numLoot)];
 				};	
