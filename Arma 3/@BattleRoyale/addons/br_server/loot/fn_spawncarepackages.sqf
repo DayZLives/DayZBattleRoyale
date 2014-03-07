@@ -9,20 +9,6 @@ _guaranteedLoot = _this select 5;
 
 _lootRadius = 1;
 
-_weaponLimit = 1;
-_magazineLimit = 1;
-_itemLimit = 1;
-_backpackLimit = 1;
-_objectLimit = 1;
-
-_types = ["weapon","magazine","item","backpack","object"];
-
-_spawnedWeaponLimit = 0;
-_spawnedMagazineLimit = 0;
-_spawnedItemLimit = 0;
-_spawnedBackpackLimit = 0;
-_spawnedObjectLimit = 0;
-
 _chute = createVehicle [_chutetype,_helistart,[],0,"CAN_COLLIDE"];
 _chute setPos [(getPos _crashwreck select 0), (getPos _crashwreck select 1), (getPos _crashwreck select 2)-10];
 
@@ -63,20 +49,10 @@ for "_x" from 1 to _num do {
 		for "_i" from 0 to ((count _typeConfig) - 1) do {
 			_classname = configName (_typeConfig select _i);
 			_types set [(count _types), _classname];
-			missionNamespace setVariable [format["%1_limit", _classname],(_limits select _i)];
-			missionNamespace setVariable [format["%1_counter", _classname],0];
 		};
 
 		{
 			
-			{
-				_limit = missionNamespace getVariable [format["%1_limit", _x],0];
-				_counter = missionNamespace getVariable [format["%1_counter", _x],0];
-				if (_counter >= _limit) then {
-					_types = _types - [_x];
-				};
-			} forEach _types;
-
 			_typesCount = count _types;
 
 			if (_typesCount > 0) then {
@@ -140,9 +116,6 @@ for "_x" from 1 to _num do {
 					};
 
 					diag_log format["CAREPACKAGE LOOT: added %1 x %2 from %3", _numLoot, _loot, _type];
-					
-					_limit = missionNamespace getVariable [format["%1_counter", _randomType],0];
-					missionNamespace setVariable [format["%1_counter", _randomType],(_limit + _numLoot)];
 				};	
 			} else {
 				diag_log format["CAREPACKAGE LOOT: limit reached or table empty: %1", _type];
