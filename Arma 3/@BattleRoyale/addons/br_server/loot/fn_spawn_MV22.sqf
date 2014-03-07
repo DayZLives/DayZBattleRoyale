@@ -115,7 +115,7 @@ while {true} do {
 			
 			diag_log(format["PLANE IS AT DROPWAYPOINT #%1 on %2", (_x+1),str(getpos _crashwreck)]);
 			sleep 2;
-			//nul = [_chutetype, _boxtype, _helistart, _crashwreck, _randomizedLoot, _guaranteedLoot] spawn server_carepackagedrop;
+			nul = [_chutetype, _boxtype, _helistart, _crashwreck, _randomizedLoot, _guaranteedLoot] spawn server_carepackagedrop;
 			
 			
 			

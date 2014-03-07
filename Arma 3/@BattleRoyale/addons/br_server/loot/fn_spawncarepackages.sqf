@@ -33,8 +33,6 @@ switch (true) do {
 deletevehicle _chute;
 sleep 1;
 
-
-sleep 1;
 _pos = [getPos _bam select 0, getPos _bam select 1, 0];
 _num = (round(random _randomizedLoot)) + _guaranteedLoot;
 
@@ -42,7 +40,6 @@ _smoke = createVehicle ["SmokeShellred",_pos,[],0,"CAN_COLLIDE"];
 
 //Creating the Lootpiles outside of the _crashModel
 for "_x" from 1 to _num do {
-    
 		// parse loot list for classes 
 		_types = [];
 		_typeConfig = configFile >> "CfgCarePackageLootList";
@@ -50,12 +47,10 @@ for "_x" from 1 to _num do {
 			_classname = configName (_typeConfig select _i);
 			_types set [(count _types), _classname];
 		};
-
-		{
 			
-			_typesCount = count _types;
+		_typesCount = count _types;
 
-			if (_typesCount > 0) then {
+		if (_typesCount > 0) then {
 				// randomly spawn one of these categorys
 				_randomType = _types select floor(random(_typesCount));
 
@@ -115,10 +110,9 @@ for "_x" from 1 to _num do {
 						};
 					};
 
-					diag_log format["CAREPACKAGE LOOT: added %1 x %2 from %3", _numLoot, _loot, _type];
+
 				};	
 			} else {
-				diag_log format["CAREPACKAGE LOOT: limit reached or table empty: %1", _type];
 			};
 	
 
