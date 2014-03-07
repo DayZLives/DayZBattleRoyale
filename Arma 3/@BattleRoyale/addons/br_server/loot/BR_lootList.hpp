@@ -2,6 +2,7 @@ class CfgBuildingLootList {
 
 	class Weapon {
 			
+		itemType = "Weapon";
 		items[] = {
 			"arifle_MK20C_F",
 			"arifle_MK20_F",
@@ -66,6 +67,7 @@ class CfgBuildingLootList {
 	};
 	class Magazine {
 
+		itemType = "Magazine";
 		items[] = {
 			"16Rnd_9x21_Mag",
 			"20Rnd_556x45_UW_mag",
@@ -123,6 +125,7 @@ class CfgBuildingLootList {
 
 	class Item {
 
+		itemType = "Item";
 		items[] = {
 			"HandGrenade",
 			"MiniGrenade",
@@ -162,6 +165,7 @@ class CfgBuildingLootList {
 
 	class Backpack {
 
+		itemType = "Backpack";
 		items[] = {
 			"B_AssaultPack_blk",				// 34 Mags
 			"B_AssaultPack_cbr",
@@ -191,6 +195,7 @@ class CfgBuildingLootList {
 
 	class Uniform {
 	
+		itemType = "Item";
 		items[] = {
 			"U_B_Wetsuit",
 			"U_I_CombatUniform",

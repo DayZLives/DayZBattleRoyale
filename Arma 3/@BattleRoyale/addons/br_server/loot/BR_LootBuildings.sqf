@@ -56,6 +56,7 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 				
 				// get loot array based on building type 
 				_loots = getArray (_config >> "items");
+				_itemType = getText (_config >> "itemType");
 				_lootsCount = count _loots;
 
 				// get world position from model offset
@@ -70,18 +71,18 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 				_numLoot = 1;
 				_numLootLoop = 1;
 
-				if (_randomType == "Magazine") then {
+				if (_itemType == "Magazine") then {
 					_numLootLoop = (round(random 2)) + 1;
 					_numLoot = (round(random 2)) + 1;
 				};
-				if (_randomType == "Item") then {
+				if (_itemType == "Item") then {
 					_numLootLoop = (round(random 2)) + 1; 
 				};
 
 				for "_z" from 1 to _numLootLoop do {
 					// choose random item to spawn from table
 					_loot = _loots select floor(random(_lootsCount));
-					switch (_randomType) do 
+					switch (_itemType) do 
 					{
 						case "Weapon": {
 							_item addWeaponCargoGlobal [_loot,_numLoot];
@@ -101,9 +102,6 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 						};
 						case "Backpack": {
 							_item addBackpackCargoGlobal [_loot,_numLoot];
-						};
-						case "Uniform": {
-							_item addItemCargoGlobal [_loot,_numLoot];
 						};
 					};
 
