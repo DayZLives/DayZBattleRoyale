@@ -1,6 +1,8 @@
 /* 
 	Made for A3 Battle Royale by [VB]AWOL
 */
+private ["_classname","_types","_limitKey","_forEachIndex","_limit","_loot","_numLoot","_typesCount","_randomType","_config","_loots","_lootsCount","_lootPosition","_item","_numLootLoop","_positions","_limits","_typeConfig","_obj","_type","_ok","_buildingList"];
+
 _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 
 // Loop on all buildings and spawn loot
@@ -20,111 +22,89 @@ _buildingList = (getMarkerPos "center") nearObjects ["House",5000];
 
 		_limits = getArray (_config >> "limits");
 
-		_weaponLimit = _limits select 0;
-		_magazineLimit = _limits select 1;
-		_itemLimit = _limits select 2;
-		_backpackLimit = _limits select 3;
-		_objectLimit = _limits select 4;
-		
-		_types = ["weapon","magazine","item","backpack","object"];
-
-		_spawnedWeaponLimit = 0;
-		_spawnedMagazineLimit = 0;
-		_spawnedItemLimit = 0;
-		_spawnedBackpackLimit = 0;
-		_spawnedObjectLimit = 0;
+		// parse loot list for classes 
+		_types = [];
+		_typeConfig = configFile >> "CfgBuildingLootList";
+		for "_i" from 0 to ((count _typeConfig) - 1) do {
+			_classname = configName (_typeConfig select _i);
+			_types set [(count _types), _classname];
+			missionNamespace setVariable [format["%1_limit", _classname],(_limits select _i)];
+			missionNamespace setVariable [format["%1_counter", _classname],0];
+		};
 
 		{
-
-			_numLoot = 1;
-
-			if (_spawnedWeaponLimit >= _weaponLimit) then {
-				_types = _types - ["weapon"];
-			};
-			if (_spawnedMagazineLimit >= _magazineLimit) then {
-				_types = _types - ["magazine"];
-			};
-			if (_spawnedItemLimit >= _itemLimit) then {
-				_types = _types - ["item"];
-			};
-			if (_spawnedBackpackLimit >= _backpackLimit) then {
-				_types = _types - ["backpack"];
-			};
-			if (_spawnedObjectLimit >= _objectLimit) then {
-				_types = _types - ["object"];
-			};
 			
+			{
+				_limit = missionNamespace getVariable [format["%1_limit", _x],0];
+				_counter = missionNamespace getVariable [format["%1_counter", _x],0];
+				if (_counter >= _limit) then {
+					_types = _types - [_x];
+				};
+			} forEach _types;
+
 			_typesCount = count _types;
 
-			// randomly spawn one of these categorys
-			_randomType = _types select floor(random(_typesCount));
+			if (_typesCount > 0) then {
+				// randomly spawn one of these categorys
+				_randomType = _types select floor(random(_typesCount));
 
-			// get loot array for type
-			diag_log format["DEBUG LOOT: type: %1", _randomType];
+				// get loot array for type
+				diag_log format["DEBUG LOOT: type: %1", _randomType];
 
-			// get master list of loot for randomType
-			_config = configFile >> "CfgBuildingLootList" >> _randomType;
-			
-			// get loot array based on building type 
-			_loots = getArray (_config >> "items");
-			_lootsCount = count _loots;
+				// get master list of loot for randomType
+				_config = configFile >> "CfgBuildingLootList" >> _randomType;
+				
+				// get loot array based on building type 
+				_loots = getArray (_config >> "items");
+				_lootsCount = count _loots;
 
-			// choose random item to spawn from table
-			_loot = _loots select floor(random(_lootsCount));
+				// get world position from model offset
+				_lootPosition = _obj modelToWorld _x;
 
-			// get world position from model offset
-			_lootPosition = _obj modelToWorld _x;
+				// create weapon holder
+				_item = createVehicle ["groundWeaponHolder", _lootPosition, [], 0, "CAN_COLLIDE"];
 
+				// set position
+				_item setPos _lootPosition;
 
-			// create weapon holder
-			_item = createVehicle ["groundWeaponHolder", _lootPosition, [], 0, "CAN_COLLIDE"];
+				_numLoot = 1;
+				_numLootLoop = 1;
 
-			// set position
-			_item setPos _lootPosition;
-
-			// add item to WH
-			switch (_randomType) do 
-				{
-					case "weapon": {
-					
-						_item addWeaponCargoGlobal [_loot,_numLoot];
-						_spawnedWeaponLimit = _spawnedWeaponLimit + _numLoot;
-						
-					};
-					case "magazine": {
-						
-						_item addMagazineCargoGlobal [_loot,_numLoot];
-						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
-						_loot = _loots select floor(random(_lootsCount));
-						_item addMagazineCargoGlobal [_loot,_numLoot];
-						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
-						_loot = _loots select floor(random(_lootsCount));
-						_item addMagazineCargoGlobal [_loot,_numLoot];
-						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
-			
-					};
-					case "item": {
-						
-						_item addItemCargoGlobal [_loot,_numLoot];
-						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
-						_loot = _loots select floor(random(_lootsCount));
-						_item addItemCargoGlobal [_loot,_numLoot];
-						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
-			
-					};
-					case "backpack": {
-					
-						_item addBackpackCargoGlobal [_loot,_numLoot];
-						_spawnedBackpackLimit = _spawnedBackpackLimit + _numLoot;
-						
-					};
-					case "object": {
-						
-						_item addItemCargoGlobal [_loot,_numLoot];
-						_spawnedObjectLimit = _spawnedObjectLimit + _numLoot;
-			
-					};
+				if (_randomType == "Magazine") then {
+					_numLootLoop = (floor(random 3)) + 1; 
+					_numLoot = (floor(random 3)) + 1; 
 				};
+				if (_randomType == "Item") then {
+					_numLootLoop = (floor(random 2)) + 1; 
+				};
+				
+				for "_z" from 0 to _numLootLoop do {
+					// choose random item to spawn from table
+					_loot = _loots select floor(random(_lootsCount));
+					switch (_randomType) do 
+					{
+						case "Weapon": {
+							_item addWeaponCargoGlobal [_loot,_numLoot];
+						};
+						case "Magazine": {
+							_item addMagazineCargoGlobal [_loot,_numLoot];
+						};
+						case "Item": {
+							_item addItemCargoGlobal [_loot,_numLoot];
+						};
+						case "Backpack": {
+							_item addBackpackCargoGlobal [_loot,_numLoot];
+						};
+						case "Uniform": {
+							_item addItemCargoGlobal [_loot,_numLoot];
+						};
+					};
+					_limit = missionNamespace getVariable [format["%1_counter", _randomType],0];
+					missionNamespace setVariable [format["%1_counter", _randomType],(_limit + _numLoot)];
+				};	
+			} else {
+				diag_log format["DEBUG LOOT: limit reached or table empty: %1", _type];
+			};
 			
 		} forEach _positions;
 	};
