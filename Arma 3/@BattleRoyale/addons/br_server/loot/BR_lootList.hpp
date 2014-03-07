@@ -109,12 +109,7 @@ class CfgBuildingLootList {
 			"5Rnd_127x108_Mag",
 			"7Rnd_408_Mag",
 			"9Rnd_45ACP_Mag",
-			"APERSBoundingMine_Range_Mag",
-			"APERSMine_Range_Mag",
 			"APERSTripMine_Wire_Mag",
-			"ClaymoreDirectionalMine_Remote_Mag",
-			"SatchelCharge_Remote_Mag",
-			"SLAMDirectionalMine_Wire_Mag",
 			"20Rnd_556x45_UW_mag",
 			"30Rnd_45ACP_Mag_SMG_01",
 			"30Rnd_556x45_Stanag",
@@ -219,33 +214,144 @@ class CfgBuildingLootList {
 	class Object {
 	
 		items[] = {
-			"U_B_CombatUniform_mcam",
-			"U_B_GhillieSuit",
 			"U_B_Wetsuit",
 			"U_I_CombatUniform",
-			"U_I_GhillieSuit",
 			"U_I_Wetsuit",
-			"U_O_CombatUniform_ocamo",
-			"U_O_GhillieSuit",
 			"U_O_Wetsuit",
 			"V_Chestrig_blk",
-			"V_HarnessOGL_brn",
-			"V_HarnessOSpec_brn",
 			"V_HarnessO_brn",
 			"V_PlateCarrier1_blk",
 			"V_PlateCarrier2_rgr",
 			"V_PlateCarrier3_rgr",
+			"V_PlateCarrierSpec_rgr",
+			"V_BandollierB_blk",
+			"V_TacVestCamo_khk",
+			"U_I_GhillieSuit",
+			"V_TacVestIR_blk",
+			"V_TacVest_blk",
+			"V_TacVest_brn",
+			"U_B_Wetsuit",
+			"U_I_Wetsuit",
+			"U_O_Wetsuit",
+			"V_RebreatherB",
+			"V_RebreatherIA",
+			"V_RebreatherIR"
+
+		};
+	};
+
+};
+
+class CfgCarePackageLootList {
+
+	class Weapon {
+			
+		items[] = {
+			"arifle_MK20C_F",
+			"hgun_Rook40_F",
+			"hgun_Pistol_heavy_02_F",
+			"hgun_Pistol_heavy_01_F",
+			"SMG_01_F",
+			"SMG_02_F",
+			"srifle_EBR_F",
+			"arifle_TRG20_F",
+			"arifle_TRG21_F",
+			"Binocular",
+			"srifle_DMR_01_F",
+			"LMG_Mk200_F",
+			"LMG_Zafir_F",
+			"srifle_EBR_F",
+			"srifle_GM6_F",
+			"srifle_LRR_F",
+			"Rangefinder",
+			"hgun_ACPC2_snds_F",
+			"hgun_P07_snds_F",
+			"srifle_GM6_F",
+			"srifle_LRR_F"
+		};
+	};
+	class Magazine {
+
+		items[] = {
+			"APERSBoundingMine_Range_Mag",
+			"APERSMine_Range_Mag",
+			"APERSTripMine_Wire_Mag",
+			"ClaymoreDirectionalMine_Remote_Mag",
+			"SatchelCharge_Remote_Mag",
+			"SLAMDirectionalMine_Wire_Mag"
+		};
+	};
+
+	class Item {
+
+		items[] = {
+			"HandGrenade",
+			"acc_flashlight",
+			"FirstAidKit",
+			"muzzle_snds_acp", 					// .45 ACP
+			"muzzle_snds_L", 					// 9mm
+			"acc_flashlight",
+			"acc_pointer_IR",
+			"FirstAidKit",
+			"Medikit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"muzzle_snds_acp", 					// .45 ACP
+			"muzzle_snds_B", 					// 7.62mm
+			"muzzle_snds_H", 					// 6.5mm
+			"muzzle_snds_H_MG", 				// 6.5mm LMG
+			"muzzle_snds_L", 					// 9mm
+			"muzzle_snds_M", 					// 5.56mm
+			"optic_Aco",
+			"optic_ACO_grn",
+			"optic_aco_smg",
+			"optic_Arco",
+			"optic_Hamr",
+			"Medikit",
+			"optic_Holosight",
+			"optic_Holosight_smg",
+			"optic_Nightstalker",
+			"Medikit",
+			"Medikit",
+			"optic_NVS",
+			"optic_SOS"
+		};
+	};
+
+	class Backpack {
+
+		items[] = {
+			"B_BergenC_red",					// 50 Mags
+			"B_Bergen_mcamo",					// 54 Mags
+			"B_BergenG",						// 64 Mags
+			"B_Carryall_cbr",					// 60 Mags
+			"B_Carryall_cbr",					// 60 Mags
+			"B_TacticalPack_mcamo",
+			"B_TacticalPack_ocamo",
+			"B_BergenG",						// 64 Mags
+			"B_Bergen_mcamo",
+			"B_Carryall_cbr",					// 60 Mags
+		};
+	};
+
+	class Object {
+	
+		items[] = {
+			"U_B_CombatUniform_mcam",
+			"U_B_GhillieSuit",
+			"U_I_GhillieSuit",
+			"U_O_CombatUniform_ocamo",
+			"U_O_GhillieSuit",
+			"V_Chestrig_blk",
+			"V_HarnessOGL_brn",
+			"V_HarnessOSpec_brn",
 			"V_PlateCarrierIA1_dgtl",
 			"V_PlateCarrierIA2_dgtl",
 			"V_PlateCarrierIAGL_dgtl",
-			"V_PlateCarrierSpec_rgr",
 			"V_BandollierB_blk",
 			"V_BandollierB_oli",
 			"V_TacVestCamo_khk",
-			"V_TacVestIR_blk",
-			"V_TacVest_blk",
 			"V_TacVest_blk_POLICE",
-			"V_TacVest_brn",
 			"V_TacVest_camo",
 			"V_TacVest_khk",
 			"V_TacVest_oli",

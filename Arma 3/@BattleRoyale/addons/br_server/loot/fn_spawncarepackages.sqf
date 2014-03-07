@@ -8,8 +8,20 @@ _randomizedLoot = _this select 4;
 _guaranteedLoot = _this select 5;
 
 _lootRadius = 1;
-_lootClass = 1;
-_lootType = 1;
+
+_weaponLimit = _limits select 0;
+_magazineLimit = _limits select 1;
+_itemLimit = _limits select 2;
+_backpackLimit = _limits select 3;
+_objectLimit = _limits select 4;
+		
+_types = ["weapon","magazine","item","backpack","object"];
+
+_spawnedWeaponLimit = 0;
+_spawnedMagazineLimit = 0;
+_spawnedItemLimit = 0;
+_spawnedBackpackLimit = 0;
+_spawnedObjectLimit = 0;
 
 _chute = createVehicle [_chutetype,_helistart,[],0,"CAN_COLLIDE"];
 _chute setPos [(getPos _crashwreck select 0), (getPos _crashwreck select 1), (getPos _crashwreck select 2)-10];
@@ -35,16 +47,6 @@ switch (true) do {
 deletevehicle _chute;
 sleep 1;
 
-//Start loot generation
-
-spawnClassChance_list = [
-    [0, -1, -1, -1, -1, -1],	// civil
-    [1, 43, 55, 34, 26, -1],	// military
-    [2, -1, -1, -1, -1, -1],	// industrial
-    [3, -1, -1, -1, -1, -1]		// research
-];
-
-#include "LSlootLists.sqf"
 
 sleep 1;
 _pos = [getPos _bam select 0, getPos _bam select 1, 0];
@@ -54,51 +56,110 @@ _smoke = createVehicle ["SmokeShellred",_pos,[],0,"CAN_COLLIDE"];
 
 //Creating the Lootpiles outside of the _crashModel
 for "_x" from 1 to _num do {
-    for "_lootType" from 1 to 5 do {        
-        //get chance for loot every time, so all combos in spawnClassChance_list are viable
-        _randChance = floor(random(100));
-        if (((spawnClassChance_list select _lootClass) select _lootType) > _randChance) then {
-            _lootspawned = true;
-            //special for weapons
-            if(_lootType == 1) exitWith {
-                _lootPos = [_pos, ((random 2) + (sizeOf(_boxtype) * _lootRadius)), random 360] call BIS_fnc_relPos;
-                _lootholder = createVehicle ["GroundWeaponHolder", _lootPos, [], 0, "CAN_COLLIDE"];
-                _selecteditem = (floor(random(count((lootWeapon_list select _lootClass) select 1))));
-                _loot = (((lootWeapon_list select _lootClass) select 1) select _selecteditem);
-                _lootholder addWeaponCargoGlobal [_loot, 1];
-                //_lootholder setPosATL _lootPos;
-            };
-            //special for magazines: spawn 1-6
-            if(_lootType == 2) exitWith {
-                _lootPos = [_pos, ((random 2) + (sizeOf(_boxtype) * _lootRadius)), random 360] call BIS_fnc_relPos;
-                _lootholder = createVehicle ["GroundWeaponHolder", _lootPos, [], 0, "CAN_COLLIDE"];
-                _randChance = 1 + floor(random(5));
-                for "_rm" from 0 to _randChance do {
-                    _selecteditem = (floor(random(count((lootMagazine_list select _lootClass) select 1))));
-                    _loot = (((lootMagazine_list select _lootClass) select 1) select _selecteditem);
-                    _lootholder addMagazineCargoGlobal [_loot, 1];
-                };
-                //_lootholder setPosATL _lootPos;
-            };
-            //special for item/cloth/vests
-            if(_lootType == 3) exitWith {
-                _lootPos = [_pos, ((random 2) + (sizeOf(_boxtype) * _lootRadius)), random 360] call BIS_fnc_relPos;
-                _lootholder = createVehicle ["GroundWeaponHolder", _lootPos, [], 0, "CAN_COLLIDE"];
-                _selecteditem = (floor(random(count((lootItem_list select _lootClass) select 1))));
-                _loot = (((lootItem_list select _lootClass) select 1) select _selecteditem);
-                _lootholder addItemCargoGlobal [_loot, 1];
-                //_lootholder setPosATL _lootPos;
-            };
-            //special for backpacks
-            if(_lootType == 4) exitWith {
-                _lootPos = [_pos, ((random 2) + (sizeOf(_boxtype) * _lootRadius)), random 360] call BIS_fnc_relPos;
-                _lootholder = createVehicle ["GroundWeaponHolder", _lootPos, [], 0, "CAN_COLLIDE"];
-                _selecteditem = (floor(random(count((lootBackpack_list select _lootClass) select 1))));
-                _loot = (((lootBackpack_list select _lootClass) select 1) select _selecteditem);
-                _lootholder addBackpackCargoGlobal [_loot, 1];
-                //_lootholder setPosATL _lootPos;
-            };
-            diag_log(format["CAREPACKAGE: Loot spawn at '%1' with loot %2", _lootPos, _selecteditem]);
-        }; 
-    };    
+		
+		_weaponLimit = 1;
+		_magazineLimit = 1;
+		_itemLimit = 1;
+		_backpackLimit = 1;
+		_objectLimit = 1;
+		
+		_types = ["weapon","magazine","item","backpack","object"];
+
+		_spawnedWeaponLimit = 0;
+		_spawnedMagazineLimit = 0;
+		_spawnedItemLimit = 0;
+		_spawnedBackpackLimit = 0;
+		_spawnedObjectLimit = 0;
+
+
+			_numLoot = 1;
+
+			if (_spawnedWeaponLimit >= _weaponLimit) then {
+				_types = _types - ["weapon"];
+			};
+			if (_spawnedMagazineLimit >= _magazineLimit) then {
+				_types = _types - ["magazine"];
+			};
+			if (_spawnedItemLimit >= _itemLimit) then {
+				_types = _types - ["item"];
+			};
+			if (_spawnedBackpackLimit >= _backpackLimit) then {
+				_types = _types - ["backpack"];
+			};
+			if (_spawnedObjectLimit >= _objectLimit) then {
+				_types = _types - ["object"];
+			};
+			
+			_typesCount = count _types;
+
+			// randomly spawn one of these categorys
+			_randomType = _types select floor(random(_typesCount));
+
+			// get loot array for type
+			diag_log format["DEBUG LOOT: type: %1", _randomType];
+
+			// get master list of loot for randomType
+			_config = configFile >> "CfgCarePackageLootList" >> _randomType;
+			
+			// get loot array based on building type 
+			_loots = getArray (_config >> "items");
+			_lootsCount = count _loots;
+
+			// choose random item to spawn from table
+			_loot = _loots select floor(random(_lootsCount));
+
+			// get world position from model offset
+			_lootPos = [_pos, ((random 2) + (sizeOf(_boxtype) * _lootRadius)), random 360] call BIS_fnc_relPos; 
+
+
+			// create weapon holder
+			_item = createVehicle ["groundWeaponHolder", _lootPos, [], 0, "CAN_COLLIDE"];
+
+			// set position
+			_item setPos _lootPos;
+
+			// add item to WH
+			switch (_randomType) do 
+				{
+					case "weapon": {
+					
+						_item addWeaponCargoGlobal [_loot,_numLoot];
+						_spawnedWeaponLimit = _spawnedWeaponLimit + _numLoot;
+						
+					};
+					case "magazine": {
+						
+						_item addMagazineCargoGlobal [_loot,_numLoot];
+						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
+						_loot = _loots select floor(random(_lootsCount));
+						_item addMagazineCargoGlobal [_loot,_numLoot];
+						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
+						_loot = _loots select floor(random(_lootsCount));
+						_item addMagazineCargoGlobal [_loot,_numLoot];
+						_spawnedMagazineLimit = _spawnedMagazineLimit + _numLoot;
+			
+					};
+					case "item": {
+						
+						_item addItemCargoGlobal [_loot,_numLoot];
+						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
+						_loot = _loots select floor(random(_lootsCount));
+						_item addItemCargoGlobal [_loot,_numLoot];
+						_spawnedItemLimit = _spawnedItemLimit + _numLoot;
+			
+					};
+					case "backpack": {
+					
+						_item addBackpackCargoGlobal [_loot,_numLoot];
+						_spawnedBackpackLimit = _spawnedBackpackLimit + _numLoot;
+						
+					};
+					case "object": {
+						
+						_item addItemCargoGlobal [_loot,_numLoot];
+						_spawnedObjectLimit = _spawnedObjectLimit + _numLoot;
+			
+					};
+				};
+   
 };
