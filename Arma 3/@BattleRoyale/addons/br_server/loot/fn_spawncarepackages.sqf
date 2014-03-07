@@ -57,11 +57,6 @@ _smoke = createVehicle ["SmokeShellred",_pos,[],0,"CAN_COLLIDE"];
 //Creating the Lootpiles outside of the _crashModel
 for "_x" from 1 to _num do {
     
-    
-    // get world position from model offset
-    
-		_limits = getArray (_config >> "limits");
-
 		// parse loot list for classes 
 		_types = [];
 		_typeConfig = configFile >> "CfgCarePackageLootList";
@@ -89,13 +84,14 @@ for "_x" from 1 to _num do {
 				_randomType = _types select floor(random(_typesCount));
 
 				// get loot array for type
-				diag_log format["DEBUG LOOT: type: %1", _randomType];
+				diag_log format["CAREPACKAGE LOOT: type: %1", _randomType];
 
 				// get master list of loot for randomType
-				_config = configFile >> "CfgBuildingLootList" >> _randomType;
+				_config = configFile >> "CfgCarePackageLootList" >> _randomType;
 				
 				// get loot array based on building type 
 				_loots = getArray (_config >> "items");
+				_itemType = getText (_config >> "itemType");
 				_lootsCount = count _loots;
 
 				// get world position from model offset
@@ -110,27 +106,26 @@ for "_x" from 1 to _num do {
 				_numLoot = 1;
 				_numLootLoop = 1;
 
-				if (_randomType == "Magazine") then {
+				if (_itemType == "Magazine") then {
 					_numLootLoop = (round(random 2)) + 1;
-					_numLoot = (round(random 2)) + 1;
 				};
-				if (_randomType == "Item") then {
-					_numLootLoop = (round(random 2)) + 1; 
+				if (_itemType == "Item") then {
+					_numLootLoop = (round(random 2)) + 1;
 				};
 
 				for "_z" from 1 to _numLootLoop do {
 					// choose random item to spawn from table
 					_loot = _loots select floor(random(_lootsCount));
-					switch (_randomType) do 
+					switch (_itemType) do 
 					{
 						case "Weapon": {
 							_item addWeaponCargoGlobal [_loot,_numLoot];
 							// add a few random mags
-							_mags = configFile >> "CfgWeapons" >> _loot >> "magazines";
+							_mags = getArray( configFile >> "CfgWeapons" >> _loot >> "magazines");
 							_magsCount = count _mags;
 							if (_magsCount > 0) then {
 								_mag = _mags select floor(random(_magsCount));
-								_item addMagazineCargoGlobal [_mag,(round(random 2)) + 1)];
+								_item addMagazineCargoGlobal [_mag,(round(random 2)) + 1];
 							};
 						};
 						case "Magazine": {
@@ -142,18 +137,17 @@ for "_x" from 1 to _num do {
 						case "Backpack": {
 							_item addBackpackCargoGlobal [_loot,_numLoot];
 						};
-						case "Uniform": {
-							_item addItemCargoGlobal [_loot,_numLoot];
-						};
 					};
 
-					diag_log format["DEBUG LOOT: added %1 x %2 from %3", _numLoot, _loot, _type];
+					diag_log format["CAREPACKAGE LOOT: added %1 x %2 from %3", _numLoot, _loot, _type];
 					
 					_limit = missionNamespace getVariable [format["%1_counter", _randomType],0];
 					missionNamespace setVariable [format["%1_counter", _randomType],(_limit + _numLoot)];
 				};	
 			} else {
-				diag_log format["DEBUG LOOT: limit reached or table empty: %1", _type];
+				diag_log format["CAREPACKAGE LOOT: limit reached or table empty: %1", _type];
 			};
+	
+
 };
             
