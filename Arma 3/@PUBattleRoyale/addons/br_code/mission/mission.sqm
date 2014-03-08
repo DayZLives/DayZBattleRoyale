@@ -5,6 +5,11 @@ class Mission
 	{
 		"A3_Characters_F_BLUFOR",
 		"A3_Characters_F_Civil",
+		"a3_characters_f_gamma",
+		"A3_Structures_F_Mil_Cargo",
+		"A3_Structures_F_Mil_Fortification",
+		"A3_Structures_F_Civ_Offices",
+		"A3_Structures_F_Research",
 		"br_code",
 		"a3_map_stratis"
 	};
@@ -13,6 +18,11 @@ class Mission
 		"A3_Characters_F_BLUFOR",
 		"br_code",
 		"A3_Characters_F_Civil",
+		"a3_characters_f_gamma",
+		"A3_Structures_F_Mil_Cargo",
+		"A3_Structures_F_Mil_Fortification",
+		"A3_Structures_F_Civ_Offices",
+		"A3_Structures_F_Research",
 		"a3_map_stratis"
 	};
 	randomSeed=3629215;
