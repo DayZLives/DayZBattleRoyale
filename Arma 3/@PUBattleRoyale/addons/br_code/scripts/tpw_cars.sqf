@@ -426,7 +426,7 @@ while {true} do
 				_center = createCenter sideLogic;
 				_group = createGroup _center;
 				_logic = _group createUnit ["LOGIC", [0,0,0], [], 0, "NONE"];
-				_logic action ["useWeapon",_car,_driver,0];
+				//_logic action ["useWeapon",_car,_driver,0];
 				deleteCenter _center;
 				deleteVehicle _logic;
 				deleteGroup _group;
@@ -435,7 +435,7 @@ while {true} do
 			// Remove commandeer menu from damaged cars or those with dead drivers
 			if (damage _car > 0.2 || !(alive _driver)) then
 				{
-				_car removeaction 0;	
+				//_car removeaction 0;	
 				};
 				
 			// Slow down near player
@@ -448,7 +448,7 @@ while {true} do
 				};
 			//Conditions for removing car
 			if (
-			_car distance vehicle player > tpw_car_radius || //car out of range
+			//_car distance vehicle player > tpw_car_radius || //car out of range
 			(speed _car < 1 && (_car getvariable ["tpw_car_lastspeed",500]) < 1) || // car hasn't moved
 			(count (_car nearroads 50) == 0) || // car too far from a road 
 			(damage _car > 0.2 && damage _car < 1) // car damaged, but not destroyed

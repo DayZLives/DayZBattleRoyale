@@ -1,6 +1,6 @@
 ________________________________________________________________________________________________________________________________________
 
-	Battle Royale A3 Credits
+	Battle Royale Credits
 ________________________________________________________________________________________________________________________________________
 
 
@@ -12,32 +12,73 @@ ________________________________________________________________________________
 	
 	MV-22 port by Hotshotmike.
 	
-	Parked Cars/Bleeding/Fall scripts by TPW Mods
+	Community management & support by OZPAX.
 
 	Ideas, promotion and mod artwork by lazyink with help from the twitter community.
-	
-	Community Management and player support by OZPAX. <3
 
-	Alpha test server hosting kindly provided by xtream Servers.
+	Beta test server hosting kindly provided by xtream Servers[DE].
 	
 	My thanks also to all the players, streamers and content creators, without whom we would be nothing. <3
 	
 
 ________________________________________________________________________________________________________________________________________
 
+	Battle Royale A3 v0.1.0
+________________________________________________________________________________________________________________________________________
+
+	* Loot tables expanded on and defined. There is now different loot for buildings vs care-packages.
+	* Sniper rifles will only be found at care-packages.
+	* MV-22 care-packages now working again.
+	* Altered more of the in-game messages.
+	* Removed AI car horn bug.
+	* Removed AI car deletion bug.
+	
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.9
+________________________________________________________________________________________________________________________________________
+
+	* Work done on loot tables.
+	* MV-22 bombing now working.
+	* Altered some of the welcome messages.
+
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.8
+________________________________________________________________________________________________________________________________________
+
+	* Added animation fixes for parachute landing.
+
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.7
+________________________________________________________________________________________________________________________________________
+
+	* Fixes
+	
+________________________________________________________________________________________________________________________________________
+
+	Battle Royale A3 v0.0.6
+________________________________________________________________________________________________________________________________________
+
+	* AI cars added.
+	* Tweaking of spawn system.
+	
+________________________________________________________________________________________________________________________________________
+
 	Battle Royale A3 v0.0.5
 ________________________________________________________________________________________________________________________________________
 
-	* Versioning added to bikeys
-	* Civs removed until we write a better system.
+	* Versioning of bikeys now impletmented.
+	* All mission scripts moved into client-side pbo.
 	
 ________________________________________________________________________________________________________________________________________
 
 	Battle Royale A3 v0.0.4
 ________________________________________________________________________________________________________________________________________
 
-	* "Civilians killed" counter added. (Thanks to [VB]AWOL @ Epoch)
-	* Paradrop spawn now working. (Thanks to [VB]AWOL @ Epoch)
+	* Civilians removed until a better system is written.
+	* Paradrop now working correctly thanks to [VB]AWOL @ Epoch.
 	
 ________________________________________________________________________________________________________________________________________
 
