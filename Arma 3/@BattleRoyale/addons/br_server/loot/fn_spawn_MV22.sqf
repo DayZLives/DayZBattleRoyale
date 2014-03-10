@@ -63,7 +63,7 @@ while {true} do {
 		_crashwreck forceSpeed 140;
 		_crashwreck setspeedmode "NORMAL";
 
-		_aigroup = creategroup west;
+		_aigroup = creategroup east;
 		_helipilot = _aigroup createUnit ["C_man_w_worker_F",getPos _crashwreck,[],0,"FORM"];
 		_helipilot moveindriver _crashwreck;
 		_helipilot assignAsDriver _crashwreck;

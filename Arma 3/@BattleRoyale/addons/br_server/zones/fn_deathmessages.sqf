@@ -3,13 +3,13 @@
 [] spawn {
 	private ["_PLAYERSALIVE","_STARTTOTAL","_txt","_result","_dif","_done"];
 	sleep 120;
-	_STARTTOTAL = {((alive _x) && (str(side _x) != "CIV"))} count playableUnits;
-	_PLAYERSALIVE = {((alive _x) && (str(side _x) != "CIV"))} count playableUnits;
+	_STARTTOTAL = {((alive _x) && (str(side _x) == "WEST"))} count playableUnits;
+	_PLAYERSALIVE = {((alive _x) && (str(side _x) == "WEST"))} count playableUnits;
 	_done = [];
 	PV_PLAYERSALIVE = _PLAYERSALIVE;
 	while {ELAPSED_TIME < END_TIME} do
 	{
-		_PLAYERSALIVE = {((alive _x) && (str(side _x) != "CIV"))} count playableUnits;
+		_PLAYERSALIVE = {((alive _x) && (str(side _x) == "WEST"))} count playableUnits;
 		PV_PLAYERSALIVE = _PLAYERSALIVE;
 		
 		_dif = (_STARTTOTAL - _PLAYERSALIVE);
