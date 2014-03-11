@@ -14,31 +14,41 @@
         if((_finish_time_minutes == 74) && (_finish_time_seconds < 55)) then {
                                          
             br_game_started = true;            
-            publicVariable "br_game_started";                          
-            
-            [["WELCOME TO BATTLE ROYALE: STRATIS",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            publicVariable "br_game_started";
+			sleep 1;
+			[] execVM "\br_server\server_starter\fn_moveTo_C130.sqf";
+	
+			sleep 15;
 
+            [["WELCOME TO BATTLE ROYALE: STRATIS",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 10;
+            [["THE ROUND WILL BEGIN SHORTLY",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 10;
+            [["USE THE SCROLL MENU TO DEPLOY YOUR PARACHUTE",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
             sleep 5;
-            [["FIRST THING...",0,0.7,2,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 2;
-            [["DON'T PANIC!",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 4;
-            [["USE THE SCROLL MENU TO OPEN YOUR CHUTE",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 4;
-            [["MIDDLE CLICK OR PRESS SPACEBAR TO ACTION",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 4;
-            [["WATCH YOUR LANDING SPEED",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 4;
+            [["OR PRESS SPACEBAR TWICE",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 5;
+            [["FIVE",0,0.7,1,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 1;
+            [["FOUR",0,0.7,1,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 1;
+            [["THREE",0,0.7,1,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 1;
+            [["TWO",0,0.7,1,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 1;
+            [["ONE",0,0.7,1,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 1;		
+			br_deploy_players = true;            
+            publicVariable "br_deploy_players";
+            sleep 30;
+            [["WARNING: WATCH YOUR LANDING SPEED",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+            sleep 5;
             [["LANDING AT SPEEDS FASTER THAN 20KMPH WILL KILL YOU",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 4;
-            [["HOLDING S BEFORE YOU LAND WILL SLOW YOU DOWN",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-            sleep 4;            
-            [["GOOD LUCK, AND HAVE FUN!",0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
-           			
+            sleep 5;
+            [["HOLDING S BEFORE YOU LAND WILL SLOW YOU DOWN",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;     
+			sleep 5;				
+            [["GOOD LUCK AND HAVE FUN",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
             sleep 60;
-            
-            
-            
         };
         
         
@@ -125,7 +135,7 @@
             
         };
 		
-        br_totalplayers = {((alive _x) && (str(side _x) == "WEST"))} count playableUnits;
+        br_totalplayers = {(alive _x) && (str(side _x) == "WEST")} count playableUnits;
         publicVariable "br_totalplayers";
         sleep 3;
  

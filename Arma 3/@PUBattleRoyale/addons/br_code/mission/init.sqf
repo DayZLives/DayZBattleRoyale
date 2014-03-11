@@ -1,6 +1,8 @@
+
 private ["_serverMonitor","_id1","_br_start_lock"];
 
 enableSaving [false,false];
+END_TIME = 4500;
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "\br_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
@@ -8,6 +10,8 @@ progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "\br_code\init\compiles.sqf";					//Compile regular functions
 progressLoadingScreen 1.0;
 call compile preprocessFileLineNumbers "\br_code\scripts\shk_pos\shk_pos_init.sqf";					//Compile random marker position
+
+
 
 if (isServer) then {
 	_serverMonitor = [] execVM "\br_server\system\server_monitor.sqf";
@@ -23,6 +27,7 @@ if (!isDedicated) then {
 	showSubtitles false;
 	0 fadeRadio 0;
 	br_game_started = false;
+	br_deploy_players = false;
 	
 	call compile preProcessFileLineNumbers "\br_code\scripts\fn_playercheck.sqf";	
 	
@@ -34,11 +39,17 @@ if (!isDedicated) then {
 	
         diag_log("BR Paradrop: Initialized");
 		// wait for server to push br_game_started = true; publicvariable "br_game_started";
-		waitUntil{sleep 0.01; br_game_started};
-		terminate br_start_lock;		
+		waitUntil{sleep 0.01; br_game_started};		
+		//terminate br_start_lock;		
 		player addBackpack "B_Parachute";
 		diag_log("BR Paradrop: Added Backpack");
-		player setPosASL [ getPosASL player select 0, getPosASL player select 1,(getPosASL player select 2) + 2000];
+		waitUntil{!isNull(PUBR_spawnPlane)};
+		player moveInCargo PUBR_spawnPlane;
+		disableUserInput true;
+		diag_log("BR Paradrop: Moved to Plane");
+		waitUntil {sleep 0.01; br_deploy_players};		
+		player action ["EJECT", vehicle player];
+		disableUserInput false;
 		diag_log("BR Paradrop: To the moon!");
 		_doSmoke = true;
 		_smokeRed = "SmokeShellRed" createVehicle (position player);
@@ -65,7 +76,7 @@ if (!isDedicated) then {
 		player setPos _finallocation;
 
 		
-		br_start_lock = [] execVM "\br_code\scripts\fn_startlock.sqf";
+		//br_start_lock = [] execVM "\br_code\scripts\fn_startlock.sqf";
 		0 = [50,300,200,100,100] execVM "\br_code\scripts\tpw_park.sqf";
 		0 = [5,2000,15,3,1] execVM "\br_code\scripts\tpw_cars.sqf";
 
