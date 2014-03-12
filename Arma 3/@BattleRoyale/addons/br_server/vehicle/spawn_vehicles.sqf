@@ -1,6 +1,6 @@
 /* Made for exclusively for A3 Battle Royale Mod by [VB]AWOL */ 
 
-private ["_velimit","_isAir","_isShip","_position","_dir","_marker","_vehObj","_slot","_availSlots","_vehClass"];
+private ["_velimit","_isAir","_isShip","_position","_dir","_marker","_vehObj","_vehClass","_allowedVehiclesList","_centerMarkerPosition","_dynamicVehicleArea","_roadList"];
 
 EPOCH_DEBUG_VEH = true;
 
