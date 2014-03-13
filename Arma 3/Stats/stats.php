@@ -78,8 +78,8 @@
             echo '<h3>Top 50 Players</h3>';
             $counttop5 = 0;
             
-            // $top5 = mysql_query("SELECT `playerUID`, SUM(`KillsB`) FROM `character_data` GROUP BY playerUID DESC");
-            $top5 = mysql_query("SELECT * FROM character_data ORDER BY KillsB DESC");
+            $top5 = mysql_query("SELECT `playerUID`, SUM(KillsB) FROM `character_data` GROUP BY playerUID ORDER BY SUM(KillsB) DESC");
+            //$top5 = mysql_query("SELECT * FROM character_data ORDER BY KillsB  DESC");
             
             echo'<table class="table table-striped table-bordered table-hover">  
                  <tbody>
@@ -94,7 +94,7 @@
                 
                 $pUID = $row['PlayerUID'];
                 
-                $wins = $row['KillsB'];
+                $wins = $row['SUM(KillsB)'];
                 
                 if ($wins >= 5) {  $title = "champion";} elseif ($wins >= 20) { $title = "master";} else { $title = "winner1";}
                 
