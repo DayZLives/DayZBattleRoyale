@@ -83,7 +83,7 @@
             echo '<h3>Top 50 Players</h3>';
             $counttop5 = 0;
             
-            $top5 = mysql_query("SELECT `PlayerUID`, SUM(KillsB), `Generation` FROM `character_data` GROUP BY `PlayerUID` ORDER BY SUM(KillsB) DESC");
+            $top5 = mysql_query("SELECT `PlayerUID`, SUM(KillsB) FROM `character_data` GROUP BY `PlayerUID` ORDER BY SUM(KillsB) DESC");
             //$top5 = mysql_query("SELECT * FROM character_data ORDER BY KillsB  DESC");
             
             echo'<table class="table table-striped table-bordered table-hover">  
@@ -107,10 +107,10 @@
                 
                 while($row = mysql_fetch_assoc($top5name)) {
 
-                  if($row['Generation'] <= 1){
+                  
                     echo '<tr class="winner"><td>'.mysql_real_escape_string($row["playerName"]).
                          '<div class="'.$title.'">'.$title.'</div></td><td>'.mysql_real_escape_string($wins).'</td></tr>';
-                  }
+                  
                 }
 
                 $counttop5++;
