@@ -108,8 +108,8 @@
                 while($row = mysql_fetch_assoc($top5name)) {
 
                   
-                    echo '<tr class="winner"><td>'.mysql_real_escape_string($row["playerName"]).
-                         '<div class="'.$title.'">'.$title.'</div></td><td>'.mysql_real_escape_string($wins).'</td></tr>';
+                    echo '<tr class="winner"><td><a href="user.php?id='.$row["playerID"].'">'.mysql_real_escape_string($row["playerName"]).
+                         '</a><div class="'.$title.'">'.$title.'</div></td><td>'.mysql_real_escape_string($wins).'</td></tr>';
                   
                 }
 
