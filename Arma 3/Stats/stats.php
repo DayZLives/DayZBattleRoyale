@@ -1,6 +1,11 @@
 <?PHP include("inc/config.php");?>
 <?PHP include("inc/mysql_connectinfo.php"); ?>
-<?PHP $sitestate = 'Home'; ?>
+<?PHP $sitestate = 'Home'; 
+
+  ini_set('display_errors',1); 
+  error_reporting(E_ALL);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
