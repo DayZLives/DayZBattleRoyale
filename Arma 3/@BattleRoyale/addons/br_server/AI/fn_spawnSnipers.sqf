@@ -1,7 +1,7 @@
 //Script by lazyink for Battle Royale: Stratis
 //Script inspired by, and uses parts of ARMA3Alpha FILL HOUSE SCRIPT v1.6 - by SPUn / lostvar
 
-private ["_unitType","_unit","_sniperCount","_sniperArray","_sniperPosArray","_sniperPositions","_sniperMax","_towerList","_skillArray","_snipersGrp","_startPosition","_towerNo","_snipersSide"];
+private ["_unit","_sniperCount","_sniperArray","_sniperPosArray","_sniperPositions","_sniperMax","_towerList","_skillArray","_snipersGrp","_startPosition","_towerNo","_snipersSide"];
 
 if (isServer) then {
     
@@ -28,7 +28,7 @@ if (isServer) then {
         
         while{_sniperCount < _sniperMax} do {		
             
-            _unitType = _sniperArray call BIS_fnc_selectRandom;
+            _unit = _sniperArray call BIS_fnc_selectRandom;
             _startPosition = [3000,3000,0];
             
             _unit = _snipersSide createUnit [_startPosition, _snipersGrp, [], 0, "NONE"];
