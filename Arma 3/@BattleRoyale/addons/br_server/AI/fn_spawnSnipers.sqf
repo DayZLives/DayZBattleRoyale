@@ -10,6 +10,8 @@ if (isServer) then {
 	_skillArray = [0.65,0.5,0.6,0.85,0.9,1,1,0.75,1,0.6];
 	
 	_snipersGrp = createCenter east;
+	
+	_towerNo = 1;
 
 	{	
 
@@ -44,6 +46,8 @@ if (isServer) then {
 			_sniperCount = _sniperCount + 1;
 
 		};
+		
+		_towerNo = _towerNo + 1;
 		
 	} forEach _towerList;		
 
