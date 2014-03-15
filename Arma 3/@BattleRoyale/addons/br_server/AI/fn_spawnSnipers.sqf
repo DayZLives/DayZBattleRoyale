@@ -10,25 +10,27 @@ if (isServer) then {
 	_snipersSide = createCenter east;    
     _snipersGrp = createGroup east;
 	
+	
+	
     
     {	
 		_obj = _x;
-	
-		_tower = typeOf _obj;
         
         _sniperArray = ["O_recon_LAT_F","O_recon_TL_F","O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_soldier_AAT_F"];
 		
 		_skillArray = [0.65,0.5,0.6,0.85,0.9,1,1,0.75,1,0.6];
         
         _sniperPosArray = [["-4.0874,-5.38379,4.92715","6.20752,-0.717773,4.98471","-1.78174,5.61035,4.98471"],["-2.24561,-5.12842,4.98471","4.2251,-3.07764,4.98471","-4.48169,5.7168,4.98471"],["-4.64063,-0.605957,5.00471","4.43848,3.58545,5.00471","-4.72485,4.24854,5.00471"]];
-        
-        _sniperPositions = [_sniperPosArray select 0,_sniperPosArray select 1,_sniperPosArray select 2] call BIS_fnc_selectRandom;		
-        
+		
+		_sniperPosChoice = floor(random 3);
+		_sniperPositions = _sniperPosArray select _sniperPosChoice;	
+		
         _sniperCount = 0;
         _sniperMax = floor(random 4);		
         
         while{_sniperCount < _sniperMax} do {		
             
+			
             _unitType = _sniperArray call BIS_fnc_selectRandom;
             _startPosition = [3000,3000,0];
 
@@ -36,7 +38,7 @@ if (isServer) then {
 			
 			_towerPos = _sniperPositions select _sniperCount;
 			
-			_unit setPos (_tower modelToWorld _towerPos);
+			_unit setPos (_obj modelToWorld _towerPos);
             
             _unit setSkill ["aimingAccuracy",(_skillArray select 0)];
             _unit setSkill ["aimingShake",(_skillArray select 1)];
