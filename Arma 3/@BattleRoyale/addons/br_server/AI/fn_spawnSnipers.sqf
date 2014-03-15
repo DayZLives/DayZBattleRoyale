@@ -27,9 +27,9 @@ if (isServer) then {
 		while{_sniperCount < _sniperMax} do {		
 			
 			_unitType = _sniperArray call BIS_fnc_selectRandom;
-			_startPosition = getMarkerPos "center";
+			_startPosition = [3000,3000,0];
 						
-			_unit = _snipersGrp createUnit [_unitType, _startPosition, [], 0, "NONE"];
+			_unit = _snipersGrp createUnit [_startPosition, _snipersGrp, [], 0, "NONE"];
 			_unit setPosASL _towerList select _towerNo modelToWorld _sniperPositions select _sniperCount;
 			
 			_unit setSkill ["aimingAccuracy",(_skillArray select 0)];
