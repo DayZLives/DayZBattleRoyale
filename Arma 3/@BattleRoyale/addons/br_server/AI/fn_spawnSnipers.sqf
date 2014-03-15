@@ -8,14 +8,16 @@ if (isServer) then {
     _towerList = ["Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F"];	
     
     _skillArray = [0.65,0.5,0.6,0.85,0.9,1,1,0.75,1,0.6];
+	
+	_snipersSide = createCenter east;
     
     _snipersGrp = createGroup east;
-    
-    _snipersSide = createCenter east;
-    
-    _towerNo = 1;
+
     
     {	
+		_obj = _x;
+	
+		_type = typeOf _obj;
         
         _sniperArray = ["O_recon_LAT_F","O_recon_TL_F","O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_soldier_AAT_F"];
         
@@ -28,11 +30,15 @@ if (isServer) then {
         
         while{_sniperCount < _sniperMax} do {		
             
-            _unit = _sniperArray call BIS_fnc_selectRandom;
+            _unitType = _sniperArray call BIS_fnc_selectRandom;
             _startPosition = [3000,3000,0];
-            
-            _unit = _snipersSide createUnit [_startPosition, _snipersGrp, [], 0, "NONE"];
-            _unit setPosASL _towerList select _towerNo modelToWorld _sniperPositions select _sniperCount;
+
+			_unit = _snipersGrp createUnit [_unitType, _startPosition, [], 0, "FORM"];
+			
+			_towerPos = _sniperPositions select _sniperCount;
+			_finalPos = _type modelToWorld _towerPos;
+			
+            _unit setPosASL _finalPos;
             
             _unit setSkill ["aimingAccuracy",(_skillArray select 0)];
             _unit setSkill ["aimingShake",(_skillArray select 1)];
@@ -46,10 +52,12 @@ if (isServer) then {
             _unit setSkill ["reloadspeed",(_skillArray select 9)];				
             
             _sniperCount = _sniperCount + 1;
+			
+			sleep 0.1;
             
         };
-        
-        _towerNo = _towerNo + 1;
+        	
+		sleep 0.1;
         
     } forEach _towerList;		
     
