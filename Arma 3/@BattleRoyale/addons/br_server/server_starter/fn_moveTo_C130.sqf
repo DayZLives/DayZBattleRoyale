@@ -25,7 +25,6 @@ if (isServer) then {
 	{
 		if ((str(side _x) == "WEST")) then
 		{
-			_x addBackpack "B_Parachute";
 			// _x moveInCargo _spawnplane;
 			_x action ["getInCargo", _spawnplane];
 		};

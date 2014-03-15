@@ -16,6 +16,6 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzbattleroyale.com";
-		version = "0.1.2";
+		version = "0.1.3";
 	};
 };

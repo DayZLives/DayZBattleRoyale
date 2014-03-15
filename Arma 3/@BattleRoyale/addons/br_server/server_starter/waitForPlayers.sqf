@@ -55,7 +55,7 @@ while{_continue} do {
 	
     if(_timeCount == 10) then {[["LOADING LOOT...",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;};
 	
-    if(_timeCount == 16) then {
+    if(_timeCount == 20) then {
 	
 		[["LOADING VEHICLES...",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
 		
@@ -67,7 +67,7 @@ while{_continue} do {
 			
 	};
 	
-    if(_timeCount == 22) then {
+    if(_timeCount == 30) then {
 	
 		[["LOADING CAREPACKAGES...",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
 		
@@ -95,7 +95,15 @@ while{_continue} do {
 		diag_log("BR Tools: Loaded MV-22");
 	};
 	
-    if(_timeCount == 25 or _numPlayers == _maxPlayers) then {
+    if(_timeCount == 40) then {
+	
+		[["LOADING AI...",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+		
+		[] execVM "\br_server\AI\fn_spawnSnipers.sqf";
+
+	};
+	
+    if(_timeCount == 50 or _numPlayers == _maxPlayers) then {
         _continue = false;
     };
 	
