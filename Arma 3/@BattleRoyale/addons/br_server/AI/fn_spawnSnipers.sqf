@@ -10,19 +10,24 @@ if (isServer) then {
 	_snipersSide = createCenter east;    
     _snipersGrp = createGroup east;
 	
-	_sniperPosArray = [[-2.38232,-2.73657,5.01471],[2.54736,0.380859,5.01471],[-3.48779,-1.89331,5.01471]];
+	_sniperPos = [-2.38232,-2.73657,5.01471];
 	
 	_sniperArray = ["O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_spotter_F","O_sniper_F"];
 	
 	_skillArray = [0.65,0.5,0.6,0.85,0.9,1,1,0.75,1,0.6];
 	
+	_towerNo = 1;
+	
     {	
-		
+		diag_log format["DEBUG AI: Tower No: %1", _towerNo];
 		_obj = _x;
         _sniperCount = 0;
-        _sniperMax = floor(random 4);
+        _sniperMax = floor(random 4);	
 
-		if (_sniperMax <= 1) then {_sniperMax = 1;};  
+		if (_sniperMax <= 1) then {_sniperMax = 1;}; 
+		
+		diag_log format["DEBUG AI: Sniper Max: %1", _sniperMax];
+		
 		
         while{_sniperCount <= _sniperMax} do {	           
 			
@@ -31,11 +36,7 @@ if (isServer) then {
 
 			_unit = _snipersGrp createUnit [_unitType, _startPosition, [], 0, "FORM"];
 			
-			_towerPos = _sniperPosArray select _sniperCount;
-			
-			diag_log format["DEBUG AI: tower Pos: %1", _towerPos];
-			
-			_unit setPos (_obj modelToWorld _towerPos);
+			_unit setPos (_obj modelToWorld _sniperPos);
             
             _unit setSkill ["aimingAccuracy",(_skillArray select 0)];
             _unit setSkill ["aimingShake",(_skillArray select 1)];
@@ -46,15 +47,16 @@ if (isServer) then {
             _unit setSkill ["commanding",(_skillArray select 6)];
             _unit setSkill ["general",(_skillArray select 7)];
             _unit setSkill ["endurance",(_skillArray select 8)];
-            _unit setSkill ["reloadspeed",(_skillArray select 9)];				
-            
-            _sniperCount = _sniperCount + 1;
+            _unit setSkill ["reloadspeed",(_skillArray select 9)];
+			_unit removeWeapon "ItemRadio";
 			
 			sleep 0.1;
             
         };
 		
 		sleep 0.1;
+		
+		_towerNo = _towerNo + 1;
         
     } forEach _towerList;		
     
