@@ -10,7 +10,7 @@ if (isServer) then {
 	_snipersSide = createCenter east;    
     _snipersGrp = createGroup east;
 	
-	_sniperPosArray = [[-2.49976,-4.13574,5.21472],[-3.01196,4.52441,5.21472],[4.34644,1.60986,5.21472]];
+	_sniperPosArray = [[-2.38232,-2.73657,5.01471],[2.54736,0.380859,5.01471],[-3.48779,-1.89331,5.01471]];
 	
 	_sniperArray = ["O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_spotter_F","O_sniper_F"];
 	
@@ -33,7 +33,7 @@ if (isServer) then {
 			
 			diag_log format["DEBUG AI: tower Pos: %1", _towerPos];
 			
-			_unit setPos (_obj modelToWorld _towerPos);
+			_unit setPosASL (_obj modelToWorld _towerPos);
             
             _unit setSkill ["aimingAccuracy",(_skillArray select 0)];
             _unit setSkill ["aimingShake",(_skillArray select 1)];
