@@ -12,7 +12,7 @@ if (isServer) then {
 	
 	_sniperPosArray = [[-2.49976,-4.13574,5.21472],[-3.01196,4.52441,5.21472],[4.34644,1.60986,5.21472]];
 	
-	_sniperArray = ["O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_soldier_AAT_F"];
+	_sniperArray = ["O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_soldier_AAT_F","O_sniper_F"];
 	
 	_skillArray = [0.65,0.5,0.6,0.85,0.9,1,1,0.75,1,0.6];
 	
