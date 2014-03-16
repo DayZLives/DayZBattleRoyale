@@ -10,9 +10,7 @@ if (isServer) then {
 	_snipersSide = createCenter east;    
     _snipersGrp = createGroup east;
 	
-	_sniperPosArray1 = [[-4.0874,-5.38379,4.92715],[6.20752,-0.717773,4.98471],[-1.78174,5.61035,4.98471]];
-    _sniperPosArray2 = [[-2.24561,-5.12842,4.98471],[4.2251,-3.07764,4.98471],[-4.48169,5.7168,4.98471]];
-    _sniperPosArray3 = [[-4.64063,-0.605957,5.00471],[4.43848,3.58545,5.00471],[-4.72485,4.24854,5.00471]];
+	_sniperPosArray = [[-2.49976,-4.13574,5.21472],[-3.01196,4.52441,5.21472],[4.34644,1.60986,5.21472]];
 	
 	_sniperArray = ["O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_soldier_AAT_F"];
 	
@@ -21,8 +19,6 @@ if (isServer) then {
     {	
 		
 		_obj = _x;
-
-		_sniperPositions = [_sniperPosArray1,_sniperPosArray2,_sniperPosArray3] call BIS_fnc_selectRandom;
 		
 		diag_log format["DEBUG AI: sniper Positions: %1", _sniperPositions];
 		
