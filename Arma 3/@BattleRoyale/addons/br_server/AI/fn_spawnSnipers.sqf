@@ -20,9 +20,11 @@ if (isServer) then {
 		
 		_obj = _x;
         _sniperCount = 0;
-        _sniperMax = floor(random 4);		
-        
-        while{_sniperCount < _sniperMax} do {	           
+        _sniperMax = floor(random 4);
+
+		if (_sniperMax <= 1) then {_sniperMax = 1;};  
+		
+        while{_sniperCount <= _sniperMax} do {	           
 			
             _unitType = _sniperArray call BIS_fnc_selectRandom;
             _startPosition = [3000,3000,0];
@@ -33,7 +35,7 @@ if (isServer) then {
 			
 			diag_log format["DEBUG AI: tower Pos: %1", _towerPos];
 			
-			_unit setPosASL (_obj modelToWorld _towerPos);
+			_unit setPos (_obj modelToWorld _towerPos);
             
             _unit setSkill ["aimingAccuracy",(_skillArray select 0)];
             _unit setSkill ["aimingShake",(_skillArray select 1)];
