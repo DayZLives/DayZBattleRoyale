@@ -16,12 +16,10 @@ if (isServer) then {
 	
 	_skillArray = [0.65,0.5,0.6,0.85,0.9,1,1,0.75,1,0.6];
 	
-	_towerNo = 1;
-	
     {			
 		_obj = _x;
         _sniperCount = 0;
-        _sniperMax = floor(random 3);
+        _sniperMax = floor(random 4);
 		
 		if (_sniperMax < 1) then {_sniperMax = 1;};  
 		
@@ -46,14 +44,13 @@ if (isServer) then {
             _unit setSkill ["general",(_skillArray select 7)];
             _unit setSkill ["endurance",(_skillArray select 8)];
             _unit setSkill ["reloadspeed",(_skillArray select 9)];
-			_unit disableAI "FSM";
-			           
+			_unit setBehaviour "SAFE";
+			doStop _unit;
             _sniperCount = _sniperCount + 1;
             
         };
 		
-		_towerNo = _towerNo + 1;
    
-    } forEach _towerList;
-	
+    } forEach _towerList;		
+    
 };
