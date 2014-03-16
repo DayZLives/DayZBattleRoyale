@@ -10,8 +10,8 @@ if (isServer) then {
 	_snipersSide = createCenter east;    
     _snipersGrp = createGroup east;
 	
-	_sniperPosArray = [[-2.38232,-2.73657,5.01471],[2.54736,0.380859,5.01471],[-3.48779,-1.89331,5.01471]];
-	
+	_sniperPosArray = [[-2.94995,-5.06885,4.91472],[6.2522,-0.666504,4.91472],[-2.71143,5.08887,5.01471]];
+
 	_sniperArray = ["O_soldier_LAT_F","O_Soldier_SL_F","O_Soldier_TL_F","O_soldier_AAR_F","O_soldier_AAA_F","O_spotter_F","O_sniper_F"];
 	
 	_skillArray = [0.65,0.5,0.6,0.85,0.9,1,1,0.75,1,0.6];
