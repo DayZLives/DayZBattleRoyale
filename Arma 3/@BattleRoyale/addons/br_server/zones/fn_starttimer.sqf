@@ -40,6 +40,7 @@
             sleep 1;		
 			br_deploy_players = true;            
             publicVariable "br_deploy_players";
+			
             sleep 30;
             [["WARNING: WATCH YOUR LANDING SPEED",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
             sleep 5;

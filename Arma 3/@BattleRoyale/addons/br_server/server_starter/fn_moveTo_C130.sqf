@@ -2,16 +2,17 @@ if (isServer) then {
 
 	private ["_C130Start","_wp2","_aigroup","_C130pilot","_spawnplane","_C130Finish"];
 				   
-	_C130Finish = [5000,6000,200];
+	_C130Finish = [5000,5000,200];
 	diag_log("BR Tools: Loaded Start/Finish Pos");
 	_spawnplane = createVehicle ["C130J",[2000,2000,200], [], 0, "FLY"];
 	diag_log("BR Tools: Created C130J");
-	_spawnplane setPosASL [ getPosASL _spawnplane select 0, getPosASL _spawnplane select 1,1400];
+	_spawnplane setPosASL [ getPosASL _spawnplane select 0, getPosASL _spawnplane select 1,(getPosASL _spawnplane select 2) + 1400];
 	diag_log("BR Tools: Set C130J Height");
 	_spawnplane engineOn true;
-	_spawnplane flyInHeight 1400;
-	_spawnplane forceSpeed 220;
+	_spawnplane flyInHeight 1600;
+	_spawnplane forceSpeed 340;
 	_spawnplane setspeedmode "NORMAL";
+	_spawnplane setVehicleLock "locked";
 	_aigroup = creategroup east;
 	_C130pilot = _aigroup createUnit ["C_man_w_worker_F",getPos _spawnplane,[],0,"FORM"];
 	_C130pilot moveindriver _spawnplane;
@@ -21,44 +22,35 @@ if (isServer) then {
 	_wp2 setWaypointType "MOVE";
 	_wp2 setWaypointBehaviour "AWARE";
 	diag_log("BR Tools: C130J Moving to Finish");
+	
 	sleep 5;
 	{
 		if ((str(side _x) == "WEST")) then
 		{
 			// _x moveInCargo _spawnplane;
 			_x action ["getInCargo", _spawnplane];
+			
 		};
 		
 	} forEach allUnits;
-	diag_log("BR Tools: Load Players");
-	br_deploy_players = false;  
+	sleep 0.5;
 	
-	waitUntil {sleep 0.01; br_deploy_players};
-	{
-		if ((str(side _x) == "WEST")) then
-			{
-				_x action ["EJECT", _spawnplane];
-				_doSmoke = true;
-				_smokeColor = ["SmokeShellRed","SmokeShellPurple","SmokeShellYellow","SmokeShellBlue","SmokeShell","SmokeShellGreen","SmokeShellOrange"] call BIS_fnc_selectRandom;
-				_smoke = _smokeColor createVehicle (position _x);
-				_smoke attachto [_x, [0,0,0.5]];
-				while {_doSmoke} do {
-					if (((getPosATL _x) select 2) < 30) then {
-					_doSmoke = false;
-					deleteVehicle _smoke;
-					};
-				};		
-			};
-	} forEach allUnits;
-	diag_log("BR Tools: Eject Players");
+	diag_log("BR Tools: Loaded Players");
+	
+	br_deploy_players = false;
+	
+	waitUntil {br_deploy_players};
+	
+	sleep 10;
+	_spawnplane setDammage 1;
+	sleep 1;
+	_spawnplane setDammage 1;
+	sleep 1;
+	_spawnplane setDammage 1;
+	sleep 1;
+	_spawnplane setDammage 1;
 
-	waituntil {(_spawnplane distance _C130Finish) <= 200 || not alive _spawnplane || (getPosATL _spawnplane select 2) < 5};
-	sleep 5;	
-
-	//Clean Up the Crashsite
-	deletevehicle _spawnplane;
-	deletevehicle _C130pilot;
-	diag_log("BR Tools: C130J Deleted"); 
+	diag_log("BR Tools: C130J Destroyed"); 
 
 };
 

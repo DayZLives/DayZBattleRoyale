@@ -44,8 +44,9 @@ if (isServer) then {
             _unit setSkill ["general",(_skillArray select 7)];
             _unit setSkill ["endurance",(_skillArray select 8)];
             _unit setSkill ["reloadspeed",(_skillArray select 9)];
+			_unit enableCollisionWith _obj;
 			_unit setBehaviour "SAFE";
-			doStop _unit;
+			doStop _unit;			
             _sniperCount = _sniperCount + 1;
             
         };

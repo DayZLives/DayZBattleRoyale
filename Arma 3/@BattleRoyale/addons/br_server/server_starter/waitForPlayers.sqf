@@ -97,7 +97,7 @@ while{_continue} do {
 	
     if(_timeCount == 40) then {
 	
-		[["LOADING AI...",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+		[["LOADING TOWER GUARDS..",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
 		
 		[] execVM "\br_server\AI\fn_spawnSnipers.sqf";
 

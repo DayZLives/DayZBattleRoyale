@@ -2,78 +2,51 @@
 
 private ["_velimit","_isAir","_isShip","_position","_dir","_marker","_vehObj","_vehClass","_allowedVehiclesList","_centerMarkerPosition","_dynamicVehicleArea","_roadList"];
 
-EPOCH_DEBUG_VEH = true;
+EPOCH_DEBUG_VEH = false;
 
 _allowedVehiclesList = [ 
 	//Civilians
 	["C_Hatchback_01_F",1],
-	["C_Hatchback_01_sport_F",1],
-	["C_Offroad_01_F",1],
-	["C_Quadbike_01_F",1],
+	["C_Hatchback_01_sport_F",2],
+	["C_Offroad_01_F",2],
+	["C_Quadbike_01_F",5],
 	["C_SUV_01_F",1],
-	["C_Van_01_box_F",1],
-	["C_Van_01_transport_F",1],
+	["C_Van_01_box_F",3],
+	["C_Van_01_transport_F",3],
 	// Civ Boats
 	["C_Boat_Civil_01_F",1],
-	["C_Boat_Civil_01_police_F",1],
-	["C_Boat_Civil_01_rescue_F",1],
-	["C_Rubberboat",1],
+	["C_Boat_Civil_01_police_F",2],
+	["C_Boat_Civil_01_rescue_F",2],
+	["C_Rubberboat",2],
 	// AAF
-	["I_MRAP_03_F",1],
-	["I_MRAP_03_gmg_F",1],
-	["I_MRAP_03_hmg_F",1],
-	["I_Quadbike_01_F",1],
+	["I_Quadbike_01_F",5],
 	["I_Truck_02_covered_F",1],
 	["I_Truck_02_transport_F",1],
-	// AAF Air
-	["I_Heli_Transport_02_F",1],
-	["I_Plane_Fighter_03_AA_F",1],
-	["I_Plane_Fighter_03_CAS_F",1],
 	// AAF boats
-	["I_Boat_Armed_01_minigun_F",1],
 	["I_Boat_Transport_01_F",1],
 	// CSAT
-	["O_MRAP_02_F",1],
-	["O_MRAP_02_gmg_F",1],
-	["O_MRAP_02_hmg_F",1],
-	["O_Quadbike_01_F",1],
-	["O_Truck_02_covered_F",1],
-	["O_Truck_02_transport_F",1],
-	// CSAT Air
-	["O_Heli_Attack_02_black_F",1],
-	["O_Heli_Attack_02_F",1],
-	["O_Heli_Light_02_F",1],
-	["O_Heli_Light_02_unarmed_F",1],
+	["O_Quadbike_01_F",5],
+	["O_Truck_02_covered_F",3],
+	["O_Truck_02_transport_F",3],
 	// CSAT Boat
-	["O_Boat_Armed_01_hmg_F",1],
-	["O_Boat_Transport_01_F",1],
-	["O_Lifeboat",1],
+	["O_Lifeboat",3],
 	// FIA
-	["B_G_Offroad_01_armed_F",1],
-	["B_G_Offroad_01_F",1],
-	["B_G_Quadbike_01_F",1],
-	["B_G_Van_01_transport_F",1],
+	["B_G_Offroad_01_F",2],
+	["B_G_Quadbike_01_F",5],
+	["B_G_Van_01_transport_F",4],
 	// FIA Boat
-	["B_G_Boat_Transport_01_F",1],
+	["B_G_Boat_Transport_01_F",4],
 	//NATO
 	["C_Hatchback_01_F",1],
 	["C_Hatchback_01_sport_F",1],
 	["C_Offroad_01_F",1],
-	["C_Quadbike_01_F",1],
-	["C_SUV_01_F",1],
+	["C_Quadbike_01_F",5],
+	["C_SUV_01_F",3],
 	["C_Van_01_box_F",1],
-	["C_Van_01_transport_F",1],
-	["C_Van_01_transport_F",1],
-	// NATO Air
-	["B_Heli_Attack_01_F",1],
-	["B_Heli_Light_01_armed_F",1],
-	["B_Heli_Light_01_F",1],
-	["B_Heli_Transport_01_camo_F",1],
-	["B_Heli_Transport_01_F",1],
+	["C_Van_01_transport_F",4],
 	// NATO Boats
-	["B_Boat_Armed_01_minigun_F",1],
-	["B_Boat_Transport_01_F",1],
-	["B_Lifeboat",1]
+	["B_Boat_Transport_01_F",6],
+	["B_Lifeboat",3]
 ];
 
 _centerMarkerPosition = getMarkerPos "center";
