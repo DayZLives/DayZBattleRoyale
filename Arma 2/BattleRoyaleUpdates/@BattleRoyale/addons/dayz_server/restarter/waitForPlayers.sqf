@@ -2,8 +2,10 @@
 
 private ["_continue","_numPlayers","_timeCount","_numberOfPlayersToStart","_maxPlayers","_result"];
 _continue = true;
-_numberOfPlayersToStart = 20;
+_numberOfPlayersToStart = 1;
 _maxPlayers = 42;
+
+_map = worldName;
 
 
 fnc_br_numberOfPlayers = {
@@ -31,6 +33,12 @@ while{_continue} do {
         [nil,nil,rTitleText,format["WAITING FOR %1 PLAYERS TO START THE ROUND! VOIP/VOICE COMMS IN THE START AREA MAY CAUSE THE SERVER TO LAG OUT OR CRASH SO PLEASE DON'T ABUSE IT!",_numberOfPlayersToStart], "PLAIN",10] call RE;
         _timeCount = 0;
     };
+	
+	if (diag_tickTime >= 2400) then {
+		[nil,nil,rTitleText,format["SERVER RESTARTING DUE TO INSUFFICENT PLAYERS AFTER 60 MINUTES. THIS IS TO TRY PREVENT HUNG SERVERS. THANKS!"], "PLAIN",10] call RE;
+		sleep 10;
+		_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
+	};
     
     _timeCount = _timeCount +1;
     sleep 1;
@@ -42,9 +50,84 @@ _continue = true;
 _timeCount = 0;
 while{_continue} do {
     _numPlayers = [] call fnc_br_numberOfPlayers;
-    if(_timeCount == 10) then {[nil,nil,rTitleText,"30 SECONDS!", "PLAIN",10] call RE;};
-    if(_timeCount == 25) then {[nil,nil,rTitleText,"20 SECONDS!", "PLAIN",10] call RE;};
-    if(_timeCount == 30 or _numPlayers == _maxPlayers) then {
+    if(_timeCount == 10) then {
+	
+	[nil,nil,rTitleText,"LOADING CARE-PACKAGES...", "PLAIN",10] call RE;
+	
+	//Load Care Packages
+
+	server_spawnC130 = compile preprocessFileLineNumbers format ["\z\addons\dayz_server\compile\%1_spawn_C130.sqf",_map];
+
+	server_carepackagedrop = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\spawn_carepackages.sqf";
+		
+	nul =    [
+		5,        //Number of the guaranteed Loot-Piles at the Crashside
+		3,        //Number of the random Loot-Piles at the Crashside 3+(1,2,3 or 4)
+		(5*60),    //Fixed-Time (in seconds) between each start of a new Chopper
+		(1*60),      //Random time (in seconds) added between each start of a new Chopper
+		1,        //Spawnchance of the Heli (1 will spawn all possible Choppers, 0.5 only 50% of them)
+		'center', //'center' Center-Marker for the Random-Crashpoints, for Chernarus this is a point near Stary
+		3000,    // [106,[960.577,3480.34,0.002]]Radius in Meters from the Center-Marker in which the Choppers can crash and get waypoints
+		true,    //Should the spawned crashsite burn (at night) & have smoke?
+		false,    //Should the flames & smoke fade after a while?
+		1,    //RANDOM WP
+		1,        //GUARANTEED WP
+		1        //Amount of Damage the Heli has to get while in-air to explode before the POC. (0.0001 = Insta-Explode when any damage//bullethit, 1 = Only Explode when completly damaged)
+	] spawn server_spawnC130;
+		
+	};
+	
+    if(_timeCount == 20) then {
+	
+	[nil,nil,rTitleText,"LOADING BACKPACKS...", "PLAIN",10] call RE;
+	
+	//Spawn backpacks
+	call compile preProcessFileLineNumbers format ["\z\addons\dayz_server\backpacks\%1_placebackpacks.sqf",_map];
+		
+	};
+    if(_timeCount == 30) then {
+	
+	[nil,nil,rTitleText,"LOADING THE HOARD...", "PLAIN",10] call RE;
+	
+	dayz_zombiehordeMinSpawns = 1; //Lower limit of Zombie hordes that are allowed to spawn
+	dayz_zombiehordeMaxSpawns = 2; //Upper limit of Zombie hordes that are allowed to spawn
+	dayz_zombiehordeSpawned = 0; // zombie horde spawn variable
+	dayz_zombiehordeMinimum = 40; //minimum amount of zombie spawns per horde 
+	dayz_zombiehordeMaximum = 70; // maximum amount of zombie spawns per horde
+	dayz_zombiehorde = 0; //current hordes
+	dayz_zombiehordeData = []; //current hordes
+	dayz_zombiehordes = []; 
+		
+	_tempMaxSpawns = dayz_zombiehordeMaxSpawns - dayz_zombiehordeMinSpawns;
+	_hordespawns = (floor(random (_tempMaxSpawns)) + dayz_zombiehordeMinSpawns);
+
+
+	for "_x" from 0 to _hordespawns do {
+		[] execVM "\z\addons\dayz_server\hoard\fn_hoard.sqf";
+	}; //Spawn hordes!!!
+		
+	};
+    if(_timeCount == 40) then {
+	
+	[nil,nil,rTitleText,"LOADING BOMBING SCRIPTS...", "PLAIN",10] call RE;
+	//Load Bomb Script
+
+	[] execVM format ["\z\addons\dayz_server\compile\%1_fn_startbombers.sqf",_map];
+	
+	};
+	
+    if(_timeCount == 50) then {
+	
+	[nil,nil,rTitleText,"SETTING WEATHER...", "PLAIN",10] call RE;
+	_weatherType = ["OVERCAST","FOG"] call BIS_fnc_selectRandom;
+	//Change weather
+	drn_DynamicWeather_CurrentWeatherChange = _weatherType;
+	
+		
+	};
+	
+    if(_timeCount == 60 or _numPlayers == _maxPlayers) then {
+		[nil,nil,rTitleText,"STARTING THE ROUND...", "PLAIN",10] call RE;
         _continue = false;
     };
     _timeCount = _timeCount +1;
@@ -53,7 +136,3 @@ while{_continue} do {
 
 
 sleep 1;
-
-
-
-
