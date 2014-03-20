@@ -9,9 +9,6 @@ _startxchange = floor(random 1000);
 
 _finishxchange = floor(random 1000);
 
-_position = [_targetPosNorth,random 200,random 360,false] call SHK_pos;
-_targetPos2 = [_targetPosSouth,random 200,random 360,false] call SHK_pos;
-
 if (_map == "emita") then {
 	_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+2000),_targetPos1 select 2];
 	_targetPosSouth = [((_targetPos1 select 0)-_finishxchange),((_targetPos1 select 1)-2000),_targetPos1 select 2];
