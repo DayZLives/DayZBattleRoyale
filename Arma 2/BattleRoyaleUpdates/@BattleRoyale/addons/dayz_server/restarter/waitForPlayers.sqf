@@ -89,11 +89,11 @@ while{_continue} do {
 	
 	[nil,nil,rTitleText,"LOADING THE HOARD...", "PLAIN",10] call RE;
 	
-	dayz_zombiehordeMinSpawns = 1; //Lower limit of Zombie hordes that are allowed to spawn
-	dayz_zombiehordeMaxSpawns = 2; //Upper limit of Zombie hordes that are allowed to spawn
+	dayz_zombiehordeMinSpawns = 0; //Lower limit of Zombie hordes that are allowed to spawn
+	dayz_zombiehordeMaxSpawns = 1; //Upper limit of Zombie hordes that are allowed to spawn
 	dayz_zombiehordeSpawned = 0; // zombie horde spawn variable
 	dayz_zombiehordeMinimum = 40; //minimum amount of zombie spawns per horde 
-	dayz_zombiehordeMaximum = 70; // maximum amount of zombie spawns per horde
+	dayz_zombiehordeMaximum = 60; // maximum amount of zombie spawns per horde
 	dayz_zombiehorde = 0; //current hordes
 	dayz_zombiehordeData = []; //current hordes
 	dayz_zombiehordes = []; 

@@ -1,6 +1,6 @@
 private ["_position","_targetPos2","_type","_radius","_method","_zombieLoopCounter","_amountOfSpawns","_targetPos","_unitTypes","_tempSpawnAmount","_randomMath","_xt","_yt","_randomOffsetX","_randomOffsetY","_agent1","_idZombie","_playerOldAggroRank","_zombies"];
-_position = [getMarkerPos "center",random 7000,random 360,false] call SHK_pos;
-_targetPos2 = [getMarkerPos "center",random 7000,random 360,false] call SHK_pos;
+_position = [getMarkerPos "center",random 4500,random 360,false] call SHK_pos;
+_targetPosFirst = [getMarkerPos "center",random 4500,random 360,false] call SHK_pos;
 _type = [];
 _radius = 50;
 _method = "NONE";
@@ -23,7 +23,6 @@ for "_x" from 0 to _amountOfSpawns do {
 		} else {
 			_targetPos = [_xt - _randomOffsetX, _yt - _randomOffsetY, 0];
 		};
-
 		
         _type = _unitTypes call BIS_fnc_selectRandom;
         _agent1 = createAgent [_type, _position, [], _radius, _method];
@@ -35,11 +34,12 @@ for "_x" from 0 to _amountOfSpawns do {
 		_markername setMarkerType "DOT";
 		
         _idZombie = [_position,_agent1] execFSM "\z\addons\dayz_server\hoard\zombie_horde.fsm";
+		_targetPos2 = [_targetPosFirst,random 70,random 360,false] call SHK_pos;
 		_agent1 setVariable ["hordedest",_targetPos2];
 		_agent1 setVariable ["zombiehorde",dayz_zombiehorde];
 		_agent1 setVariable ["markername",_markername];
 		_agent1 setVariable ["myDest",_markername];
-		[getMarkerPos "center",0,7000,10,0,200,0] call _makeMarker;
+		[getMarkerPos "center",0,9000,10,0,200,0] call _makeMarker;
         _agent1 forceSpeed 2;
         _agent1 moveTo _targetPos2;
 		diag_log(format["DSH: Spawned %1 in horde %3 at %2 moving to positon %4",_type,_targetPos,dayz_zombiehorde, _targetPos2 ]);
