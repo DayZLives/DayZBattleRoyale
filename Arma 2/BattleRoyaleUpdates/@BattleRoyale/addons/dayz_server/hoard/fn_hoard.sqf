@@ -5,9 +5,9 @@ _map = worldName;
 
 _targetPos1 = getMarkerPos "center";
 
-_startxchange = floor(random 1000);
+_startxchange = 500 - (floor(random 1000));
 
-_finishxchange = floor(random 1000);
+_finishxchange = 500 - (floor(random 1000));
 
 if (_map == "emita") then {
 	_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+2000),_targetPos1 select 2];
@@ -56,22 +56,14 @@ for "_x" from 0 to _amountOfSpawns do {
 		
         _type = _unitTypes call BIS_fnc_selectRandom;
         _agent1 = createAgent [_type, _position, [], _radius, _method];
-		_markerNumber = floor(random 9999999999);
-		_markername = "markername" + str(_markerNumber);
-		_markerstr = createMarker[_markername,position _agent1];
-		_markerstr setMarkerShape "ICON";
-		_markername setMarkerType "DOT";
 		
         _idZombie = [_position,_agent1] execFSM "\z\addons\dayz_server\hoard\zombie_horde.fsm";
 		_targetPos2 = [_finalPosition,random 120,random 360,false] call SHK_pos;
 		_agent1 setVariable ["hordedest",_targetPos2];
 		_agent1 setVariable ["zombiehorde",dayz_zombiehorde];
-		_agent1 setVariable ["markername",_markername];
-		_agent1 setVariable ["myDest",_markername];
-		[getMarkerPos "center",0,9000,10,0,200,0] call _makeMarker;
         _agent1 forceSpeed 2;
         _agent1 moveTo _targetPos2;
-		diag_log(format["DSH: Spawned %1 in horde %3 at %2 moving to positon %4",_type,_targetPos,dayz_zombiehorde, _targetPos2 ]);
+		diag_log(format["BR HORDE: Spawned %1 in horde %3 at %2 moving to positon %4",_type,_targetPos,dayz_zombiehorde, _targetPos2 ]);
         _amountOfSpawns = _amountOfSpawns + 1;
         dayz_zombiehordes set [count dayz_zombiehordes, _agent1];
         sleep 0.1;
