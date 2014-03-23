@@ -11,16 +11,14 @@
         _finish_time_minutes = floor(_time / 60);
         _finish_time_seconds = (floor(_time)) - (60 * _finish_time_minutes);
 		
-        if((_finish_time_minutes == 74) && (_finish_time_seconds < 55)) then {
+        if((_finish_time_minutes == 89) && (_finish_time_seconds < 55)) then {
                                          
             
                                                      
             
-            [nil,nil,rTitleText,"WELCOME TO DAYZ BATTLE ROYALE QUESH KIBRUL!", "PLAIN",10] call RE;
+            [nil,nil,rTitleText,"WELCOME TO DAYZ BATTLE ROYALE F.A.T.A!", "PLAIN",10] call RE;
             
-            sleep 5;	
-			
-
+            sleep 5;
 			
 			[nil,nil,rTitleText,"TEN!", "PLAIN",1] call RE;
             sleep 1;
@@ -53,7 +51,8 @@
             sleep 1; 
             
             [nil,nil,rTitleText,"RUN WABBITS, RUN!", "PLAIN",10] call RE;
-            br_game_started = true;            
+            br_game_started = true;
+            
             publicVariable "br_game_started";
 			
             sleep 60;
@@ -63,37 +62,46 @@
         };
         
         
-        if((_finish_time_minutes == 70) && (_finish_time_seconds < 10)) then
+        if((_finish_time_minutes == 85) && (_finish_time_seconds < 10)) then
         {
             [nil,nil,rTitleText,"RANDOM CARPET BOMBING WILL BEGIN IN 5 MINUTES!", "PLAIN",10] call RE;
 			sleep 10;
 			[] execVM "\z\addons\dayz_server\restarter\serverRestart.sqf";
         };  
         
-        if((_finish_time_minutes == 68) && (_finish_time_seconds < 1)) then
+        if((_finish_time_minutes == 83) && (_finish_time_seconds < 1)) then
         {
             [nil,nil,rTitleText,"RANDOM CARPET BOMBING WILL BEGIN IN 3 MINUTES!", "PLAIN",10] call RE;
         };  
         
-        if((_finish_time_minutes == 67) && (_finish_time_seconds < 1)) then
+        if((_finish_time_minutes == 82) && (_finish_time_seconds < 1)) then
         {
             [nil,nil,rTitleText,"RANDOM CARPET BOMBING WILL BEGIN IN 2 MINUTES!", "PLAIN",10] call RE;
         };  
         
-        if((_finish_time_minutes == 66) && (_finish_time_seconds < 1)) then
+        if((_finish_time_minutes == 81) && (_finish_time_seconds < 1)) then
         {
             [nil,nil,rTitleText,"RANDOM CARPET BOMBING WILL BEGIN IN 1 MINUTE!", "PLAIN",10] call RE;
         };
         
-        if((_finish_time_minutes == 65) && (_finish_time_seconds < 1)) then
+        if((_finish_time_minutes == 80) && (_finish_time_seconds < 1)) then
         {
             [nil,nil,rTitleText,"THE RANDOM CARPET BOMBING HAS STARTED! TARGET ZONES ARE MARKED IN RED ON THE MAP!", "PLAIN",10] call RE;
         };  
         
-        if((_finish_time_minutes == 46) && (_finish_time_seconds < 50)) then
+        if((_finish_time_minutes == 61) && (_finish_time_seconds < 50)) then
         {
-            [] execVM "\z\addons\dayz_server\zones\queshkibrul_fn_addmarker.sqf";
-            sleep 60;
+
+			if (br_totalplayers >= 11) then {
+				
+					[] execVM "\z\addons\dayz_server\zones\fata_fn_addmarker.sqf";
+				
+				} else {
+				
+					[] execVM "\z\addons\dayz_server\zones\fata_fn_addmarkerShort90.sqf";
+					
+			};
+			sleep 60;
             
         };  
         

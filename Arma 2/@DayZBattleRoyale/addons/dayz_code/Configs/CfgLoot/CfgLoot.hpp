@@ -67,6 +67,7 @@ class CfgLoot {
 			{"2Rnd_shotgun_74Slug",0.04},
 			{"2Rnd_shotgun_74Pellets",0.04},
 			{"ItemBandage",0.06},
+			{"ItemAntibiotic",0.02},
 			{"ItemPainkiller",0.03}
 	};
 	food[] = {
@@ -99,6 +100,7 @@ class CfgLoot {
 			{"FoodCanUnlabeled",0.04},
 			{"FoodPistachio",0.03},
 			{"FoodNutmix",0.04},
+			{"ItemAntibiotic",0.02},
 			{"FoodChipsSulahoops",0.01},
 			{"FoodChipsMysticales",0.01},
 			{"FoodCandyAnders",0.01},
@@ -131,10 +133,9 @@ class CfgLoot {
 			{"ItemWaterbottle",0.01},
 			{"15Rnd_W1866_Slug",0.02},
 			{"WoodenArrow",0.04},
-			{"ItemPainkiller",0.02},
 			{"ItemHeatPack",0.04},
-			{"ItemBloodbag",0.01},
-			{"ItemAntibiotic",0.01},
+			{"ItemBloodbag",0.02},
+			{"ItemAntibiotic",0.02},
 			{"ItemNails",0.01}
 	};
 	medical[] = {
@@ -142,7 +143,7 @@ class CfgLoot {
 			{"ItemPainkiller",0.05},
 			{"ItemMorphine",0.05},
 			{"ItemEpinephrine",0.03},
-			{"ItemAntibiotic",0.01},
+			{"ItemAntibiotic",0.05},
 			{"ItemHeatPack",0.03}
 	};
 	hospital[] = {
@@ -151,13 +152,13 @@ class CfgLoot {
 			{"ItemMorphine",0.04},
 			{"ItemEpinephrine",0.03},
 			{"ItemBloodbag",0.03},
-			{"ItemAntibiotic",0.01}
+			{"ItemAntibiotic",0.03}
 	};
 	military[] = {
 			{"ItemSodaCoke",0.04},
 			{"ItemSodaPepsi",0.04},
 			{"ItemBandage",0.04},
-			{"ItemAntibiotic",0.01},
+			{"ItemAntibiotic",0.02},
 			{"ItemPainkiller",0.02},
 			{"ItemMorphine",0.01},
 			{"30Rnd_556x45_Stanag",0.02},

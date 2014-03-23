@@ -65,7 +65,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzbattleroyale.com";
-		version = "0.9.5.5";
+		version = "0.9.6.1";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
@@ -73,7 +73,7 @@ class CfgMods
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"isoladicapraia","kulima","emita","queshkibrul"};
+		requiredAddons[] = {"isoladicapraia","kulima","emita","fata"};
 	};
 };
 /*

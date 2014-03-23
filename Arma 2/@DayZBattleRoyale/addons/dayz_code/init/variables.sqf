@@ -335,7 +335,6 @@ dayz_resetSelfActions = {
 	s_player_deleteBuild_DZE = -1;
 	s_player_fillgen = -1;
 	s_player_fuelauto = -1;
-	s_player_forceSave = -1;
 	s_player_flipveh = -1;
 	s_player_stats = -1;
 	s_player_sleep = -1;

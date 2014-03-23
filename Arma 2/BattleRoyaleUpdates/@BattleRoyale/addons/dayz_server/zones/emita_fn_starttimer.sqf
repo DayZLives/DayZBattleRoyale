@@ -91,8 +91,17 @@
         
         if((_finish_time_minutes == 46) && (_finish_time_seconds < 50)) then
         {
-            [] execVM "\z\addons\dayz_server\zones\emita_fn_addmarker.sqf";
-            sleep 60;
+			
+			if (br_totalplayers >= 11) then {
+				
+					[] execVM "\z\addons\dayz_server\zones\emita_fn_addmarker.sqf";
+				
+				} else {
+				
+					[] execVM "\z\addons\dayz_server\zones\emita_fn_addmarkerShort75.sqf";
+					
+			};
+			sleep 60;
             
         };  
         
@@ -140,7 +149,7 @@
 		
         br_totalplayers = {((alive _x) && (str(side _x) != "CIV"))} count playableUnits;
         publicVariable "br_totalplayers";
-        sleep 3;
+        sleep 1;
  
     };
 };

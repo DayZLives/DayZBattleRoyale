@@ -283,7 +283,7 @@ if (!isDedicated) then {
 				};
 			};
 		};
-		//if (_dikCode == 57) then {_handled = true}; // space
+		if (_dikCode == 57) then {_handled = true}; // space
 		//if (_dikCode in actionKeys 'MoveForward' or _dikCode in actionKeys 'MoveBack') then {r_interrupt = true};
 		/*
 		if (_dikCode == 210) then //insert Key

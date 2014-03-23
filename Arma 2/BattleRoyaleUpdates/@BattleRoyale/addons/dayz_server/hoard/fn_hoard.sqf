@@ -57,7 +57,7 @@ for "_x" from 0 to _amountOfSpawns do {
         _type = _unitTypes call BIS_fnc_selectRandom;
         _agent1 = createAgent [_type, _position, [], _radius, _method];
 		
-        _idZombie = [_position,_agent1] execFSM "\z\addons\dayz_server\hoard\zombie_horde.fsm";
+        //_idZombie = [_position,_agent1] execFSM "\z\addons\dayz_server\hoard\zombie_horde.fsm";
 		_targetPos2 = [_finalPosition,random 120,random 360,false] call SHK_pos;
 		_agent1 setVariable ["hordedest",_targetPos2];
 		_agent1 setVariable ["zombiehorde",dayz_zombiehorde];

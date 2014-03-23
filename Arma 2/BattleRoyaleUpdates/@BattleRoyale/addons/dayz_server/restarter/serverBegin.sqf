@@ -37,6 +37,12 @@ _map = worldName;
 //Load Death Messages
 
 [] execVM "\z\addons\dayz_server\zones\fn_deathmessages.sqf";
+
+//Load Bomb Script
+
+[] execVM format ["\z\addons\dayz_server\compile\%1_fn_startbombers.sqf",_map];
+
+
 diag_log("BR Tools: Game Started.");
 
 sleep 10;

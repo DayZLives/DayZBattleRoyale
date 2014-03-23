@@ -180,16 +180,6 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_deleteBuild_DZE = -1;
 	};
 
-	//Allow player to force save
-	if((_isVehicle or _isTent or _isStash or _isMediumStash) and _canDo and !_isMan and (damage cursorTarget < 1)) then {
-		if (s_player_forceSave < 0) then {
-			s_player_forceSave = player addAction [format[localize "str_actions_save",_text], "\z\addons\dayz_code\actions\forcesave.sqf",cursorTarget, 1, true, true, "", ""];
-		};
-	} else {
-		player removeAction s_player_forceSave;
-		s_player_forceSave = -1;
-	};
-
 	//flip vehicle
 	if ((_isVehicletype) and !_canmove and _isAlive and (player distance cursorTarget >= 2) and (count (crew cursorTarget))== 0 and ((vectorUp cursorTarget) select 2) < 0.5) then {
 		if (s_player_flipveh < 0) then {
@@ -322,7 +312,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 
 	private ["_handGun"];
 	_handGun = currentWeapon player;
-	if ((_handGun in ["glock17_EP1","M9","M9SD","Makarov","MakarovSD","revolver_EP1","UZI_EP1","Sa61_EP1","Colt1911"]) && (player ammo _handGun > 0)) then {
+	if ((_handGun in ["glock17_EP1","M9","M9SD","Makarov","MakarovSD","revolver_EP1","UZI_EP1","Sa61_EP1","Colt1911"]) && (player ammo _handGun < 2)) then {
 		hasSecondary = true;
 	} else {
 		hasSecondary = false;

@@ -1,9 +1,11 @@
-private ["_array","_source","_kills","_killsV","_wait","_myKills","_method","_body","_id","_canHitFree","_isBandit","_myGroup"];
+private ["_array","_source","_kills","_killsV","_wait","_myKills","_method","_body","_id","_canHitFree","_isBandit","_myGroup","_spectators"];
 
 if (deathHandled) exitWith {};
 
 deathHandled = true;
 //Death
+
+_spectators = ["23398022","26376838","35596998","70750982","27821446","111976390","16235718","115149190","30768326","14170886","19831622","5473414","15501958","105496518","4629952","45067334","11294470","130798598","72513030","102773894","164591110","21295046","11498566","8076166","127295814","72221318","64973126","22106182","38257030","87254918","83479750","73712966","10454148","10533060","130322566","72305414","119989766","128291974","106346566","71581894","155767302","34319366","40590214","72117254"];
 
 _body = player;
 _playerID = getPlayerUID player;
@@ -16,6 +18,8 @@ PVDZ_plr_Death = [dayz_characterID,0,_body,_playerID];
 publicVariableServer "PVDZ_plr_Death";
 
 _id = [player,20,true,getPosATL player] spawn player_alertZombies;
+
+
 
 sleep 0.5;
 
@@ -120,6 +124,16 @@ playMusic "dayz_track_death_1";
 "colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1],  [1, 1, 1, 1]];"colorCorrections" ppEffectCommit 5;
 sleep 5;
 disableUserInput false;
-player setVariable ["USEC_isOver",true,true];
+
+if (_playerID in _spectators) then {
+    
+    endMission "END1";
+    
+	} else {
+    sleep 5;    
+    player setVariable ["USEC_isOver",true,true];
+    
+};
+
 sleep 1;
 

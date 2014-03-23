@@ -1,4 +1,5 @@
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
+[] spawn {[] execVM "\z\addons\dayz_server\init\AH.sqf";};
 waituntil {!isnil "bis_fnc_init"};
 
 BIS_MPF_remoteExecutionServer = {
@@ -229,9 +230,6 @@ dayz_recordLogin = {
 	//spawn start position
 	
 	call compile preProcessFileLineNumbers format ["\z\addons\dayz_server\buildings\%1_hgtrees.sqf",_map];
-	
-	
-	[] execVM  "\z\addons\dayz_server\init\AH.sqf";
 
 
 sf_done = true;

@@ -185,7 +185,7 @@ class RscDisplayMain : RscStandardDisplay
 		class DAYZ_Version : CA_Version
 		{
 			idc = -1;
-			text = "DayZ Battle Royale Beta v0.9.5.4";
+			text = "DayZ Battle Royale Beta v0.9.6.1";
 			y = "(SafeZoneH + SafeZoneY) - (1 - 0.89)";
 		};
 		delete CA_TitleMainMenu;

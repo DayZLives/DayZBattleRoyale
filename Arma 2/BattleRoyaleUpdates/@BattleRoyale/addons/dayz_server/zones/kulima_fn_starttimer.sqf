@@ -91,9 +91,17 @@
         
         if((_finish_time_minutes == 46) && (_finish_time_seconds < 50)) then
         {
-            [] execVM "\z\addons\dayz_server\zones\kulima_fn_addmarker.sqf";
-            sleep 60;
-            
+
+            if (br_totalplayers >= 11) then {
+				
+					[] execVM "\z\addons\dayz_server\zones\kulima_fn_addmarker.sqf";
+				
+				} else {
+				
+					[] execVM "\z\addons\dayz_server\zones\kulima_fn_addmarkerShort90.sqf";
+					
+			};
+			sleep 60;
         };  
         
         

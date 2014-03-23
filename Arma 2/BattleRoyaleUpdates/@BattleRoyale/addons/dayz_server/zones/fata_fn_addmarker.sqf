@@ -2,7 +2,7 @@
 
 private ["_playArea","_time","_finish_time_minutes","_finish_time_seconds","_coords","_finalposition"];
 
-_coords = [getMarkerPos "center",random 2300,random 360,false] call SHK_pos;
+_coords = [getMarkerPos "center",random 3000,random 360,false] call SHK_pos;
 
 while {ELAPSED_TIME < END_TIME} do	{
     
@@ -11,7 +11,7 @@ while {ELAPSED_TIME < END_TIME} do	{
     _finish_time_seconds = (floor(_time)) - (60 * _finish_time_minutes);
     
     
-    if((_finish_time_minutes == 45) && (_finish_time_seconds < 59)) then
+    if((_finish_time_minutes == 59) && (_finish_time_seconds < 59)) then
     
     {
         [nil,nil,rTitleText,"IN 5 MINUTES, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
@@ -19,7 +19,7 @@ while {ELAPSED_TIME < END_TIME} do	{
         _playArea setMarkerColor "ColorBlue";
         _playArea setMarkerShape "ELLIPSE";
         _playArea setMarkerBrush "BORDER";
-        _playArea setMarkerSize [2500,2500];
+        _playArea setMarkerSize [4000,4000];
         sleep 5; 
         [nil,nil,rTitleText,"THIS AREA WILL SHRINK EVERY FIVE MINUTES", "PLAIN",10] call RE;
         sleep 10;  
@@ -27,9 +27,88 @@ while {ELAPSED_TIME < END_TIME} do	{
         sleep 60;
     };
     
+    if((_finish_time_minutes == 56) && (_finish_time_seconds < 59)) then
+    
+    {
+        [nil,nil,rTitleText,"IN 2 MINUTES, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        sleep 60; 
+        [nil,nil,rTitleText,"IN 60 SECONDS, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        sleep 60; 
+        [nil,nil,rTitleText,"PLAY IS NOW RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        zoneSize = 4020;
+        publicVariable "zoneSize";
+        br_zone_started = true;
+        publicVariable "br_zone_started";
+        
+    };
+    
+    if((_finish_time_minutes == 51) && (_finish_time_seconds < 59)) then
+    
+    {
+        [nil,nil,rTitleText,"IN 2 MINUTES, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        _finalposition = [getMarkerPos "playArea",random 1000,random 360,false] call SHK_pos;
+        br_zone_started = false;
+        publicVariable "br_zone_started";
+        deleteMarker "playArea";
+        _playArea = createMarker ["playArea", _finalposition];
+        _playArea setMarkerColor "ColorBlue";
+        _playArea setMarkerShape "ELLIPSE";
+        _playArea setMarkerBrush "BORDER";
+        _playArea setMarkerSize [3500,3500];
+        [nil,nil,rTitleText,"YOUR MAP HAS BEEN UPDATED!", "PLAIN",10] call RE;
+        sleep 60;
+        [nil,nil,rTitleText,"IN 60 SECONDS, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        sleep 60;  
+        
+        [nil,nil,rTitleText,"PLAY IS NOW RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        
+        zoneSize = 3520;
+        publicVariable "zoneSize";
+        br_zone_started = true;
+        publicVariable "br_zone_started";
+    };
+    
+    if((_finish_time_minutes == 46) && (_finish_time_seconds < 59)) then
+    
+    {
+        [nil,nil,rTitleText,"IN 2 MINUTES, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        _finalposition = [getMarkerPos "playArea",random 1000,random 360,false] call SHK_pos;
+        br_zone_started = false;
+        publicVariable "br_zone_started";
+        deleteMarker "playArea";
+        _playArea = createMarker ["playArea", _finalposition];
+        _playArea setMarkerColor "ColorBlue";
+        _playArea setMarkerShape "ELLIPSE";
+        _playArea setMarkerBrush "BORDER";
+        _playArea setMarkerSize [3000,3000];
+        [nil,nil,rTitleText,"YOUR MAP HAS BEEN UPDATED!", "PLAIN",10] call RE;
+        sleep 60;
+        [nil,nil,rTitleText,"IN 60 SECONDS, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        sleep 60;  
+        
+        [nil,nil,rTitleText,"PLAY IS NOW RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        
+        zoneSize = 3020;
+        publicVariable "zoneSize";
+        br_zone_started = true;
+        publicVariable "br_zone_started";
+    };
+    
+    
+    
     if((_finish_time_minutes == 41) && (_finish_time_seconds < 59)) then
     {					
         [nil,nil,rTitleText,"IN 2 MINUTES, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
+        _finalposition = [getMarkerPos "playArea",random 1000,random 360,false] call SHK_pos;
+        br_zone_started = false;
+        publicVariable "br_zone_started";
+        deleteMarker "playArea";
+        _playArea = createMarker ["playArea", _finalposition];
+        _playArea setMarkerColor "ColorBlue";
+        _playArea setMarkerShape "ELLIPSE";
+        _playArea setMarkerBrush "BORDER";
+        _playArea setMarkerSize [2500,2500];
+        [nil,nil,rTitleText,"YOUR MAP HAS BEEN UPDATED!", "PLAIN",10] call RE;
         sleep 60;
         [nil,nil,rTitleText,"IN 60 SECONDS, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
         sleep 60;  
@@ -46,7 +125,9 @@ while {ELAPSED_TIME < END_TIME} do	{
     if((_finish_time_minutes == 36) && (_finish_time_seconds < 59)) then
     {                  
         [nil,nil,rTitleText,"IN 2 MINUTES, PLAY WILL BE RESTRICTED TO THE AREA INSIDE THE BLUE CIRCLE!", "PLAIN",10] call RE;
-        _finalposition = [getMarkerPos "playArea",random 600,random 360,false] call SHK_pos;
+        _finalposition = [getMarkerPos "playArea",random 1000,random 360,false] call SHK_pos;
+        br_zone_started = false;
+        publicVariable "br_zone_started";
         deleteMarker "playArea";
         _playArea = createMarker ["playArea", _finalposition];
         _playArea setMarkerColor "ColorBlue";

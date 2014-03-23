@@ -22,15 +22,15 @@ _bloodAmount     = 1960 + ((40 * _skillMedical) min 4000);
 _infectionChance = random(101);
 _bloodbagUseTime = 25.17 - ((0.17 * _skillMedical) max 0.17);
 
-_bloodbagLastUsedTime = 60; // Amount of time in seconds before player can use self bloodbag again after a succesful use
+_bloodbagLastUsedTime = 300; // Amount of time in seconds before player can use self bloodbag again after a succesful use
 
 _infectedLifeBool = true; // Whether the player can loose life if infected (True = On | False = off)
-_infectedLifeLost = 1000; // Amount of life to loose in becomes infected
+_infectedLifeLost = 2000; // Amount of life to loose in becomes infected
 
 _humanityBool = false; // Whether the player can get humanity from giving self a bloodbag (True = On | False = off)
 _humanityAmount = 50; // Amount of humanity to give player if _humanityBool is true (250 is default for normal bloodbags)
 
-_variablesBool = true; // Whether the player can get humanity from giving self a bloodbag (True = On | False = off)
+_variablesBool = false; // Whether the player can get humanity from giving self a bloodbag (True = On | False = off)
 _variablesAmount = 20; // Amount of humanity to give player if _humanityBool is true (250 is default for normal bloodbags)
 
 if((_biotic_level > 0) && (_infectionChance > 50))then{
