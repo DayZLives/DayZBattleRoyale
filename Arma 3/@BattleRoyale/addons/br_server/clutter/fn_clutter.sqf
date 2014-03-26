@@ -30,7 +30,7 @@ if (isServer) then {
 		_tx = (_posx + (_rwreak * sin(_dir)));
 		_ty = (_posy + (_rwreak * cos(_dir)));	
 		_wreakPos = [_tx,_ty,0];
-		_wreak = _wreakType createVehicle _wreakPos;
+		_wreak = createVehicle [_wreakType, _wreakPos, [], 0, "NONE"]
 		_wreak setDir (random 360);
 		
 		diag_log format["CLUTTER DEBUG WREAK: type: %1 location: %2", _wreakType, _wreakPos];
@@ -39,7 +39,7 @@ if (isServer) then {
 		
 			_junktype = _junkarray select (floor random (count _junkarray));
 			_junkpos = [_wreakPos,random 2,random 360,false] call SHK_pos;
-			_junk = _junktype createVehicle _junkpos;
+			_junk = createVehicle [_junktype, _junkpos, [], 0, "NONE"]
 			_junk setdir (random 360);
 			diag_log format["CLUTTER DEBUG JUNK: type: %1 location: %2", _junktype, _junkpos];
 			sleep 0.1;
