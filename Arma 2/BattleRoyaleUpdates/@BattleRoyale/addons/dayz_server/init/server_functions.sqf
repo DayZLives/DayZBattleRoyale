@@ -223,13 +223,13 @@ dayz_recordLogin = {
 	_map = worldName;
 	
 	//spawn vehicles
-	[] execVM format ["\z\addons\dayz_server\vehicles\%1_hgspawns.sqf",_map];
+	[] execVM format ["\z\addons\dayz_server\vehicles\%1_vehicles.sqf",_map];
 	//spawn start position
 
-	call compile preProcessFileLineNumbers format ["\z\addons\dayz_server\buildings\%1_hgmain.sqf",_map];
+	call compile preProcessFileLineNumbers format ["\z\addons\dayz_server\buildings\%1_buildings.sqf",_map];
 	//spawn start position
 	
-	call compile preProcessFileLineNumbers format ["\z\addons\dayz_server\buildings\%1_hgtrees.sqf",_map];
+	call compile preProcessFileLineNumbers format ["\z\addons\dayz_server\buildings\%1_trees.sqf",_map];
 
 
 sf_done = true;

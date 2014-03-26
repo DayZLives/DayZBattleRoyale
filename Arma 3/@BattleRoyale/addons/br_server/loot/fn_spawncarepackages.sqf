@@ -77,6 +77,9 @@ for "_x" from 1 to _num do {
 				_numLoot = 1;
 				_numLootLoop = 1;
 
+				if (_itemType == "Weapon") then {
+					_numLootLoop = (round(random 3)) + 1;
+				};
 				if (_itemType == "Magazine") then {
 					_numLootLoop = (round(random 2)) + 1;
 				};
@@ -113,7 +116,7 @@ for "_x" from 1 to _num do {
 
 				};	
 			} else {
-			};
+	};
 	
 
 };

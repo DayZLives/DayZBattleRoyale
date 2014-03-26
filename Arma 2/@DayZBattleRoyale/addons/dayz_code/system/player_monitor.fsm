@@ -147,8 +147,8 @@ link74[] = {65,66};
 link75[] = {65,67};
 link76[] = {66,59};
 link77[] = {67,15};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-212.201904,617.886658,1434.258789,246.573746,643,920,1};
-window[] = {2,-1,-1,-1,-1,1087,208,2140,208,3,661};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-195.847504,601.532104,1410.858765,269.973480,643,920,1};
+window[] = {2,-1,-1,-1,-1,1113,234,2166,234,3,661};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -631,7 +631,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"//_model = ""BanditW1_DZ"";" \n
        "" \n
        "dayz_playerName = name player;" \n
-       "//_model call player_switchModel;" \n
+       "_model call player_switchModel;" \n
        "" \n
        "call DZU_fnc_initRPG;" \n
        "" \n

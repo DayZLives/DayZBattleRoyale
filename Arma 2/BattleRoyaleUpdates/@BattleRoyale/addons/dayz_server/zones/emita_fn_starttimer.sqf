@@ -89,7 +89,7 @@
             [nil,nil,rTitleText,"THE RANDOM CARPET BOMBING HAS STARTED! TARGET ZONES ARE MARKED IN RED ON THE MAP!", "PLAIN",10] call RE;
         };  
         
-        if((_finish_time_minutes == 46) && (_finish_time_seconds < 50)) then
+        if((_finish_time_minutes == 51) && (_finish_time_seconds < 50)) then
         {
 			
 			if (br_totalplayers >= 11) then {

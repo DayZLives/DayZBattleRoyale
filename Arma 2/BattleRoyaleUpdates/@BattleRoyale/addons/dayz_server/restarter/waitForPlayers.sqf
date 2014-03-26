@@ -1,8 +1,8 @@
-//Code by w4ago @ zombiesspain.es
+//Code by lazyink and w4ago @ zombiesspain.es
 
 private ["_continue","_numPlayers","_timeCount","_numberOfPlayersToStart","_maxPlayers","_result","_map","_tempMaxSpawns","_hordespawns","_weatherType"];
 _continue = true;
-_numberOfPlayersToStart = 20;
+_numberOfPlayersToStart = 1;
 _maxPlayers = 42;
 
 _map = worldName;
@@ -34,8 +34,8 @@ while{_continue} do {
         _timeCount = 0;
     };
 	
-	if (diag_tickTime >= 2400) then {
-		[nil,nil,rTitleText,format["SERVER RESTARTING DUE TO INSUFFICENT PLAYERS AFTER 60 MINUTES. THIS IS TO TRY PREVENT HUNG SERVERS. THANKS!"], "PLAIN",10] call RE;
+	if (diag_tickTime >= 3000) then {
+		[nil,nil,rTitleText,format["SERVER RESTARTING DUE TO INSUFFICENT PLAYERS AFTER 90 MINUTES. THIS IS TO PROVIDE A CLEAN GAME START. BE RIGHT BACK, THANKS!"], "PLAIN",10] call RE;
 		sleep 10;
 		_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
 	};

@@ -9,7 +9,7 @@ _randomizedLoot = _this select 4;
 _guaranteedLoot = _this select 5;
 
 _lootRadius = 1;
-_lootTable = ["HeliCrash","Military","MilitarySpecial"] call BIS_fnc_selectRandom;
+_lootTable = ["HeliCrash","MilitarySpecial"] call BIS_fnc_selectRandom;
 
 	_chute = createVehicle [_chutetype,_helistart,[],0,"CAN_COLLIDE"];
 	_chute setVariable["Sarge",1];

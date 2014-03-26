@@ -65,7 +65,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzbattleroyale.com";
-		version = "0.9.6.1";
+		version = "0.9.6.3";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
@@ -90,8 +90,8 @@ class CfgMissions
 */
 class CfgWorlds
 {
-        initWorld = "isoladicapraia";
-        demoWorld = "isoladicapraia";
+        initWorld = "fata";
+        demoWorld = "fata";
 };
 
 class CfgAddons

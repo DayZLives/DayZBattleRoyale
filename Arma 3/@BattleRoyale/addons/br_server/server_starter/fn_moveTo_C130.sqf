@@ -1,8 +1,8 @@
 if (isServer) then {
 
 	private ["_C130Start","_wp2","_aigroup","_C130pilot","_spawnplane","_C130Finish"];
-				   
-	_C130Finish = [5000,5000,200];
+	_C130Speed = [340,370,390,270,290,310] call BIS_fnc_selectRandom;
+	_C130Finish = [[5000,5000,200],[5000,6000,200],[6000,5000,200],[5000,4000,200]] call BIS_fnc_selectRandom;
 	diag_log("BR Tools: Loaded Start/Finish Pos");
 	_spawnplane = createVehicle ["C130J",[2000,2000,200], [], 0, "FLY"];
 	diag_log("BR Tools: Created C130J");
@@ -10,7 +10,7 @@ if (isServer) then {
 	diag_log("BR Tools: Set C130J Height");
 	_spawnplane engineOn true;
 	_spawnplane flyInHeight 1600;
-	_spawnplane forceSpeed 340;
+	_spawnplane forceSpeed _C130Speed;
 	_spawnplane setspeedmode "NORMAL";
 	_spawnplane setVehicleLock "locked";
 	_aigroup = creategroup east;

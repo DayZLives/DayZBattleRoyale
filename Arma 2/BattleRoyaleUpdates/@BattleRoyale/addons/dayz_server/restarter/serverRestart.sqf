@@ -5,6 +5,6 @@ sleep 40;
 [nil,nil,rTitleText,"GAME OVER: SERVER RESTARTING!", "PLAIN",10] call RE;
 sleep 2;
 
-_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
+//_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
 
 diag_log("BR Tools: Server restarted");
