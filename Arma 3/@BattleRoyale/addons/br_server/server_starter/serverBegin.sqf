@@ -10,7 +10,6 @@ while{_waitForConnection} do {
 };
 diag_log("BR Tools: Connected!");
 
-
 //Wait for X players to start the game.
 _waitForPlayers = [] execVM "\br_server\server_starter\waitForPlayers.sqf";
 waitUntil {scriptDone  _waitForPlayers};
