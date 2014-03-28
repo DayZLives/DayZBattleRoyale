@@ -37,6 +37,7 @@ _pos = [getPos _bam select 0, getPos _bam select 1, 0];
 _num = (round(random _randomizedLoot)) + _guaranteedLoot;
 
 _smoke = createVehicle ["SmokeShellred",_pos,[],0,"CAN_COLLIDE"];
+_flare = "F_20mm_Red" createVehicle [_pos select 0, _pos select 1, (_pos select 2) + 150];
 
 //Creating the Lootpiles outside of the _crashModel
 for "_x" from 1 to _num do {

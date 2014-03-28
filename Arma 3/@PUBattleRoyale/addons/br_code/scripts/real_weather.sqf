@@ -18,7 +18,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 	*/
 
-	private ["_lastrain", "_rain", "_fog", "_mintime", "_maxtime", "_overcast", "_realtime", "_random", "_skiptime", "_startingdate", "_startingweather", "_timeforecast", "_timeratio", "_timesync", "_wind"];
+	private ["_lastrain", "_rain", "_fog", "_mintime", "_maxtime", "_overcast", "_realtime", "_random", "_skiptime", "_startingweather", "_timeforecast", "_timeratio", "_timesync", "_wind"];
 	
 	// Real time vs fast time
 	// true: Real time is more realistic weather conditions change slowly (ideal for persistent game)
@@ -46,9 +46,6 @@
 	// shortest time do not improve weather sync
 	_timesync = 60;
 
-	// Mission starting date is 25/09/2013 at 12:00
-	_startingdate = [2035, 07, 06, 17, 30];
-
 	// Mission starting weather "CLEAR|CLOUDY|RAIN";
 	_startingweather = "CLOUDY";
 
@@ -62,7 +59,6 @@
 	// we check the skiptime for 10 seconds
 	_skiptime = _timeratio * 0.000278 * 10;
 
-	setdate _startingdate;
 	switch(toUpper(_startingweather)) do {
 		case "CLEAR": {
 			wcweather = [0, 0, 0, [random 3, random 3, true], date];

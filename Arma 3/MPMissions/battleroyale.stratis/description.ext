@@ -13,6 +13,10 @@ author = "PLAYERUNKNOWN";
 briefing = 0;
 debriefing = 0;
 joinUnassigned = 0;
+corpseLimit = 100;
+corpseRemovalMinTime = 300;
+corpseRemovalMaxTime = 4500;
+
 
 loadScreen = "\br_code\screen\br_loadscreen.paa";
 

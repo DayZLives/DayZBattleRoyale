@@ -19,19 +19,27 @@ class Mission
 	{	
 		"A3_Characters_F_BLUFOR",
 		"br_code",
+		"ebu_c130",
+		"mv22",
+		"arma3-scar",
+		"asdg_jointrails",
+		"fhq_accessories",
+		"fhq_m4_a3",
+		"BTC_weapons",
+		"dg_armory",
+		"u100",
 		"A3_Characters_F_Civil",
 		"a3_characters_f_gamma",
 		"A3_Structures_F_Mil_Cargo",
 		"A3_Structures_F_Mil_Fortification",
 		"A3_Structures_F_Civ_Offices",
 		"A3_Structures_F_Research",
-		"ebu_c130",
 		"a3_map_stratis"
 	};
 	randomSeed=3629215;
 	class Intel
 	{
-		timeOfChanges=1800.0002;
+		timeOfChanges=600.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
 		startWaves=0.1;
@@ -39,13 +47,8 @@ class Mission
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
-		year=2035;
-		month=7;
-		day=6;
-		hour=17;
-		minute=30;
 		startFogBase=0.02;
-		forecastFogBase=0.02;
+		forecastFogBase=0.03;
 		startFogDecay=0.004;
 		forecastFogDecay=0.004;
 	};
@@ -449,11 +452,17 @@ class Mission
 	};
 	class Markers
 	{
-		items=1;
+		items=2;
 		class Item0
 		{
 			position[]={3993.5447,126.98488,3996.4028};
 			name="center";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={2628.8318,64.195007,597.7251};
+			name="start";
 			type="Empty";
 		};
 	};
@@ -602,11 +611,6 @@ class Intro
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
-		year=2035;
-		month=7;
-		day=6;
-		hour=12;
-		minute=0;
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
 	};
@@ -632,11 +636,6 @@ class OutroWin
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
-		year=2035;
-		month=7;
-		day=6;
-		hour=12;
-		minute=0;
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
 	};
@@ -662,11 +661,6 @@ class OutroLoose
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
-		year=2035;
-		month=7;
-		day=6;
-		hour=12;
-		minute=0;
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
 	};
