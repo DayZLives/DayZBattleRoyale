@@ -25,14 +25,14 @@ if (isServer) then {
 	
 	sleep 5;
 	{
-		if ((str(side _x) == "WEST")) then
+		if (isplayer _x && alive _x && (side _x) == west) then
 		{
-			// _x moveInCargo _spawnplane;
+
 			_x action ["getInCargo", _spawnplane];
 			
 		};
 		
-	} forEach allUnits;
+	} forEach playableUnits;
 	sleep 0.5;
 	
 	diag_log("BR Tools: Loaded Players");

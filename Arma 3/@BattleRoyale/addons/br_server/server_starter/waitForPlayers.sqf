@@ -2,7 +2,7 @@
 
 private ["_continue","_numPlayers","_timeCount","_numberOfPlayersToStart","_maxPlayers","_result"];
 _continue = true;
-_numberOfPlayersToStart = 1;
+_numberOfPlayersToStart = 10;
 _maxPlayers = 42;
 
 
@@ -10,7 +10,7 @@ fnc_br_numberOfPlayers = {
     private ["_count"];
     _count = 0;
     {
-        if(isplayer _x && alive _x && (str(side _x) == "WEST")) then {
+        if(isplayer _x && alive _x && (side _x) == west) then {
 
             _count =_count + 1;
         };
@@ -99,7 +99,7 @@ while{_continue} do {
 	
 		[["LOADING TOWER GUARDS..",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
 		
-		[] execVM "\br_server\AI\fn_spawnSnipers.sqf";
+		//[] execVM "\br_server\AI\fn_spawnSnipers.sqf";
 
 	};
 	

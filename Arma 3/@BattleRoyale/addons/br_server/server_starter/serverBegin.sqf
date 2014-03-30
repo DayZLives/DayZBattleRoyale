@@ -14,7 +14,7 @@ diag_log("BR Tools: Connected!");
 _waitForPlayers = [] execVM "\br_server\server_starter\waitForPlayers.sqf";
 waitUntil {scriptDone  _waitForPlayers};
 
-//_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [lockServer]");
+_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [lockServer]");
 
 diag_log("BR Tools: Server locked.");
 

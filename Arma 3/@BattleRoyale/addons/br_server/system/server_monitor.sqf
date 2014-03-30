@@ -8,7 +8,7 @@
 	_hour = floor (random 24);
 	_minute = floor (random 60);
 	
-	_br_date = [2011, 6, 6, 3, _minute];
+	_br_date = [2011, 6, 6, _hour, _minute];
 	br_date = _br_date;
 	publicVariable "br_date";
 	

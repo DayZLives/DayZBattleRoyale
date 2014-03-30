@@ -6,7 +6,7 @@ private ["_list","_junkarray","_junktype","_road","_pos","_junkpos","_junk","_ce
 
 _center = getMarkerPos "center";    
 _counter = 0;
-_amount = (floor (random 100)) + 50;
+_amount = (floor (random 50)) + 50;
 _dist = 4500;
 _list = _center nearRoads _dist;
 
@@ -20,10 +20,10 @@ _lootArray = ["V_Press_F","FirstAidKit","ToolKit","Medikit","U_NikosAgedBody","U
 
 while {_counter < _amount} do {
     
-    _junkAmount = (floor (random 6)) + 4;
-    _skellyAmount = (floor (random 2)) + 2;
-    _barrelAmount = (floor (random 2)) + 1;
-    _lootAmount = (floor (random 3)) + 2;
+    _junkAmount = (floor (random 2)) + 2;
+    _skellyAmount = (floor (random 2)) + 1;
+    _barrelAmount = (floor (random 1)) + 1;
+    _lootAmount = (floor (random 2)) + 1;
 	
     _radius = 2;
     _lradius = 3;
