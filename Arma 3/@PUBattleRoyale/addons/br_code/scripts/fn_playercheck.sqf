@@ -7,7 +7,7 @@
     while {alive player} do {    
         
         waitUntil{!isNil "br_winner_check"};
-        if (side player == GUER) then { 
+        if (side player == west) then { 
 		
         _pos = getPos player;
         
@@ -40,9 +40,6 @@
         sleep 5;
         [nil,nil,rTitleText,"YOU ARE A BATTLE ROYALE CHAMPION! CONGRATULATIONS!", "PLAIN",10] call RE;
         sleep 5;
-        [nil,nil,rTitleText,"PLEASE WAIT WHILE WE UPDATE THE LEADERBOARD! THANKS!", "PLAIN",10] call RE;
-
-        sleep 20;
         
         player setVariable ["PUBR_isover",true,true];
 		sleep 1;

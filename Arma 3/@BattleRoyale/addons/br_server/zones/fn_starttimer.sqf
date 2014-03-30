@@ -136,7 +136,7 @@
             
         };
 		
-        br_totalplayers = {isplayer _x && alive _x && (side _x) == west} count playableUnits;
+        br_totalplayers = {((alive _x) && (str(side _x) == "WEST"))} count playableUnits;
         publicVariable "br_totalplayers";
         sleep 3;
  

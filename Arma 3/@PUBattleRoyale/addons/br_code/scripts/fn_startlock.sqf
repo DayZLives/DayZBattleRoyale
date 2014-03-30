@@ -9,11 +9,11 @@ while{!br_game_started} do {
 	
     _currentPos = position player;
    
-    if (_initialPos distance _currentPos > 75) then {
+    if (_initialPos distance _currentPos > 50) then {
 		
         player setpos _initialPos;
     };
-    sleep 3;
+    sleep 5;
  
  
 };

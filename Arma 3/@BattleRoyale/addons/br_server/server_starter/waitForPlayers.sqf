@@ -2,7 +2,7 @@
 
 private ["_continue","_numPlayers","_timeCount","_numberOfPlayersToStart","_maxPlayers","_result"];
 _continue = true;
-_numberOfPlayersToStart = 10;
+_numberOfPlayersToStart = 30;
 _maxPlayers = 42;
 
 
@@ -33,8 +33,8 @@ while{_continue} do {
 		[[ _txt,0,0.7,10,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
         _timeCount = 0;
     };
-    if (diag_tickTime >= 1800) then {
-		[["SERVER RESTARTING DUE TO INSUFFICENT PLAYERS AFTER 40 MINUTES. THIS IS TO TRY PREVENT HUNG SERVERS. THANKS",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
+    if (diag_tickTime >= 5400) then {
+		[["SERVER RESTARTING DUE TO NO RESTART AFTER THE LAST ROUND. THANKS.",0,0.7,5,0],"BIS_fnc_dynamicText",nil,true] spawn BIS_fnc_MP;
 		sleep 10;
 		_result = call compile ("Arma2Net.Unmanaged" callExtension "eXchangeArmATools [shutdownServer]");
 	};
