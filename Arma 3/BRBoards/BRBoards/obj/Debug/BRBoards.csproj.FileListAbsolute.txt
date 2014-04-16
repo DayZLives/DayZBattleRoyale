@@ -1,0 +1,8 @@
+E:\BRA3\BRBoards\BRBoards\BRBoards\bin\Debug\BRBoards.dll
+E:\BRA3\BRBoards\BRBoards\BRBoards\bin\Debug\BRBoards.pdb
+E:\BRA3\BRBoards\BRBoards\BRBoards\bin\Debug\Arma2Net.AddInProxy.dll
+E:\BRA3\BRBoards\BRBoards\BRBoards\bin\Debug\Arma2Net.Managed.dll
+E:\BRA3\BRBoards\BRBoards\BRBoards\bin\Debug\Arma2Net.Unmanaged.dll
+E:\BRA3\BRBoards\BRBoards\BRBoards\bin\Debug\MySql.Data.dll
+E:\BRA3\BRBoards\BRBoards\BRBoards\obj\Debug\BRBoards.dll
+E:\BRA3\BRBoards\BRBoards\BRBoards\obj\Debug\BRBoards.pdb
