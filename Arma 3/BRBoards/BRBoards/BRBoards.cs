@@ -14,10 +14,10 @@ namespace BRBoards
     public class BRBoards : MethodAddIn
     {
         // public static string configDir = Directory.GetCurrentDirectory() + @"\BRBoards\";
-        public static string configCfg = getDllPath() + "config.ini";
-        public static string configLog = getDllPath() + "log.log";
+        private static string configCfg = getDllPath() + "config.ini";
+        private static string configLog = getDllPath() + "log.log";
 
-        public static bool isDebug = true;
+        private static bool isDebug = true;
 
         private MySqlConnection connection;
         private string server;
@@ -26,17 +26,17 @@ namespace BRBoards
         private string password;
         private string connectionString;
 
-        public void initBoards()
+        private void initBoards()
         {
             logCon("Starting BRBoards...");
             if (!Directory.Exists(getDllPath()))
             {
                 Directory.CreateDirectory(getDllPath());
+                if (!File.Exists(getDllPath() + "log.log"))
+                {
+                    File.Create(configLog).Close();
+                }
                 logCon("Created config directory: " + getDllPath());
-            }
-            if (!File.Exists(getDllPath() + "log.log"))
-            {
-                File.Create(configLog).Close();
             }
             if (!File.Exists(configCfg))
             {
@@ -52,13 +52,10 @@ namespace BRBoards
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
 
-            if (isDebug)
-            {
-                logCon("BRBoards is ready!");
-            }
+            logCon("BRBoards is ready!");
         }
 
-        public void logCon(object log)
+        private void logCon(object log)
         {
             if (isDebug)
             {
@@ -69,20 +66,69 @@ namespace BRBoards
             }
         }
 
-        public static string getDllPath()
+        private static string getDllPath()
         {
             return Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath) + "\\BRBoards\\";
         }
 
+        private static bool isGoodData(string uid, string wins, string loss, string kills, string deaths)
+        {
+            int _wins = int.Parse(wins);
+            int _loss = int.Parse(loss);
+            int _kills = int.Parse(kills);
+            int _deaths = int.Parse(deaths);
+
+            bool isGood = true;
+
+            if (uid.Length != 17)
+            {
+                isGood = false;
+            }
+            if (_wins > 0 && _loss > 0)
+            {
+                isGood = false;
+            }
+            if (_wins > 1)
+            {
+                isGood = false;
+            }
+            if (_loss > 1)
+            {
+                isGood = false;
+            }
+            if (_wins == 0 && _loss == 0)
+            {
+                isGood = false;
+            }
+            if (_kills > 35)
+            {
+                isGood = false;
+            }
+            if (_deaths > 1)
+            {
+                isGood = false;
+            }
+            if (_deaths > 0 && _wins > 0)
+            {
+                isGood = false;
+            }
+            return isGood;
+        }
+
         public string testData(string uid, string wins, string loss, string kills, string deaths)
         {
-            uid = uid.Replace("UID", "");
-            wins = wins.Replace("WINS", "");
-            loss = loss.Replace("LOSS", "");
-            kills = kills.Replace("KILLS", "");
-            deaths = deaths.Replace("DEATHS", "");
+            uid = uid.Replace("UID", string.Empty);
+            wins = wins.Replace("WINS", string.Empty);
+            loss = loss.Replace("LOSS", string.Empty);
+            kills = kills.Replace("KILLS", string.Empty);
+            deaths = deaths.Replace("DEATHS", string.Empty);         
 
             initBoards();
+
+            if (!isGoodData(uid, wins, loss, kills, deaths))
+            {
+                return string.Empty;
+            }
 
             logCon("Attempting to send data to the hive...");
             try
@@ -126,83 +172,83 @@ namespace BRBoards
             }
         }
 
-        public static List<string>[] uidInfo = new List<string>[5];
+        private static List<string>[] uidInfo = new List<string>[5];
 
-        public void doQuery(int type, string uid, string wins, string loss, string kills, string deaths)
+        private void doQuery(int type, string uid, string wins, string loss, string kills, string deaths)
         {
             switch (type)
             {
-                // Generate list of UIDs
+                // Generate list of UIDs (ryan was here)
                 case 0:
-                    logCon("Generating a list of UIDs...");
-                    uidInfo[0] = new List<string>();
-                    uidInfo[1] = new List<string>();
-                    uidInfo[2] = new List<string>();
-                    uidInfo[3] = new List<string>();
-                    uidInfo[4] = new List<string>();
-                    string uidInfoQuery = "SELECT * FROM leaderboards;";
-                    if (this.OpenConnection() == true)
+                logCon("Generating a list of UIDs...");
+                uidInfo[0] = new List<string>();
+                uidInfo[1] = new List<string>();
+                uidInfo[2] = new List<string>();
+                uidInfo[3] = new List<string>();
+                uidInfo[4] = new List<string>();
+                string uidInfoQuery = "SELECT * FROM leaderboards;";
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(uidInfoQuery, connection);
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
                     {
-                        MySqlCommand cmd = new MySqlCommand(uidInfoQuery, connection);
-                        MySqlDataReader dataReader = cmd.ExecuteReader();
-                        while (dataReader.Read())
-                        {
-                            uidInfo[0].Add(dataReader["uid"] + "");
-                        }
-
-                        dataReader.Close();
-                        this.CloseConnection();
+                        uidInfo[0].Add(dataReader["uid"] + "");
                     }
 
-                    string uidSpecificQuery = "SELECT * FROM leaderboards WHERE uid='" + uid + "';";
-                    if (this.OpenConnection() == true)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(uidSpecificQuery, connection);
-                        MySqlDataReader dataReader = cmd.ExecuteReader();
-                        while (dataReader.Read())
-                        {
-                            uidInfo[1].Add(dataReader["wins"] + "");
-                            uidInfo[2].Add(dataReader["loss"] + "");
-                            uidInfo[3].Add(dataReader["kills"] + "");
-                            uidInfo[4].Add(dataReader["deaths"] + "");
-                        }
+                    dataReader.Close();
+                    this.CloseConnection();
+                }
 
-                        dataReader.Close();
-                        this.CloseConnection();
+                string uidSpecificQuery = "SELECT * FROM leaderboards WHERE uid='" + uid + "';";
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand(uidSpecificQuery, connection);
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        uidInfo[1].Add(dataReader["wins"] + "");
+                        uidInfo[2].Add(dataReader["loss"] + "");
+                        uidInfo[3].Add(dataReader["kills"] + "");
+                        uidInfo[4].Add(dataReader["deaths"] + "");
                     }
-                    break;
+
+                    dataReader.Close();
+                    this.CloseConnection();
+                }
+                break;
                 // Insert & Update
                 case 1:
-                    if (!uidInfo[0].Contains(uid))
+                if (!uidInfo[0].Contains(uid))
+                {
+                    string insertQuery = "INSERT INTO leaderboards (uid, wins, loss, kills, deaths) VALUES('" + uid + "', '" + wins + "', '" + loss + "', '" + kills + "', '" + deaths + "');";
+                    if (this.OpenConnection() == true)
                     {
-                        string insertQuery = "INSERT INTO leaderboards (uid, wins, loss, kills, deaths) VALUES('" + uid + "', '" + wins + "', '" + loss + "', '" + kills + "', '" + deaths + "');";
-                        if (this.OpenConnection() == true)
-                        {
-                            MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
-                            cmd.ExecuteNonQuery();
-                            logCon("Sending: " + insertQuery);
-                            this.CloseConnection();
-                        }
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                        cmd.ExecuteNonQuery();
+                        logCon("Sending: " + insertQuery);
+                        this.CloseConnection();
                     }
-                    else
+                }
+                else
+                {
+                    logCon("Player UID (" + uid + ") already found... updating instead!");
+
+                    int newWins = int.Parse(uidInfo[1][0]) + int.Parse(wins);
+                    int newLoss = int.Parse(uidInfo[2][0]) + int.Parse(loss);
+                    int newKills = int.Parse(uidInfo[3][0]) + int.Parse(kills);
+                    int newDeaths = int.Parse(uidInfo[4][0]) + int.Parse(deaths);
+
+                    string updateQuery = "UPDATE leaderboards SET wins='" + newWins + "', loss='" + newLoss + "', kills='" + newKills + "', deaths='" + newDeaths + "' WHERE uid='" + uid + "';";
+                    if (this.OpenConnection() == true)
                     {
-                        logCon("Player UID (" + uid + ") already found... updating instead!");
-
-                        int newWins = int.Parse(uidInfo[1][0]) + int.Parse(wins);
-                        int newLoss = int.Parse(uidInfo[2][0]) + int.Parse(loss);
-                        int newKills = int.Parse(uidInfo[3][0]) + int.Parse(kills);
-                        int newDeaths = int.Parse(uidInfo[4][0]) + int.Parse(deaths);
-
-                        string updateQuery = "UPDATE leaderboards SET wins='" + newWins + "', loss='" + newLoss + "', kills='" + newKills + "', deaths='" + newDeaths + "' WHERE uid='" + uid + "';";
-                        if (this.OpenConnection() == true)
-                        {
-                            MySqlCommand cmd = new MySqlCommand(updateQuery, connection);
-                            cmd.ExecuteNonQuery();
-                            logCon("Sending: " + updateQuery);
-                            this.CloseConnection();
-                        }
+                        MySqlCommand cmd = new MySqlCommand(updateQuery, connection);
+                        cmd.ExecuteNonQuery();
+                        logCon("Sending: " + updateQuery);
+                        this.CloseConnection();
                     }
-                    break;
+                }
+                break;
             }
         }
     }
