@@ -13,7 +13,6 @@ namespace BRBoards
     [AddIn("BRBoards")]
     public class BRBoards : MethodAddIn
     {
-        // public static string configDir = Directory.GetCurrentDirectory() + @"\BRBoards\";
         private static string configCfg = getDllPath() + "config.ini";
         private static string configLog = getDllPath() + "log.log";
 
