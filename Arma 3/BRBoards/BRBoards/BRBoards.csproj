@@ -60,8 +60,9 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(TargetPath)" "E:\Program Files (x86)\Steam\SteamApps\common\Arma 3\@Arma2NETBR\AddIns\BRBoards" /Y /C /E
-XCOPY "$(SolutionDir)*.*" "E:\Users\Pwn\Documents\GitHub\DayZBattleRoyale\Arma 3\BRBoards" /S /E /C /Y</PostBuildEvent>
+    <PostBuildEvent>XCOPY "$(TargetPath)" "H:\Program Files (x86)\Steam\SteamApps\common\Arma 3\@Arma2NETBR\AddIns\BRBoards" /Y /C /E
+XCOPY "$(TargetPath)" "H:\BRA3\BRBoards\lib\AddIns\BRBoards" /Y /C /E
+XCOPY "$(SolutionDir)*.*" "C:\Users\Pwn.Pwnoz0r\Documents\GitHub\DayZBattleRoyale\Arma 3\BRBoards" /S /E /C /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
